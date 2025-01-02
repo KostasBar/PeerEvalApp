@@ -1,0 +1,100 @@
+@startuml
+'===========================================================
+' Ορισμός Enum κλάσης για ρόλους
+'===========================================================
+enum UserRole {
+  Admin
+  User
+}
+
+'===========================================================
+' Κλάσεις
+'===========================================================
+class User {
+  + int Id
+  + string FirstName
+  + string LastName
+  + string Email
+  + UserRole Role
+  + int? GroupId
+  + int? ManagerId
+  --
+  + ICollection<Evaluation> EvaluationsMade  
+  + ICollection<Evaluation> EvaluationsReceived
+}
+
+class Group {
+  + int Id
+  + string Name
+  --
+  + ICollection<User> Users
+}
+
+class EvaluationCycle {
+  + int Id
+  + string Title
+  + DateTime StartDate
+  + DateTime EndDate
+  + int Status
+  --
+  + ICollection<Evaluation> Evaluations
+}
+
+class Question {
+  + int Id
+  + string Text
+  --
+  + ICollection<EvaluationAnswer> Answers
+}
+
+class Evaluation {
+  + int Id
+  + int EvaluatorUserId
+  + int EvaluateeUserId
+  + int EvaluationCycleId
+  + DateTime Timestamp
+  --
+  + User EvaluatorUser
+  + User EvaluateeUser
+  + EvaluationCycle EvaluationCycle
+  + ICollection<EvaluationAnswer> Answers
+}
+
+class EvaluationAnswer {
+  + int Id
+  + int EvaluationId
+  + int QuestionId
+  + string AnswerValue
+  --
+  + Evaluation Evaluation
+  + Question Question
+}
+
+'===========================================================
+' Συσχετίσεις (Relationships)
+'===========================================================
+
+' Ένας User χρησιμοποιεί UserRole
+User ..> UserRole : uses
+
+' Ένα Group έχει πολλούς Users
+Group "1" -- "0..*" User : has
+
+' Συσχέτιση manager μεταξύ χρηστών:
+' Ένας User μπορεί να έχει 0 ή 1 Manager (ο οποίος είναι επίσης User)
+User "0..1" -- "0..*" User : manager
+
+' Ένας User μπορεί να κάνει πολλές Evaluations (ως Evaluator)
+' και να δεχτεί πολλές Evaluations (ως Evaluatee)
+User "1" -- "0..*" Evaluation : as Evaluator
+User "1" -- "0..*" Evaluation : as Evaluatee
+
+' Ένας EvaluationCycle περιέχει πολλές Evaluations
+EvaluationCycle "1" -- "0..*" Evaluation : contains
+
+' Κάθε Evaluation συνδέεται με πολλά EvaluationAnswer
+Evaluation "1" -- "0..*" EvaluationAnswer : has
+
+' Μία Question μπορεί να είναι μέρος πολλών EvaluationAnswer
+Question "1" -- "0..*" EvaluationAnswer : usedIn
+@enduml
