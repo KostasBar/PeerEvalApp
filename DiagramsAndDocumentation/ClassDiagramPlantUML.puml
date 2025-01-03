@@ -20,7 +20,8 @@ class User {
   + int? ManagerId
 
   --
-  + User Manager              + ICollection<User> Subordinates
+  + User Manager              
+  + ICollection<User> Subordinates
 }
 class Group {
   + int Id
