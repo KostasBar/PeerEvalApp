@@ -1,0 +1,6 @@
+@PeerEvalAppAPI_HostAddress = http://localhost:5062
+
+GET {{PeerEvalAppAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
