@@ -18,11 +18,10 @@ class User {
   + UserRole Role
   + int? GroupId
   + int? ManagerId
-  --
-  + ICollection<Evaluation> EvaluationsMade  
-  + ICollection<Evaluation> EvaluationsReceived
-}
 
+  --
+  + User Manager              + ICollection<User> Subordinates
+}
 class Group {
   + int Id
   + string Name
@@ -82,7 +81,7 @@ Group "1" -- "0..*" User : has
 
 ' Συσχέτιση manager μεταξύ χρηστών:
 ' Ένας User μπορεί να έχει 0 ή 1 Manager (ο οποίος είναι επίσης User)
-User "0..1" -- "0..*" User : manager
+User "0..1" -- "0..*" User : manager/subordinates
 
 ' Ένας User μπορεί να κάνει πολλές Evaluations (ως Evaluator)
 ' και να δεχτεί πολλές Evaluations (ως Evaluatee)
