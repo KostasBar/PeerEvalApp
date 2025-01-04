@@ -2,7 +2,7 @@
 
 namespace PeerEvalAppAPI.Data
 {
-    public class EvaluationAnswer
+    public class EvaluationAnswer : BaseEntity
     {
         public int Id { get; set; }
         public int EvaluationId { get; set; }
