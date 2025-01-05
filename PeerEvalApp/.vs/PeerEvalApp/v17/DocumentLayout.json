@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\repositories\\ievaluationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\repositories\\ievaluationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\configuration\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\configuration\\mapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,64 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IEvaluationRepository.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IEvaluationRepository.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Repositories\\IEvaluationRepository.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IEvaluationRepository.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Repositories\\IEvaluationRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T18:30:07.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "PeerEvalAppAPI\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-05T17:50:34.145Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
           "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MapperConfig.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Configuration\\MapperConfig.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Configuration\\MapperConfig.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Configuration\\MapperConfig.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Configuration\\MapperConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:58:50.468Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Program.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Program.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Program.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Program.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwCIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T13:19:13.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\appsettings.json",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\appsettings.json",
-              "RelativeToolTip": "PeerEvalAppAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-05T12:41:06.16Z",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T17:41:08.911Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-05T17:37:57.067Z",
               "EditorCaption": ""
             }
           ]

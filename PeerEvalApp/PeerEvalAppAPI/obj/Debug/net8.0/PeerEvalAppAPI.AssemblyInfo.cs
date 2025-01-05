@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PeerEvalAppAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1d04436fae547c1b3ad5fd97bf4055fef0a3851")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9cf62718857faff4a46fb857c4a408ab08e4bca")]
 [assembly: System.Reflection.AssemblyProductAttribute("PeerEvalAppAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PeerEvalAppAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

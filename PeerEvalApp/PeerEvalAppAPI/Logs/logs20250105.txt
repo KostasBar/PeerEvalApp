@@ -1,0 +1,15 @@
+[05-01-2025 19:04:33765 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.DefaultActionDescriptorCollectionProvider ] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+[05-01-2025 19:04:34738 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:7134"
+[05-01-2025 19:04:34740 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5062"
+[05-01-2025 19:04:34827 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[05-01-2025 19:04:34830 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[05-01-2025 19:04:34831 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[05-01-2025 19:04:35859 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:7134""""/NewFolder/""" - null null
+[05-01-2025 19:04:36658 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:7134""""/NewFolder/""" - 404 0 null 801.7946ms
+[05-01-2025 19:04:36679 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:7134""""/NewFolder/", Response status code: 404
+[05-01-2025 19:04:36785 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:7134""""/favicon.ico""" - null null
+[05-01-2025 19:04:36792 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:7134""""/favicon.ico""" - 404 0 null 7.1341ms
+[05-01-2025 19:04:36822 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:7134""""/favicon.ico", Response status code: 404
+[05-01-2025 19:04:51966 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:7134""""/Data/""" - null null
+[05-01-2025 19:04:51975 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:7134""""/Data/""" - 404 0 null 9.0518ms
+[05-01-2025 19:04:51978 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:7134""""/Data/", Response status code: 404
