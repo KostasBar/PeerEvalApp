@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using PeerEvalAppAPI.Configuration;
+using PeerEvalAppAPI.Data;
+using Serilog;
+
 namespace PeerEvalAppAPI
 {
     public class Program
@@ -7,8 +12,20 @@ namespace PeerEvalAppAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Add DB Context
+            var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<PeerEvalAppDbContext>(options => options.UseSqlServer(connString));
 
+            // Add Serilog Configuration
+            builder.Host.UseSerilog(
+                (context, config) =>
+                {
+                    config.ReadFrom.Configuration(context.Configuration);
+                }
+             );
+
+            // Add AutoMapper Config Class
+            builder.Services.AddAutoMapper(typeof(MapperConfig));
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
