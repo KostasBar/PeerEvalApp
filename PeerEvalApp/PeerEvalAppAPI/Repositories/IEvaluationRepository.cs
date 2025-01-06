@@ -6,5 +6,7 @@ namespace PeerEvalAppAPI.Repositories
     {
         Task<Evaluation> GetEvaluationByIdAsync(int id);
         Task<List<Evaluation>> GetEvaluationsByCycle(int cycleId);
+        Task<Evaluation> InsertEvaluationAsync(Evaluation evaluation);
+
     }
 }

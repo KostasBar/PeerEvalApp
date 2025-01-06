@@ -21,7 +21,7 @@ namespace PeerEvalAppAPI.Data
         public required virtual Group Group { get; set; }
         public int? ManagerId { get; set; }
         [ForeignKey("ManagerId")]
-        public virtual required User Manager { get; set; }
+        public virtual required User Manager { get; set; } = null!;
         public required virtual ICollection<User> Subordinates { get; set; } = new List<User>();
         public required virtual ICollection<Evaluation> EvaluationsMade { get; set; } = new List<Evaluation>();
         public required virtual ICollection<Evaluation> EvaluationsReceived { get; set; } = new List<Evaluation>();

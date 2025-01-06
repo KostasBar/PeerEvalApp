@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using PeerEvalAppAPI.Configuration;
 using PeerEvalAppAPI.Data;
+using PeerEvalAppAPI.Repositories;
+using PeerEvalAppAPI.Services;
 using Serilog;
 
 namespace PeerEvalAppAPI
@@ -26,6 +28,11 @@ namespace PeerEvalAppAPI
 
             // Add AutoMapper Config Class
             builder.Services.AddAutoMapper(typeof(MapperConfig));
+
+            builder.Services.AddScoped<IApplicationService, ApplicationService>();
+
+            builder.Services.AddRepositories();
+
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

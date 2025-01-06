@@ -49,5 +49,19 @@ namespace PeerEvalAppAPI.Repositories
             }
             return await query.ToListAsync();
         }
+
+        public async Task<List<Evaluation>?> GetAllEvaluationsForUserAsync(User user)
+        {
+            if (user == null)
+            {
+             return new List<Evaluation>();
+            }
+
+            var evalForUser = await _dbContext.Evaluations
+                .Where(e => e.EvaluateeUserId == user.Id)
+                .ToListAsync();
+
+            return evalForUser;
+        }
     }
 }

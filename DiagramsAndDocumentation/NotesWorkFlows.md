@@ -24,13 +24,22 @@ Used for base to build with.
    2. Create GetEvaluationsDTO
    3. Service -> UserRepo -> GetAllEvaluations -> EvaluationsDTO
    4. User sees: 
-         |evaluation cycle |  evaluation | open/closed|
-         |-|-|-|
-  - Button to Create new Evaluation (if admin) 
+        |evaluation cycle |  evaluation | open/closed|
+        |-|-|-|
+  - Button to Create new Evaluation (if admin)
+
+  - Table of Users (if admin)
+    1. Get Request User Controller
+    2. UserService -> UserRepo -> Get all users
+    - Update User button 
+      - UserController -> UserService -> UserRepo -> UpdateUser
+    - Delete User
+      - UserController -> UserService -> UserRepo -> DeleteUser
   
  - Menu
    - Profile
    - Evaluations (if not an admin)
+   - Add User (If an admin)
     
 
 ## Profile 
@@ -49,3 +58,7 @@ Used for base to build with.
  1. Show Evaluation Page for this user
  2. OnSubmit -> EvaluationController -> FromBody NewEvalDTO
  3. Service -> EvalRepo -> SubmitEval -> CompletedEvaluation
+
+ ## Add User
+  1. Fill Form with new user data
+  2. Submit ->User 

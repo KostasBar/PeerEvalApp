@@ -9,5 +9,6 @@ namespace PeerEvalAppAPI.Repositories
         Task<User?> GetByUsernameAsync(string email);
         Task<List<User>> GetAllUsersFilteredPaginatedAsync(int pageNumber, int pageSize,
             List<Func<User, bool>> predicates);
+        Task<List<Evaluation>?> GetAllEvaluationsForUserAsync(User user);
     }
 }
