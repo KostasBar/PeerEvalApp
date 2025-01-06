@@ -66,5 +66,25 @@ namespace PeerEvalAppAPI.Controllers
                 return BadRequest(new { message = "Something went wrong while signing up." });
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<List<Evaluation>>> GetEvaluationsForUser(int id)
+        {
+            try
+            {
+                var evalForUser = await _applicationService.UserService.GetEvaluationsForUserAsync(id);
+                return Ok(evalForUser);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                                  new { message = "An error occurred while retrieving evaluations." });
+            }
+        }
+
     }
 }

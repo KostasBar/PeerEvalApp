@@ -78,6 +78,31 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task<List<Evaluation>?> GetEvaluationsForUserAsync(int id)
+        {
+            List<Evaluation>? evalForUser = new();
+            try
+            {
+                User? user = await _unitOfWork.UserRepository.GetUserById(id);
+                if (user == null)
+                {
+                    throw new EntityNotFoundException("User", $"User with id {id} could not be found!");
+                }
+                evalForUser = await _unitOfWork.UserRepository.GetAllEvaluationsForUserAsync(user);
+            }
+            catch(EntityNotFoundException e) 
+            {
+                _logger.LogInformation($"{e.Message}");
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error during GetEvaluationsForUserAsync for id {id}", id);
+                throw;
+            }
+
+            return evalForUser;
+        }
         public string CreateUserToken(int userId, string email, UserRole? userRole,
             string appSecurityKey)
         {

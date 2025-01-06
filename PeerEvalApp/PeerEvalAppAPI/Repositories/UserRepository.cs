@@ -11,7 +11,7 @@ namespace PeerEvalAppAPI.Repositories
         }
 
         public async Task<User?> GetByUsernameAsync(string email) 
-            => await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
+            => await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email); 
 
         public async Task<User?> GetUserAsync(string email, string password)
         {
@@ -24,6 +24,9 @@ namespace PeerEvalAppAPI.Repositories
 
             return user;
         }
+
+        public async Task<User?> GetUserById(int id)
+            => await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
 
         public async Task<User?> UpdateUserAsync(int id, User user)
         {
