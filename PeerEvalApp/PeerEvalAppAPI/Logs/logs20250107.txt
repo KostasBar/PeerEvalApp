@@ -1,0 +1,71 @@
+[07-01-2025 19:45:52914 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[07-01-2025 19:45:52955 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[07-01-2025 19:45:53067 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[07-01-2025 19:45:53070 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[07-01-2025 19:45:53071 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[07-01-2025 19:45:56783 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger""" - null null
+[07-01-2025 19:45:56783 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[07-01-2025 19:45:57190 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger""" - 499 null null 411.3511ms
+[07-01-2025 19:45:57256 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 478.5261ms
+[07-01-2025 19:45:57327 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[07-01-2025 19:45:57328 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[07-01-2025 19:45:57328 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - null null
+[07-01-2025 19:45:57328 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - null null
+[07-01-2025 19:45:57339 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 11.9454ms
+[07-01-2025 19:45:57363 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/swagger-ui.css"'. Physical path: '"N/A"'
+[07-01-2025 19:45:57367 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - 499 152034 "text/css" 39.2152ms
+[07-01-2025 19:45:57373 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/swagger-ui-standalone-preset.js"'. Physical path: '"N/A"'
+[07-01-2025 19:45:57374 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - 200 230280 "text/javascript" 46.6743ms
+[07-01-2025 19:45:57423 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 95.5475ms
+[07-01-2025 19:45:57667 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - null null
+[07-01-2025 19:45:57680 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-16x16.png"'. Physical path: '"N/A"'
+[07-01-2025 19:45:57689 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - 499 665 "image/png" 21.6576ms
+[07-01-2025 19:45:57739 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[07-01-2025 19:45:57768 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 29.0398ms
+[07-01-2025 19:46:58160 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/1""" - null null
+[07-01-2025 19:46:58168 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)"'
+[07-01-2025 19:46:58204 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetEvaluationsForUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PeerEvalAppAPI.Data.Evaluation]]] GetEvaluationsForUser(Int32)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[07-01-2025 19:46:59952 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("81"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__id_0"
+[07-01-2025 19:47:05827 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("5,792"ms) [Parameters=["@__user_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [e].[Id], [e].[EvaluateeUserId], [e].[EvaluationCycleId], [e].[EvaluatorUserId], [e].[InsertedAt], [e].[ModifiedAt], [e].[TimeStamp]
+FROM [Evaluations] AS [e]
+WHERE [e].[EvaluateeUserId] = @__user_Id_0"
+[07-01-2025 19:47:05834 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[PeerEvalAppAPI.Data.Evaluation, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[07-01-2025 19:47:05848 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)" in 7639.3837ms
+[07-01-2025 19:47:05849 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)"'
+[07-01-2025 19:47:05859 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/1""" - 200 null "application/json; charset=utf-8" 7699.468ms
+[07-01-2025 19:49:24401 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/register""" - "application/json" 160
+[07-01-2025 19:49:24405 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.SignUp (PeerEvalAppAPI)"'
+[07-01-2025 19:49:24409 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"SignUp\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignUp(PeerEvalAppAPI.DTO.UserSignUpDTO)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[07-01-2025 19:49:26480 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1,991"ms) [Parameters=["@__email_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0"
+[07-01-2025 19:49:31998 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("5,258"ms) [Parameters=["@p0='?' (Size = 255), @p1='?' (Size = 255), @p2='?' (DbType = Int32), @p3='?' (Size = 255), @p4='?' (DbType = Int32), @p5='?' (Size = 255), @p6='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [FirstName], [GroupId], [LastName], [ManagerId], [Password], [Role])
+OUTPUT INSERTED.[Id], INSERTED.[InsertedAt], INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);"
+[07-01-2025 19:49:32030 +02:00 PeerEvalAppAPI.Services.UserService ] User with email: "user2@example.com" signed up successfully.
+[07-01-2025 19:49:32036 +02:00 Microsoft.AspNetCore.Mvc.StatusCodeResult ] Executing StatusCodeResult, setting HTTP status code 200
+[07-01-2025 19:49:32038 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.SignUp (PeerEvalAppAPI)" in 7626.992ms
+[07-01-2025 19:49:32039 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.SignUp (PeerEvalAppAPI)"'
+[07-01-2025 19:49:32041 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/register""" - 200 0 null 7639.4192ms
+[07-01-2025 20:58:44200 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[07-01-2025 20:58:44258 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 57.5328ms
+[07-01-2025 20:58:44482 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[07-01-2025 20:58:44484 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - null null
+[07-01-2025 20:58:44485 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[07-01-2025 20:58:44489 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 7.2448ms
+[07-01-2025 20:58:44505 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/swagger-ui-standalone-preset.js"'. Physical path: '"N/A"'
+[07-01-2025 20:58:44505 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 19.7755ms
+[07-01-2025 20:58:44507 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - 200 230280 "text/javascript" 22.932ms
+[07-01-2025 20:58:44760 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - null null
+[07-01-2025 20:58:44765 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+[07-01-2025 20:58:44766 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - 200 628 "image/png" 5.6792ms
+[07-01-2025 20:58:44879 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[07-01-2025 20:58:44918 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 38.7244ms

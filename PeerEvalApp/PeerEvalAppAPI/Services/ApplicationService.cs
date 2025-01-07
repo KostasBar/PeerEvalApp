@@ -17,5 +17,6 @@ namespace PeerEvalAppAPI.Services
 
 
         public UserService UserService => new(_unitOfWork, _mapper);
+        public EvaluationCycleService EvaluationCycleService => new(_unitOfWork, _mapper);
     }
 }
