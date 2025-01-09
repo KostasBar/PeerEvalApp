@@ -7,5 +7,6 @@ namespace PeerEvalAppAPI.Services
     {
         Task<EvaluationCycle?> GetEvaluationCycleAsync(int id);
         Task InitializeEvaluationCycle(InitiateCycleDTO initiateCycleDTO);
+        Task<EvaluationCycle?> UpdateEvaluateCycleAsync(UpdateCycleDTO updateCycleDTO);
     }
 }

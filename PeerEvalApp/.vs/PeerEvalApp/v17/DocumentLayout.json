@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\controllers\\evaluationcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\controllers\\evaluationcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\services\\evaluationcycleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\services\\evaluationcycleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\repositories\\evaluationcyclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\repositories\\evaluationcyclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\repositories\\ievaluationcyclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\repositories\\ievaluationcyclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IEvaluationCycleRepository.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IEvaluationCycleRepository.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Repositories\\IEvaluationCycleRepository.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\IEvaluationCycleRepository.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Repositories\\IEvaluationCycleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T20:09:12.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EvaluationCycleService.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAmwFcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T19:28:01.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EvaluationCycleRepository.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\EvaluationCycleRepository.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Repositories\\EvaluationCycleRepository.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Repositories\\EvaluationCycleRepository.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Repositories\\EvaluationCycleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T17:30:33.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EvaluationCycleController.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowEAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T17:17:11.432Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

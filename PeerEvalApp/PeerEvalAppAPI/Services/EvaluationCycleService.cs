@@ -72,6 +72,28 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task<EvaluationCycle?> UpdateEvaluateCycleAsync(UpdateCycleDTO updateCycleDTO)
+        {
+            EvaluationCycle? evaluationCycle, newEvaluationCycle;
+            try
+            {   
+                evaluationCycle = await MapToEvaluationCycle(updateCycleDTO);
+                newEvaluationCycle = await _unitOfWork.EvaluationCycleRepository.UpdateEvaluationCycleAsync(evaluationCycle);
+                
+            }
+            catch (EntityNotFoundException e)
+            {
+                _logger.LogWarning(e.Message);
+                throw;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error while trying to update Evaluation Cycle with id " + updateCycleDTO.Id);
+                throw;
+            }
+            return evaluationCycle;
+        }
+
         public EvaluationCycle MapToEvaluationCycle(InitiateCycleDTO cycleDTO)
         {
             return new EvaluationCycle()
@@ -80,6 +102,25 @@ namespace PeerEvalAppAPI.Services
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(cycleDTO.Weeks * 7),
                 Status = 0
+            };
+        }
+
+        public async Task<EvaluationCycle> MapToEvaluationCycle(UpdateCycleDTO cycleDTO)
+        {
+            EvaluationCycle? existing = await _unitOfWork.EvaluationCycleRepository.GetAsync(cycleDTO.Id);
+            if (existing is null)
+            {
+                throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id " + cycleDTO.Id + " not found!");
+            }
+            //New date is the old date postponed by x number of weeks
+            DateTime newEndDate = existing.EndDate.AddDays(cycleDTO.EndWeek * 7);
+            return new EvaluationCycle()
+            {
+                Title = existing.Title,
+                StartDate = existing.StartDate,
+                EndDate = newEndDate,
+                Status = existing.Status,
+
             };
         }
     }

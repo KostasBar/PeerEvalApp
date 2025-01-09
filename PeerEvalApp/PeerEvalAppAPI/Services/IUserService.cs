@@ -8,5 +8,6 @@ namespace PeerEvalAppAPI.Services
         Task<User?> VerifyAndGetUserAsync(UserLogInDTO credentials);
         Task<List<Evaluation>?> GetEvaluationsForUserAsync(int id);
         Task SignUpUserAsync(UserSignUpDTO signUpDTO);
+  
     }
 }

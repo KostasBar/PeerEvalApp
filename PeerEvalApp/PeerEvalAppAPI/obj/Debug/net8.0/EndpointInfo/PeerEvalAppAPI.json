@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/EvaluationCycle/newcycle": {
+      "post": {
+        "tags": [
+          "EvaluationCycle"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitiateCycleDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitiateCycleDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitiateCycleDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/login": {
       "post": {
         "tags": [
@@ -293,6 +324,24 @@
               "$ref": "#/components/schemas/User"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitiateCycleDTO": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 30,
+            "minLength": 5,
+            "type": "string"
+          },
+          "weeks": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
