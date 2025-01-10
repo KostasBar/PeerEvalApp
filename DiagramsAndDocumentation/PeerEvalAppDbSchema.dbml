@@ -1,0 +1,81 @@
+Project PeerEvalDb {
+  database_type: 'SQL Server'
+}
+
+Table EvaluationAnswers {
+  Id int [pk, increment]
+  EvaluationId int [not null, ref: > Evaluations.Id]
+  QuestionId int [not null, ref: > Questions.Id]
+  AnswerValue nvarchar(255)
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+
+  indexes {
+    (EvaluationId) [name: 'IX_EvaluationAnswers_EvaluationId']
+    (QuestionId) [name: 'IX_EvaluationAnswers_QuestionId']
+  }
+}
+
+Table EvaluationCycles {
+  Id int [pk, increment]
+  Title nvarchar(255) [not null]
+  StartDate datetime2(7) [not null]
+  EndDate datetime2(7) [not null]
+  Status nvarchar(50) [not null]
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+
+  indexes {
+    (Title) [name: 'IX_EvaluationCycles_Title']
+  }
+}
+
+Table Evaluations {
+  Id int [pk, increment]
+  EvaluatorUserId int [not null, ref: > Users.Id]
+  EvaluateeUserId int [not null, ref: > Users.Id]
+  EvaluationCycleId int [not null, ref: > EvaluationCycles.Id]
+  TimeStamp datetime2(7) [default: `getdate()`]
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+
+  indexes {
+    (EvaluateeUserId) [name: 'IX_Evaluations_EvaluateeUserId']
+    (EvaluationCycleId) [name: 'IX_Evaluations_EvaluationCycleId']
+    (EvaluatorUserId) [name: 'IX_Evaluations_EvaluatorUserId']
+  }
+}
+
+Table Groups {
+  Id int [pk, increment]
+  GroupName nvarchar(255) [not null]
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+}
+
+Table Questions {
+  Id int [pk, increment]
+  Text nvarchar(500) [not null]
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+}
+
+Table Users {
+  Id int [pk, increment]
+  FirstName nvarchar(255) [not null]
+  LastName nvarchar(255) [not null]
+  Email nvarchar(255) [not null, unique]
+  Password nvarchar(255) [not null]
+  Role nvarchar(50) [not null]
+  GroupId int [null, ref: > Groups.Id]
+  ManagerId int [null, ref: > Users.Id]
+  InsertedAt datetime2(7) [default: `getdate()`]
+  ModifiedAt datetime2(7) [default: `getdate()`]
+
+  indexes {
+    (GroupId) [name: 'IX_Users_GroupId']
+    (ManagerId) [name: 'IX_Users_ManagerId']
+  }
+}
+
+
