@@ -186,3 +186,5 @@ C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\bin\Debug\net8.0\Serilo
 C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
 C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\bin\Debug\net8.0\Serilog.Sinks.File.dll
 C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\bin\Debug\net8.0\BCrypt.Net-Core.dll
+C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\bin\Debug\net8.0\PeerEvalAppAPI.xml
+C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\obj\Debug\net8.0\PeerEvalAppAPI.xml

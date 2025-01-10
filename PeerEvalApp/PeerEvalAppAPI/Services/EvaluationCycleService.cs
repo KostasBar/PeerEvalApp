@@ -113,9 +113,10 @@ namespace PeerEvalAppAPI.Services
                 throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id " + cycleDTO.Id + " not found!");
             }
             //New date is the old date postponed by x number of weeks
-            DateTime newEndDate = existing.EndDate.AddDays(cycleDTO.EndWeek * 7);
+            DateTime newEndDate = cycleDTO.EndWeek > 0 ? existing.EndDate.AddDays(cycleDTO.EndWeek * 7) : existing.EndDate;
             return new EvaluationCycle()
             {
+                Id = existing.Id,
                 Title = existing.Title,
                 StartDate = existing.StartDate,
                 EndDate = newEndDate,

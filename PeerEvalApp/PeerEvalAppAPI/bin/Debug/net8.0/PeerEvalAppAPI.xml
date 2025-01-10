@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PeerEvalAppAPI</name>
+    </assembly>
+    <members>
+        <member name="T:PeerEvalAppAPI.Controllers.EvaluationCycleController">
+            <summary>
+            Handles all operations related to evaluation cycles such as creating and updating cycles.
+            </summary>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.SignUp(PeerEvalAppAPI.DTO.InitiateCycleDTO)">
+            <summary>
+            Initiates a new evaluation cycle with the specified details.
+            </summary>
+            <param name="cycleDTO">The evaluation cycle data transfer object containing all necessary information.</param>
+            <returns>Returns a successful response if the cycle was created.</returns>
+            <response code="200">The evaluation cycle was successfully created.</response>
+            <response code="409">An evaluation cycle with the same properties already exists.</response>
+            <response code="400">There was an error during the creation of the evaluation cycle.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.UpdateCycle(PeerEvalAppAPI.DTO.UpdateCycleDTO)">
+            <summary>
+            Updates an existing evaluation cycle with new information.
+            </summary>
+            <param name="cycleDTO">The update data for the evaluation cycle.</param>
+            <returns>Returns a successful response if the cycle was found and updated.</returns>
+            <response code="200">The evaluation cycle was successfully updated and returned.</response>
+            <response code="404">The evaluation cycle to update was not found.</response>
+            <response code="400">There was a problem with the input parameters or during the update process.</response>
+        </member>
+        <member name="T:PeerEvalAppAPI.Controllers.UserController">
+            <summary>
+            Manages user-related operations such as login, registration, and fetching user evaluations.
+            </summary>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.Login(PeerEvalAppAPI.DTO.UserLogInDTO)">
+            <summary>
+            Authenticates a user and returns a JWT token.
+            </summary>
+            <param name="credentials">The user's login credentials.</param>
+            <returns>A JWT token if authentication is successful.</returns>
+            <response code="200">Returns the JWT token on successful authentication.</response>
+            <response code="401">If the credentials are invalid or authentication fails.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.SignUp(PeerEvalAppAPI.DTO.UserSignUpDTO)">
+            <summary>
+            Registers a new user with the provided details.
+            </summary>
+            <param name="signUpDTO">The user's sign up information.</param>
+            <returns>A success response if registration is successful.</returns>
+            <response code="200">If the user is successfully registered.</response>
+            <response code="409">If a user with the same email or username already exists.</response>
+            <response code="400">If there is an error in the registration process.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser(System.Int32)">
+            <summary>
+            Retrieves evaluations associated with a specific user.
+            </summary>
+            <param name="id">The ID of the user whose evaluations are to be retrieved.</param>
+            <returns>A list of evaluations associated with the user.</returns>
+            <response code="200">Returns a list of evaluations for the user.</response>
+            <response code="404">If no user with the specified ID exists.</response>
+            <response code="500">If an error occurs during the process of retrieving evaluations.</response>
+        </member>
+        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

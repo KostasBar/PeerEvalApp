@@ -11,6 +11,9 @@ using System.Security.Claims;
 
 namespace PeerEvalAppAPI.Controllers
 {
+    /// <summary>
+    /// Manages user-related operations such as login, registration, and fetching user evaluations.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : BaseController
@@ -26,6 +29,13 @@ namespace PeerEvalAppAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Authenticates a user and returns a JWT token.
+        /// </summary>
+        /// <param name="credentials">The user's login credentials.</param>
+        /// <returns>A JWT token if authentication is successful.</returns>
+        /// <response code="200">Returns the JWT token on successful authentication.</response>
+        /// <response code="401">If the credentials are invalid or authentication fails.</response>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserLogInDTO credentials)
         {
@@ -49,6 +59,14 @@ namespace PeerEvalAppAPI.Controllers
             });
         }
 
+        /// <summary>
+        /// Registers a new user with the provided details.
+        /// </summary>
+        /// <param name="signUpDTO">The user's sign up information.</param>
+        /// <returns>A success response if registration is successful.</returns>
+        /// <response code="200">If the user is successfully registered.</response>
+        /// <response code="409">If a user with the same email or username already exists.</response>
+        /// <response code="400">If there is an error in the registration process.</response>
         [HttpPost("register")]
         public async Task<IActionResult> SignUp([FromBody] UserSignUpDTO signUpDTO)
         {
@@ -67,6 +85,14 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves evaluations associated with a specific user.
+        /// </summary>
+        /// <param name="id">The ID of the user whose evaluations are to be retrieved.</param>
+        /// <returns>A list of evaluations associated with the user.</returns>
+        /// <response code="200">Returns a list of evaluations for the user.</response>
+        /// <response code="404">If no user with the specified ID exists.</response>
+        /// <response code="500">If an error occurs during the process of retrieving evaluations.</response>
         [HttpGet("{id}")]
         public async Task<ActionResult<List<Evaluation>>> GetEvaluationsForUser(int id)
         {
@@ -85,6 +111,5 @@ namespace PeerEvalAppAPI.Controllers
                                   new { message = "An error occurred while retrieving evaluations." });
             }
         }
-
     }
 }

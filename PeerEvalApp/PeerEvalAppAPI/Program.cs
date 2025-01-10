@@ -1,10 +1,12 @@
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using PeerEvalAppAPI.Configuration;
 using PeerEvalAppAPI.Data;
 using PeerEvalAppAPI.Repositories;
 using PeerEvalAppAPI.Services;
 using Serilog;
+using System.Reflection;
 
 namespace PeerEvalAppAPI
 {
@@ -36,7 +38,15 @@ namespace PeerEvalAppAPI
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeerEvalAppAPI", Version = "v1" });
+
+                // Ensure the XML file for documenting your API is generated and set correctly
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
 
             var app = builder.Build();
 
@@ -46,6 +56,7 @@ namespace PeerEvalAppAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
 
             app.UseHttpsRedirection();
 

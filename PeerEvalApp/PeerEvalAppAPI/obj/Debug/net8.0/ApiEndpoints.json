@@ -16,6 +16,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationCycleController",
+    "Method": "UpdateCycle",
+    "RelativePath": "api/EvaluationCycle/updatecycle",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cycleDTO",
+        "Type": "PeerEvalAppAPI.DTO.UpdateCycleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PeerEvalAppAPI.Controllers.UserController",
     "Method": "GetEvaluationsForUser",
     "RelativePath": "api/User/{id}",
