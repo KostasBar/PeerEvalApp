@@ -3,5 +3,5 @@ An efficient platform for conducting and managing peer and supervisor evaluation
 
 ## Documentation
 ### Schemas
-- DB Schema can be found in [DiagramsAndDocumentation](./DiagramsAndDocumentation) and a more interactive version can be found **[here](https://dbdocs.io/konbarbou/PeerEvalAppDbSchema)**
-- Class Diagramm can be found in [DiagramsAndDocumentation](./DiagramsAndDocumentation)
+- DB Schema can be found in [here](./DiagramsAndDocumentation/PeerEvalAppDbSchema.svg) and a more interactive version can be found **[here](https://dbdocs.io/konbarbou/PeerEvalAppDbSchema)**
+- Class Diagramm can be found [here](./DiagramsAndDocumentation/PeerEvalAppClassDiagram.svg)
