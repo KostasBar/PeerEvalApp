@@ -13,31 +13,60 @@ namespace PeerEvalAppAPI.Repositories
 
         public async Task<bool> OpenCycleExists() => await _dbContext.EvaluationsCycles.AnyAsync(ec => ec.Status == 1);
 
+        //public async Task<EvaluationCycle?> UpdateEvaluationCycleAsync(EvaluationCycle evaluationCycle)
+        //{
+        //    EvaluationCycle? newEvaluationCycle = null;
+        //    try
+        //    {
+        //        newEvaluationCycle = await _dbContext.EvaluationsCycles.FirstOrDefaultAsync(ec => ec.Id == evaluationCycle.Id);
+        //        if(newEvaluationCycle is null)
+        //        {
+        //            throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id "+ evaluationCycle!.Id + " not found!");
+        //        }
+
+        //        _dbContext.EvaluationsCycles.Attach(evaluationCycle);
+        //        _dbContext.Entry(evaluationCycle).State = EntityState.Modified;
+        //    }
+        //    catch (EntityNotFoundException)
+        //    {
+
+        //        throw;
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        throw;
+        //    }
+        //    return evaluationCycle;
+        //}
+
         public async Task<EvaluationCycle?> UpdateEvaluationCycleAsync(EvaluationCycle evaluationCycle)
         {
-            EvaluationCycle? newEvaluationCycle = null;
+            EvaluationCycle? existingCycle = await _dbContext.EvaluationsCycles
+                                                             .FirstOrDefaultAsync(ec => ec.Id == evaluationCycle.Id);
+            if (existingCycle == null)
+            {
+                throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id " + evaluationCycle.Id + " not found!");
+            }
+
+            // Map the updated values to the retrieved entity
+            _dbContext.Entry(existingCycle).CurrentValues.SetValues(evaluationCycle);
+
             try
             {
-                newEvaluationCycle = await _dbContext.EvaluationsCycles.FirstOrDefaultAsync(ec => ec.Id == evaluationCycle.Id);
-                if(newEvaluationCycle is null)
-                {
-                    throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id "+ evaluationCycle!.Id + " not found!");
-                }
-
-                _dbContext.EvaluationsCycles.Attach(evaluationCycle);
-                _dbContext.Entry(evaluationCycle).State = EntityState.Modified;
+                await _dbContext.SaveChangesAsync();
             }
-            catch (EntityNotFoundException)
+            catch (DbUpdateConcurrencyException ex)
             {
-
-                throw;
+                throw new Exception("A concurrency error occurred.", ex);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                throw new Exception("An error occurred while updating the evaluation cycle.", ex);
             }
-            return evaluationCycle;
+
+            return existingCycle;
         }
+
     }
 }

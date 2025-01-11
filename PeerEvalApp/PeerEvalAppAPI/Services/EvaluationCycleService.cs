@@ -120,7 +120,7 @@ namespace PeerEvalAppAPI.Services
                 Title = existing.Title,
                 StartDate = existing.StartDate,
                 EndDate = newEndDate,
-                Status = existing.Status,
+                Status = cycleDTO.Status,
 
             };
         }

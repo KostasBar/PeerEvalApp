@@ -1,64 +1,55 @@
-# WorkFlows
-Workflows of the PeerEvalApp from UI to Backend.
-Used for base to build with.
+# PeerEvalApp - Role-based Overview & Endpoints
+
+Below is a concise description of the **Admin** and **User** functionalities in **PeerEvalApp**, along with some suggested endpoints that implement these capabilities.
+
 ---
 
-## Login
- - Login Page
-   1. Insert Data
-   2. Submit - FrontEnd Authentication - Check for mandadory fields
-   3. Create JSON -> Call the API -> LogIn Controller 
-   4. Controller -> FromBody -> LoginDTO -> Call LogInService (Insert User)
-   5. UserRepository -> InsertUser
+## Admin Functionality
 
-## Home Page
- - Table with Older Evaluation Grades (If not admin)
-   1. Get Call to User Controller (Evaluations where EvaluatedUser = UserEmail)
-   2. Create GetEvaluationsDTO
-   3. Service -> UserRepo -> GetEvaluations -> EvaluationsDTO
-   4. User sees: 
-         |evaluation cycle |  evaluation | avg grade per evaluation|
-         |-|-|-|
- - Table Older or New Evaluations If Exist
-   1. Get Call to User Controller
-   2. Create GetEvaluationsDTO
-   3. Service -> UserRepo -> GetAllEvaluations -> EvaluationsDTO
-   4. User sees: 
-        |evaluation cycle |  evaluation | open/closed|
-        |-|-|-|
-  - Button to Create new Evaluation (if admin)
+1. **Create & Open EvaluationCycles**  
+   - **Description**: An Admin can create new evaluation cycles and set them to `Open`.  
+   - **Endpoint**:  
+     - `POST /api/EvaluationCycles` – Creates a new evaluation cycle (body contains title, start/end dates, status, etc.).
 
-  - Table of Users (if admin)
-    1. Get Request User Controller
-    2. UserService -> UserRepo -> Get all users
-    - Update User button 
-      - UserController -> UserService -> UserRepo -> UpdateUser
-    - Delete User
-      - UserController -> UserService -> UserRepo -> DeleteUser
-  
- - Menu
-   - Profile
-   - Evaluations (if not an admin)
-   - Add User (If an admin)
-    
+2. **Update EvaluationCycles**  
+   - **Change Status**: An Admin can switch the status between `Open` and `Closed` (e.g., when the cycle is complete).  
+   - **Postpone End Date**: The Admin can update the `EndDate` to extend the evaluation period.  
+   - **Endpoints**:  
+     - `PUT /api/EvaluationCycles/{id}` – Updates status (`Open` <-> `Closed`) and dates.
 
-## Profile 
-  - Update Profile
-     1. Update Details -> Post to User Controller
-     2. Controller FromBody UpdateUserDTO
-     3. UpdateService -> UserRepository -> UpdateUser -> UpdatedUser
+3. **Manage User Data**  
+   - **Description**: The Admin can update user details such as first name, last name, email, group/role, manager, etc.  
+   - **Endpoint**:  
+     - `PUT /api/Users/{id}` – Updates user information.
 
-## Evaluations Page
- 1. Get Call UserController -> Active evaluations -> Service -> Repo List<Evaluations>
- 2. If no active Evaluation -> Just message that there are no active Evaluations
- 3. Else -> List of users to evaluate
- 4. Click on user -> EvaluationForThisUser
+4. **View Historical EvaluationCycles**  
+   - **Description**: Admin can list or view details of past evaluation cycles for reference.  
+   - **Endpoints**:  
+     - `GET /api/EvaluationCycles` – Retrieves all evaluation cycles (including closed ones).  
+     - `GET /api/EvaluationCycles/{id}` – Retrieves specific details about a single cycle.
 
-## Evaluation Page For User
- 1. Show Evaluation Page for this user
- 2. OnSubmit -> EvaluationController -> FromBody NewEvalDTO
- 3. Service -> EvalRepo -> SubmitEval -> CompletedEvaluation
+---
 
- ## Add User
-  1. Fill Form with new user data
-  2. Submit ->User 
+## User Functionality
+
+1. **View Active EvaluationCycle**  
+   - **Description**: A User can check if there’s an active cycle for which they need to provide input.  
+   - **Endpoint**:  
+     - `GET /api/EvaluationCycles/active` – Retrieves information on the currently open evaluation cycle (if any).
+
+2. **Review Past Results**  
+   - **Description**: Users can see the grades or feedback from previous (closed) cycles.  
+   - **Endpoint**:  
+     - `GET /api/EvaluationCycles/past` – Retrieves a list of all past cycles for this user, including their final evaluations.
+
+3. **Perform Evaluations**  
+   - **Description**: Users can navigate to a dedicated page for the currently open cycle and submit evaluations for their colleagues (and optionally their manager).  
+   - **Endpoints**:  
+     - `POST /api/Evaluations` – Creates a new evaluation record (body includes evaluator, evaluatee, answers, etc.).  
+     - `GET /api/Evaluations/{userId}` – Retrieves all evaluations for a particular user, or you could filter further.
+
+---
+
+By adhering to these endpoints and role-based distinctions, **PeerEvalApp** maintains a clear separation of concerns:
+- **Admins** administer evaluation cycles, manage user data, and oversee historical data.  
+- **Users** participate by evaluating others and reviewing their own evaluation results.
