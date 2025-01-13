@@ -35,7 +35,7 @@ PeerEvalApp was created as the final assignment for [Coding Factory](https://cod
 - **API**:
   - .NET & C#
 - **WebApp**:
-  - Angular (specify version if applicable)
+  - Angular
 
 ## Documentation
 - **DB Schema**: The database schema is available [here](./DiagramsAndDocumentation/PeerEvalAppDbSchema.svg). For an interactive version, visit [dbdocs.io](https://dbdocs.io/konbarbou/PeerEvalAppDbSchema).
