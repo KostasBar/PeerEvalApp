@@ -1,8 +1,24 @@
 # PeerEvalApp
 An efficient platform for conducting and managing peer and supervisor evaluations within companies, structured around workgroups
 
+## Table of Contents
+- [About The Project](#about-the-project)
+- [Built With](#built-with)
+- [Documentation](#documentation)
+
+## About the Project
+PeerEvalApp was created as the final assignment for [Coding Factory](https://codingfactory.aueb.gr/). It is a Full Stack App that allows employees of a company to evaluate each other. Each employee can have a record of their evaluation grades from completed evaluation cycles. The project provided an excellent opportunity to explore the Model-First development pattern in the backend using .NET and to gain practical experience with Angular in the frontend. This was my first approach to web development in a personal project context, expanding my skills in both designing and implementing functional user interfaces and robust backend solutions.
+
+## Built With
+- **Database**:
+  - Microsoft SQL Server
+- **API**:
+  - .NET & C#
+- **WebApp**:
+  - Angular (specify version if applicable)
+
 ## Documentation
-  - DB Schema can be found in **[here](./DiagramsAndDocumentation/ReerEvalAppDbSchema.svg)** and a more interactive version can be found **[here](https://dbdocs.io/konbarbou/PeerEvalAppDbSchema)**
-  - Class Diagramm can be found **[here](./DiagramsAndDocumentation/PeerEvalAppClassDiagram.svg)**
-  - For a Role-Based Overview check **[this](./DiagramsAndDocumentation/NotesWorkFlows.md)**.
-  - For a Swagger-like Endpoint Overview go **[here](./DiagramsAndDocumentation/EndpointOverview.md)**
+- **DB Schema**: The database schema is available [here](./DiagramsAndDocumentation/PeerEvalAppDbSchema.svg). For an interactive version, visit [dbdocs.io](https://dbdocs.io/konbarbou/PeerEvalAppDbSchema).
+- **Class Diagram**: Visualize the application's architecture [here](./DiagramsAndDocumentation/PeerEvalAppClassDiagram.svg).
+- **Role-Based Overview**: Detailed workflows based on user roles can be checked [here](./DiagramsAndDocumentation/NotesWorkFlows.md).
+- **Endpoint Overview**: For a detailed API endpoint overview similar to Swagger, go [here](./DiagramsAndDocumentation/EndpointOverview.md).
