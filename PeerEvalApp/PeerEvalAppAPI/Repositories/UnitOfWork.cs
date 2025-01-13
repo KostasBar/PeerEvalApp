@@ -14,6 +14,9 @@ namespace PeerEvalAppAPI.Repositories
 
         public UserRepository UserRepository =>new UserRepository(_dbContext);
         public EvaluationCycleRepository EvaluationCycleRepository => new EvaluationCycleRepository(_dbContext);
+        public EvaluationRepository EvaluationRepository => new EvaluationRepository(_dbContext);
+        public EvaluationAnswerRepository EvaluationAnswerRepository => new EvaluationAnswerRepository(_dbContext);
+        public QuestionRepository QuestionRepository =>new QuestionRepository(_dbContext);
 
         public async Task<bool> SaveAsync()
         {

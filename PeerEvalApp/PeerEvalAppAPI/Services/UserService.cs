@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using PeerEvalAppAPI.Core.Enums;
 using PeerEvalAppAPI.Data;
-using PeerEvalAppAPI.DTO;
+using PeerEvalAppAPI.DTO.UserDTOs;
 using PeerEvalAppAPI.Exceptions;
 using PeerEvalAppAPI.Repositories;
 using PeerEvalAppAPI.Security;
@@ -103,6 +103,26 @@ namespace PeerEvalAppAPI.Services
 
             return evalForUser;
         }
+
+        public async Task<List<User>?> GetUsersToEvaluateAsync(int id)
+        {
+            try
+            {
+                List<User>? usersToEvaluate = await _unitOfWork.UserRepository.GetUsersToEvaluate(id);
+                return usersToEvaluate;
+            }
+            catch (EntityNotFoundException e)
+            {
+                _logger.LogInformation(e.Message);
+                throw;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
+
         public string CreateUserToken(int userId, string email, UserRole? userRole,
             string appSecurityKey)
         {
@@ -142,7 +162,5 @@ namespace PeerEvalAppAPI.Services
                 Subordinates = new List<User>()
             };
         }
-
-
     }
 }

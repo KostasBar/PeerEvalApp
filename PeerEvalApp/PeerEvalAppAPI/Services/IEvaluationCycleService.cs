@@ -1,5 +1,5 @@
 ﻿using PeerEvalAppAPI.Data;
-using PeerEvalAppAPI.DTO;
+using PeerEvalAppAPI.DTO.EvaluationCycleDTOs;
 
 namespace PeerEvalAppAPI.Services
 {

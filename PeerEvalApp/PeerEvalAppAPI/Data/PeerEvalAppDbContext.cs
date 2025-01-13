@@ -167,6 +167,86 @@ namespace PeerEvalAppAPI.Data
                 entity.Property(e => e.ModifiedAt)
                       .ValueGeneratedOnAddOrUpdate()
                       .HasDefaultValueSql("GETDATE()");
+
+                entity.HasData(
+                   new Question
+                   {
+                       Id = 1,
+                       Text = "Self-Confidence",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 2,
+                       Text = "Dedication",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 3,
+                       Text = "Job Knowledge",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 4,
+                       Text = "Quality and Accuracy of Work",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 5,
+                       Text = "Ability to Meet Deadlines",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 6,
+                       Text = "Independence",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 7,
+                       Text = "Commitment",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 8,
+                       Text = "Attention to Detail",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 9,
+                       Text = "Ability to Work with Others",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 10,
+                       Text = "Communication Skills",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   },
+                   new Question
+                   {
+                       Id = 11,
+                       Text = "Performs Assigned Duties Under Pressure",
+                       InsertedAt = DateTime.Now,
+                       ModifiedAt = DateTime.Now
+                   }
+               );
             });
 
             modelBuilder.Entity<EvaluationAnswer>(entity =>

@@ -5,6 +5,37 @@
     "version": "v1"
   },
   "paths": {
+    "/api/Evaluation/submit": {
+      "post": {
+        "tags": [
+          "Evaluation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitEvaluationDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitEvaluationDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SubmitEvaluationDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/EvaluationCycle/newcycle": {
       "post": {
         "tags": [
@@ -158,7 +189,7 @@
         }
       }
     },
-    "/api/User/{id}": {
+    "/api/User/evaluations-for-user/{id}": {
       "get": {
         "tags": [
           "User"
@@ -214,13 +245,76 @@
           }
         }
       }
+    },
+    "/api/User/user-to-evaluate/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Retrieves users that a specific user can evaluate",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The evaluator to be",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of users to be evaluated from the specific user.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "If no user with the specified ID exists."
+          },
+          "500": {
+            "description": "If an error occurs during the process of retrieving users."
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
       "Evaluation": {
         "required": [
-          "answers",
           "evaluateeUser",
           "evaluationCycle",
           "evaluatorUser"
@@ -310,6 +404,20 @@
           },
           "question": {
             "$ref": "#/components/schemas/Question"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EvaluationAnswerDTO": {
+        "type": "object",
+        "properties": {
+          "questionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "answerValue": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -441,6 +549,41 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/EvaluationAnswer"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SubmitEvaluationDTO": {
+        "required": [
+          "evaluateeUserId",
+          "evaluationCycleId",
+          "evaluatorUserId",
+          "timeStamp"
+        ],
+        "type": "object",
+        "properties": {
+          "evaluatorUserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "evaluateeUserId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "evaluationCycleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvaluationAnswerDTO"
             },
             "nullable": true
           }

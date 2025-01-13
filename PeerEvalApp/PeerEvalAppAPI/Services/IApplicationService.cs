@@ -4,5 +4,7 @@
     {
         UserService UserService { get; }
         EvaluationCycleService EvaluationCycleService { get; }
+        EvaluationService EvaluationService { get; }
+        EvaluationAnswerService EvaluationAnswerService { get; }
     }
 }

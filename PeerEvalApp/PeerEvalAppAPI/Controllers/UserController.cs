@@ -8,6 +8,7 @@ using PeerEvalAppAPI.Exceptions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using PeerEvalAppAPI.DTO.UserDTOs;
 
 namespace PeerEvalAppAPI.Controllers
 {
@@ -93,7 +94,7 @@ namespace PeerEvalAppAPI.Controllers
         /// <response code="200">Returns a list of evaluations for the user.</response>
         /// <response code="404">If no user with the specified ID exists.</response>
         /// <response code="500">If an error occurs during the process of retrieving evaluations.</response>
-        [HttpGet("{id}")]
+        [HttpGet("evaluations-for-user/{id}")]
         public async Task<ActionResult<List<Evaluation>>> GetEvaluationsForUser(int id)
         {
             try
@@ -109,6 +110,37 @@ namespace PeerEvalAppAPI.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError,
                                   new { message = "An error occurred while retrieving evaluations." });
+            }
+        }
+
+        /// <summary>
+        /// Retrieves users that a specific user can evaluate
+        /// </summary>
+        /// <param name="userId">The evaluator to be</param>
+        /// <returns>A list of users to be evaluated</returns>
+        /// <response code="200">Returns a list of users to be evaluated from the specific user.</response>
+        /// <response code="404">If no user with the specified ID exists.</response>
+        /// <response code="500">If an error occurs during the process of retrieving users.</response>
+        [HttpGet("user-to-evaluate/{id}")]
+        public async Task<ActionResult<List<User>?>> GetUsersToEvaluate(int userId)
+        {
+            try
+            {
+                List<User>? usersToEvaluate = await _applicationService.UserService.GetUsersToEvaluateAsync(userId);
+                if (usersToEvaluate == null)
+                {
+                    throw new Exception();
+                }
+                return Ok(usersToEvaluate);
+            }
+            catch(EntityNotFoundException e)
+            {
+                return NotFound(new { message = e.Message });
+            }
+            catch (Exception)
+            {
+
+                return BadRequest(new { message = "Something went wrong while retrieving the users that user  with id "+ userId +" can evaluate." });
             }
         }
     }

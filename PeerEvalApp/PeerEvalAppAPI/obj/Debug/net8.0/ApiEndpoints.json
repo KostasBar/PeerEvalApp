@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationController",
+    "Method": "SubmitEvaluation",
+    "RelativePath": "api/Evaluation/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "submitEvaluationDTO",
+        "Type": "PeerEvalAppAPI.DTO.SubmitEvaluationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationCycleController",
     "Method": "SignUp",
     "RelativePath": "api/EvaluationCycle/newcycle",
@@ -9,7 +25,7 @@
     "Parameters": [
       {
         "Name": "cycleDTO",
-        "Type": "PeerEvalAppAPI.DTO.InitiateCycleDTO",
+        "Type": "PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO",
         "IsRequired": true
       }
     ],
@@ -25,7 +41,7 @@
     "Parameters": [
       {
         "Name": "cycleDTO",
-        "Type": "PeerEvalAppAPI.DTO.UpdateCycleDTO",
+        "Type": "PeerEvalAppAPI.DTO.EvaluationCycleDTOs.UpdateCycleDTO",
         "IsRequired": true
       }
     ],
@@ -34,7 +50,7 @@
   {
     "ContainingType": "PeerEvalAppAPI.Controllers.UserController",
     "Method": "GetEvaluationsForUser",
-    "RelativePath": "api/User/{id}",
+    "RelativePath": "api/User/evaluations-for-user/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -67,7 +83,7 @@
     "Parameters": [
       {
         "Name": "credentials",
-        "Type": "PeerEvalAppAPI.DTO.UserLogInDTO",
+        "Type": "PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO",
         "IsRequired": true
       }
     ],
@@ -83,10 +99,41 @@
     "Parameters": [
       {
         "Name": "signUpDTO",
-        "Type": "PeerEvalAppAPI.DTO.UserSignUpDTO",
+        "Type": "PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PeerEvalAppAPI.Controllers.UserController",
+    "Method": "GetUsersToEvaluate",
+    "RelativePath": "api/User/user-to-evaluate/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PeerEvalAppAPI.Data.User, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

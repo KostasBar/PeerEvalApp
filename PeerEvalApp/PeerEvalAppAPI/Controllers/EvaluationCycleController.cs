@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PeerEvalAppAPI.Data;
-using PeerEvalAppAPI.DTO;
+using PeerEvalAppAPI.DTO.EvaluationCycleDTOs;
 using PeerEvalAppAPI.Exceptions;
 using PeerEvalAppAPI.Services;
 

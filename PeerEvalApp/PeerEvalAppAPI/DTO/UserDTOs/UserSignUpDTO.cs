@@ -1,7 +1,7 @@
 ﻿using PeerEvalAppAPI.Core.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace PeerEvalAppAPI.DTO
+namespace PeerEvalAppAPI.DTO.UserDTOs
 {
     public class UserSignUpDTO
     {

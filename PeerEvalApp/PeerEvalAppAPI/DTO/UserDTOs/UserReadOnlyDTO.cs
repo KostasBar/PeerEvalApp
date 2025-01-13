@@ -1,7 +1,7 @@
 ﻿using PeerEvalAppAPI.Core.Enums;
 using System.Text.RegularExpressions;
 
-namespace PeerEvalAppAPI.DTO
+namespace PeerEvalAppAPI.DTO.UserDTOs
 {
     public class UserReadOnlyDTO
     {

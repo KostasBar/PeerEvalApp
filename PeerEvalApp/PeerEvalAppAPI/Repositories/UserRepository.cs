@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PeerEvalAppAPI.Data;
+using PeerEvalAppAPI.Exceptions;
 using PeerEvalAppAPI.Security;
 
 namespace PeerEvalAppAPI.Repositories
@@ -65,6 +66,18 @@ namespace PeerEvalAppAPI.Repositories
                 .ToListAsync();
 
             return evalForUser;
+        }
+
+        public async Task<List<User>?> GetUsersToEvaluate(int id)
+        {
+            User? user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+            if (user == null)
+            {
+                throw new EntityNotFoundException("User", "User with id " + id + " could not be found!");
+            }
+
+            List<User>? usersToEvaluate = await _dbContext.Users.Where(u => u.GroupId == user.GroupId).ToListAsync();
+            return usersToEvaluate;
         }
     }
 }

@@ -9,7 +9,7 @@
             Handles all operations related to evaluation cycles such as creating and updating cycles.
             </summary>
         </member>
-        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.SignUp(PeerEvalAppAPI.DTO.InitiateCycleDTO)">
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.SignUp(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO)">
             <summary>
             Initiates a new evaluation cycle with the specified details.
             </summary>
@@ -19,7 +19,7 @@
             <response code="409">An evaluation cycle with the same properties already exists.</response>
             <response code="400">There was an error during the creation of the evaluation cycle.</response>
         </member>
-        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.UpdateCycle(PeerEvalAppAPI.DTO.UpdateCycleDTO)">
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.UpdateCycle(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.UpdateCycleDTO)">
             <summary>
             Updates an existing evaluation cycle with new information.
             </summary>
@@ -34,7 +34,7 @@
             Manages user-related operations such as login, registration, and fetching user evaluations.
             </summary>
         </member>
-        <member name="M:PeerEvalAppAPI.Controllers.UserController.Login(PeerEvalAppAPI.DTO.UserLogInDTO)">
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.Login(PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO)">
             <summary>
             Authenticates a user and returns a JWT token.
             </summary>
@@ -43,7 +43,7 @@
             <response code="200">Returns the JWT token on successful authentication.</response>
             <response code="401">If the credentials are invalid or authentication fails.</response>
         </member>
-        <member name="M:PeerEvalAppAPI.Controllers.UserController.SignUp(PeerEvalAppAPI.DTO.UserSignUpDTO)">
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.SignUp(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
             <summary>
             Registers a new user with the provided details.
             </summary>
@@ -62,6 +62,16 @@
             <response code="200">Returns a list of evaluations for the user.</response>
             <response code="404">If no user with the specified ID exists.</response>
             <response code="500">If an error occurs during the process of retrieving evaluations.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate(System.Int32)">
+            <summary>
+            Retrieves users that a specific user can evaluate
+            </summary>
+            <param name="userId">The evaluator to be</param>
+            <returns>A list of users to be evaluated</returns>
+            <response code="200">Returns a list of users to be evaluated from the specific user.</response>
+            <response code="404">If no user with the specified ID exists.</response>
+            <response code="500">If an error occurs during the process of retrieving users.</response>
         </member>
         <member name="T:PeerEvalAppAPI.Migrations.InitialCreate">
             <inheritdoc />

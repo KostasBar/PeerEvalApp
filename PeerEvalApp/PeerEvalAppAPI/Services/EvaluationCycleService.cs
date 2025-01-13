@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using PeerEvalAppAPI.Data;
-using PeerEvalAppAPI.DTO;
+using PeerEvalAppAPI.DTO.EvaluationCycleDTOs;
 using PeerEvalAppAPI.Exceptions;
 using PeerEvalAppAPI.Repositories;
 using Serilog;
@@ -11,13 +11,13 @@ namespace PeerEvalAppAPI.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ILogger<UserService> _logger;
+        private readonly ILogger<EvaluationService> _logger;
 
         public EvaluationCycleService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>();
+            _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationService>();
         }
 
         public async Task<EvaluationCycle?> GetEvaluationCycleAsync(int id)
