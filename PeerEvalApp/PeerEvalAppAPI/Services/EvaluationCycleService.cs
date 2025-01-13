@@ -51,7 +51,7 @@ namespace PeerEvalAppAPI.Services
             {
                 if (await _unitOfWork.EvaluationCycleRepository.OpenCycleExists())
                 {
-                    throw new EntityAlreadyExistsException("EvaluationCycle", "There is already an Evaluation Cycle opened!");
+                    throw new OpenCycleAlreadyExists("EvaluationCycle", "There is already an Evaluation Cycle opened!");
  
                 }
 

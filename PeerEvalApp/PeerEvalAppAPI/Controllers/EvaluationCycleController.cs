@@ -34,7 +34,7 @@ namespace PeerEvalAppAPI.Controllers
         /// <response code="409">An evaluation cycle with the same properties already exists.</response>
         /// <response code="400">There was an error during the creation of the evaluation cycle.</response>
         [HttpPost("newcycle")]
-        public async Task<IActionResult> SignUp([FromBody] InitiateCycleDTO cycleDTO)
+        public async Task<IActionResult> InitializeCycle([FromBody] InitiateCycleDTO cycleDTO)
         {
             try
             {
@@ -44,6 +44,10 @@ namespace PeerEvalAppAPI.Controllers
             catch (EntityAlreadyExistsException ex)
             {
                 return Conflict(new { message = ex.Message });
+            }
+            catch(OpenCycleAlreadyExists e)
+            {
+                return Conflict(new {message = "There can be only one Evaluation Cycle open each time!"});
             }
             catch (Exception)
             {

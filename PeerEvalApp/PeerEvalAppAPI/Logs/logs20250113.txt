@@ -1388,3 +1388,29 @@ VALUES (@p0, @p1, @p2);"
 [13-01-2025 15:26:07097 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.EvaluationController.SubmitEvaluation (PeerEvalAppAPI)" in 5156.9141ms
 [13-01-2025 15:26:07100 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.EvaluationController.SubmitEvaluation (PeerEvalAppAPI)"'
 [13-01-2025 15:26:07116 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/Evaluation/submit""" - 200 0 null 5287.2577ms
+[13-01-2025 18:20:17819 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[13-01-2025 18:20:17855 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[13-01-2025 18:20:17949 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[13-01-2025 18:20:17951 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[13-01-2025 18:20:17952 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[13-01-2025 18:20:20111 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[13-01-2025 18:20:20111 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger""" - null null
+[13-01-2025 18:20:20373 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger""" - 499 null null 264.3797ms
+[13-01-2025 18:20:20416 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 308.4008ms
+[13-01-2025 18:20:20504 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - null null
+[13-01-2025 18:20:20504 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[13-01-2025 18:20:20504 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[13-01-2025 18:20:20513 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 8.6387ms
+[13-01-2025 18:20:20532 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/swagger-ui.css"'. Physical path: '"N/A"'
+[13-01-2025 18:20:20536 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - 200 152034 "text/css" 31.7421ms
+[13-01-2025 18:20:20592 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 88.5567ms
+[13-01-2025 18:20:20717 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-bundle.js""" - null null
+[13-01-2025 18:20:20722 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] The file "/swagger-ui-bundle.js" was not modified
+[13-01-2025 18:20:20723 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-bundle.js""" - 304 null "text/javascript" 6.1621ms
+[13-01-2025 18:20:20966 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - null null
+[13-01-2025 18:20:20972 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-16x16.png"'. Physical path: '"N/A"'
+[13-01-2025 18:20:20974 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - 200 665 "image/png" 7.1439ms
+[13-01-2025 18:20:21017 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[13-01-2025 18:20:21056 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 38.3697ms
+[13-01-2025 18:22:06501 +02:00 Microsoft.AspNetCore.Server.Kestrel ] As of "01/13/2025 16:22:06 +00:00", the heartbeat has been running for "00:00:01.5251519" which is longer than "00:00:01". This could be caused by thread pool starvation.
+[13-01-2025 18:23:50143 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...

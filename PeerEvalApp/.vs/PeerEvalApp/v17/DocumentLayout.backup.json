@@ -3,36 +3,12 @@
   "WorkspaceRootPath": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\services\\evaluationanswerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\services\\evaluationanswerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\services\\evaluationcycleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\services\\evaluationcycleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\data\\evaluationanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\data\\evaluationanswer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\controllers\\evaluationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\controllers\\evaluationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\services\\ievaluationanswerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\services\\ievaluationanswerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\dto\\submitevaluationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\dto\\submitevaluationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\data\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\data\\evaluation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\dto\\evaluationanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\dto\\evaluationanswerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|c:\\markdowneditor\\peerevalapp\\peerevalapp\\peerevalappapi\\controllers\\evaluationcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{977CF36B-F55D-4BF5-B36C-F344EB8C8F20}|PeerEvalAppAPI\\PeerEvalAppAPI.csproj|solutionrelative:peerevalappapi\\controllers\\evaluationcyclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,104 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ApplicationService.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\ApplicationService.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Services\\ApplicationService.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\ApplicationService.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Services\\ApplicationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:31:28.764Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IEvaluationAnswerService.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\IEvaluationAnswerService.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Services\\IEvaluationAnswerService.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\IEvaluationAnswerService.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Services\\IEvaluationAnswerService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T09:24:56.405Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EvaluationAnswerService.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationAnswerService.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Services\\EvaluationAnswerService.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationAnswerService.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Services\\EvaluationAnswerService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAqwBQAAAAJAAAAAAAAAA==",
+              "Title": "EvaluationCycleService.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Services\\EvaluationCycleService.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAWwDUAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T21:15:14.579Z",
+              "WhenOpened": "2025-01-13T17:59:07.274Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EvaluationController.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationController.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Controllers\\EvaluationController.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationController.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Controllers\\EvaluationController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAowCAAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T21:06:56.06Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EvaluationAnswer.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Data\\EvaluationAnswer.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Data\\EvaluationAnswer.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Data\\EvaluationAnswer.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Data\\EvaluationAnswer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAAyAAAAAAAAAA==",
+              "Title": "EvaluationCycleController.cs",
+              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "RelativeToolTip": "PeerEvalAppAPI\\Controllers\\EvaluationCycleController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCgAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T10:28:01.725Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Evaluation.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Data\\Evaluation.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\Data\\Evaluation.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\Data\\Evaluation.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\Data\\Evaluation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-11T19:21:44.041Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "EvaluationAnswerDTO.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\DTO\\EvaluationAnswerDTO.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\DTO\\EvaluationAnswerDTO.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\DTO\\EvaluationAnswerDTO.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\DTO\\EvaluationAnswerDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T11:39:35.723Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SubmitEvaluationDTO.cs",
-              "DocumentMoniker": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\DTO\\SubmitEvaluationDTO.cs",
-              "RelativeDocumentMoniker": "PeerEvalAppAPI\\DTO\\SubmitEvaluationDTO.cs",
-              "ToolTip": "C:\\MarkDownEditor\\PeerEvalApp\\PeerEvalApp\\PeerEvalAppAPI\\DTO\\SubmitEvaluationDTO.cs",
-              "RelativeToolTip": "PeerEvalAppAPI\\DTO\\SubmitEvaluationDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T11:27:32.835Z"
+              "WhenOpened": "2025-01-13T17:50:32.437Z",
+              "EditorCaption": ""
             }
           ]
         }
