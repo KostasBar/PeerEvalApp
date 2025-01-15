@@ -1,0 +1,9 @@
+/* login.component.css */
+.container {
+    background-color: #fff; /* White background for the form area */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.bg-light {
+    background-color: #f8f9fa !important; /* Light grey for the body background */
+}

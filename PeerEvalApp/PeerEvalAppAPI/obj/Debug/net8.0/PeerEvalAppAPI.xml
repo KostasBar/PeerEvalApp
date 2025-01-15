@@ -9,7 +9,7 @@
             Handles all operations related to evaluation cycles such as creating and updating cycles.
             </summary>
         </member>
-        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.SignUp(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO)">
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.InitializeCycle(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO)">
             <summary>
             Initiates a new evaluation cycle with the specified details.
             </summary>

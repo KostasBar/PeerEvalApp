@@ -1,31 +1,57 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+  <div class="container mt-5">
+    <header class="bg-primary text-white py-2 text-center rounded">
+      YourCompany'sName
+    </header>
+    <div class="row justify-content-center bg-light">
       <div class="col-md-6">
         <h2 class="mb-3">Login</h2>
-        <form [formGroup]="loginForm" (submit)="onSubmit()" class="form-horizontal">
-            <!-- <form> -->
+        <form
+          [formGroup]="loginForm"
+          (submit)="onSubmit()"
+          class="form-horizontal"
+        >
+          <!-- <form> -->
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" formControlName ="username">
-            @if (loginForm.get('username')?.touched || loginForm.get('username')?.errors ) {
-                <div class="text-danger">
-                    Username is mandatory
-                  </div>
+            <label for="username" class="form-label">Username - email</label>
+            <input
+              type="text"
+              class="form-control"
+              id="email"
+              formControlName="email"
+            />
+            @if (loginForm.get('username')?.touched &&
+            loginForm.get('username')?.errors ) {
+            <div class="text-danger">Username is mandatory</div>
             }
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" formControlName="password">
-            @if (loginForm.get('password')?.touched || loginForm.get('password')?.errors) {
-                <div class="text-danger">
-                    Password is mandatory
-                  </div>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              formControlName="password"
+            />
+            @if (loginForm.get('password')?.touched &&
+            loginForm.get('password')?.errors) {
+            <div class="text-danger">Password is mandatory</div>
             }
           </div>
-          <!-- <button>Submit</button> -->
-          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+          <button
+            type="submit"
+            class="btn btn-primary m-2"
+            [disabled]="!loginForm.valid"
+          >
+            Login
+          </button>
+          @if (invalidLogin){
+          <div class="alert alert-danger">
+            <strong>Error:</strong> Invalid email or paswword
+          </div>
+          }
         </form>
       </div>
     </div>
   </div>
-  
+</div>

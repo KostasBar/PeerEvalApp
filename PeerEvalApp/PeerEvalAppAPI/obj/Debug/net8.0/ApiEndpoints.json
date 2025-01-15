@@ -17,7 +17,7 @@
   },
   {
     "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationCycleController",
-    "Method": "SignUp",
+    "Method": "InitializeCycle",
     "RelativePath": "api/EvaluationCycle/newcycle",
     "HttpMethod": "POST",
     "IsController": true,
