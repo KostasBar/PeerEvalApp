@@ -48,6 +48,17 @@ namespace PeerEvalAppAPI
                 c.IncludeXmlComments(xmlPath);
             });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyAllowSpecificOrigins",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:4200") 
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -57,11 +68,11 @@ namespace PeerEvalAppAPI
                 app.UseSwaggerUI();
             }
 
+            app.UseCors("MyAllowSpecificOrigins");
 
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

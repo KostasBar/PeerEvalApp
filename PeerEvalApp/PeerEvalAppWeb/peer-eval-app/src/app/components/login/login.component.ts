@@ -10,6 +10,7 @@ import { AuthServiceService } from '../../services/auth-service.service';
 import { LoggedInUser, UserLogin } from '../../interfaces/user';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';
+import { Mappers } from '../../utils/mappers';
 
 @Component({
   selector: 'app-login',
@@ -32,21 +33,22 @@ export class LoginComponent {
 
   onSubmit() {
     const credentials = this.loginForm.value as UserLogin;
+    console.log(credentials)
     this.authService.login(credentials).subscribe({
       next: (response) => {
         console.log('********************************************************************************************************************************************************')
-        const access_token = response.access_token;
-        
+        const access_token = response.token.token;
+        console.log('********************************************************************************************************************************************************')
         console.log(access_token);
         localStorage.setItem("access_token", access_token);
         
-        const decodedTokenSubject = jwtDecode(access_token)
-            .sub as unknown as LoggedInUser;
+        const decodedTokenSubject = Mappers.mapDecodedTokenToLoggedInUser(jwtDecode(access_token))
         console.log(decodedTokenSubject)
         
         this.authService.user.set({
-            fullname: decodedTokenSubject.fullname,
-            email: decodedTokenSubject.email
+            id: decodedTokenSubject.id,
+            email: decodedTokenSubject.email,
+            role: decodedTokenSubject.role
         })
         // this.router.navigate(['restricted-content-example']);
     },
@@ -56,4 +58,5 @@ export class LoginComponent {
     }
     })
   }
+  
 }

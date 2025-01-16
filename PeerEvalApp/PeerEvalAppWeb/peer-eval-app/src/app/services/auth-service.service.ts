@@ -1,11 +1,12 @@
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { jwtDecode } from 'jwt-decode';
-import { LoggedInUser, UserLogin } from '../interfaces/user';
+import { LoggedInUser, LoginResponse, UserLogin } from '../interfaces/user';
 import { environment } from '../../environments/environment.development';
 import { Router } from '@angular/router';
+import { Mappers } from '../utils/mappers';
 
-const API_URL=`${environment.apiURL}/user`
+const API_URL=`${environment.apiURL}/User`
 
 @Injectable({
   providedIn: 'root',
@@ -19,17 +20,17 @@ export class AuthServiceService {
   constructor() {
     const access_token = localStorage.getItem('access_token');
     if (access_token) {
-      const decodedTokenSubject = jwtDecode(access_token)
-        .sub as unknown as LoggedInUser;
+      const decodedTokenSubject = Mappers.mapDecodedTokenToLoggedInUser(jwtDecode(access_token))
 
       this.user.set({
-        fullname: decodedTokenSubject.fullname,
-        email: decodedTokenSubject.email,
+        id: decodedTokenSubject.id ,
+        email: decodedTokenSubject.email ,
+        role: decodedTokenSubject.role
       });
     }
     effect(() => {
       if (this.user()) {
-        console.log('User logged in: ', this.user()?.fullname);
+        console.log('User logged in: ', this.user()?.email);
       } else {
         console.log('No user logged in');
       }
@@ -37,7 +38,6 @@ export class AuthServiceService {
   }
 
   login(credentials: UserLogin){
-    return this.http.post<{access_token: string}>(`${API_URL}/login`,credentials)
-
-}
+    return this.http.post<LoginResponse>(`${API_URL}/login`,credentials)
+  }
 }

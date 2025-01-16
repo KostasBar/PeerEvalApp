@@ -4,6 +4,13 @@ export interface UserLogin {
 }
 
 export interface LoggedInUser{
-    fullname: string,
-    email: string
+    id: string,
+    email: string,
+    role: string
 }
+
+export interface LoginResponse {
+    token: {
+      token: string;
+    };
+  }
