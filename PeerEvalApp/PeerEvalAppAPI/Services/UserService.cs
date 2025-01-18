@@ -53,7 +53,7 @@ namespace PeerEvalAppAPI.Services
         {
             try
             {
-                var user = ExtractUser(signUpDTO);
+                var user = MapToUser(signUpDTO);
 
                 User? existingUser = await _unitOfWork.UserRepository.GetByUsernameAsync(user.Email);
                 if (existingUser != null)
@@ -78,7 +78,7 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
-        public async Task<List<Evaluation>?> GetEvaluationsForUserAsync(int id)
+        public async Task<List<PastEvaluationsOfUserDTO>?> GetEvaluationsForUserAsync(int id)
         {
             List<Evaluation>? evalForUser = new();
             try
@@ -89,6 +89,8 @@ namespace PeerEvalAppAPI.Services
                     throw new EntityNotFoundException("User", $"User with id {id} could not be found!");
                 }
                 evalForUser = await _unitOfWork.UserRepository.GetAllEvaluationsForUserAsync(user);
+                List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = MapToPastEvaluationsOfUserDTO(evalForUser);
+                return pastEvaluationsOfUserDTOs;
             }
             catch(EntityNotFoundException e) 
             {
@@ -100,16 +102,15 @@ namespace PeerEvalAppAPI.Services
                 _logger.LogError(ex, "Error during GetEvaluationsForUserAsync for id {id}", id);
                 throw;
             }
-
-            return evalForUser;
         }
 
-        public async Task<List<User>?> GetUsersToEvaluateAsync(int id)
+        public async Task<List<UsersToEvaluateDTO>?> GetUsersToEvaluateAsync(int id)
         {
             try
             {
                 List<User>? usersToEvaluate = await _unitOfWork.UserRepository.GetUsersToEvaluate(id);
-                return usersToEvaluate;
+                List<UsersToEvaluateDTO>? users = MapToUsersToEvaluateDTO(usersToEvaluate);
+                return users;
             }
             catch (EntityNotFoundException e)
             {
@@ -123,7 +124,7 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
-        public string CreateUserToken(int userId, string email, UserRole? userRole,
+        public string CreateUserToken(int userId, string email, string firstname, string lastname, UserRole? userRole,
             string appSecurityKey)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(appSecurityKey));
@@ -133,6 +134,8 @@ namespace PeerEvalAppAPI.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
                 new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.Name, firstname),
+                new Claim(ClaimTypes.GivenName, lastname),
                 new Claim(ClaimTypes.Role, userRole.ToString()!)
             };
 
@@ -145,7 +148,12 @@ namespace PeerEvalAppAPI.Services
             return userToken;
         }
 
-        private User ExtractUser(UserSignUpDTO signUpDTO)
+        /// <summary>
+        /// Transforms a UserSignUpDTO to a User Object
+        /// </summary>
+        /// <param name="signUpDTO">The UserSignUpDTO to extract a UserFrom</param>
+        /// <returns>A User</returns>
+        private User MapToUser(UserSignUpDTO signUpDTO)
         {
             return new User()
             {
@@ -162,5 +170,59 @@ namespace PeerEvalAppAPI.Services
                 Subordinates = new List<User>()
             };
         }
+
+        /// <summary>
+        /// Transform a list of Evaluations to a List of PastEvaluationsOfUserDTO
+        /// </summary>
+        /// <param name="evaluations">A list of evaluations</param>
+        /// <returns>A List of PastEvaluationsOfUserDTO</returns>
+        private List<PastEvaluationsOfUserDTO> MapToPastEvaluationsOfUserDTO(List<Evaluation> evaluations)
+        {
+            List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = new List<PastEvaluationsOfUserDTO>();
+
+            foreach (var item in evaluations)
+            {
+                float avg = 0;
+                if (item.Answers != null && item.Answers.Any())
+                {
+                    avg = item.Answers
+                                .Select(answer => float.Parse(answer.AnswerValue))
+                                .DefaultIfEmpty(0)  // Provide a default value to avoid errors with empty collections
+                                .Average(); 
+                }
+
+                PastEvaluationsOfUserDTO pastEvaluationsDTO = new PastEvaluationsOfUserDTO()
+                {
+                    CycleId = item.EvaluationCycleId,
+                    Department = item.EvaluateeUser.Group.GroupName,
+                    CycleStartDate = item.EvaluationCycle.StartDate,
+                    CycleEndDate = item.EvaluationCycle.EndDate,
+                    AvgEvaluationResult = avg
+                };
+                pastEvaluationsOfUserDTOs.Add(pastEvaluationsDTO);
+            }
+            return pastEvaluationsOfUserDTOs;
+        }
+
+        private List<UsersToEvaluateDTO> MapToUsersToEvaluateDTO(List<User> users)
+        {
+            List<UsersToEvaluateDTO> usersToEvaluateDTOs = new List<UsersToEvaluateDTO>();
+            foreach (var user in users)
+            {
+                UsersToEvaluateDTO usersToEvaluateDTO = new UsersToEvaluateDTO()
+                {
+                    Id = user.Id,
+                    Firstname = user.FirstName,
+                    Lastname = user.LastName,
+                    Email = user.Email
+                };
+
+                usersToEvaluateDTOs.Add(usersToEvaluateDTO);
+            }
+
+            return usersToEvaluateDTOs;
+        }
+
+
     }
 }

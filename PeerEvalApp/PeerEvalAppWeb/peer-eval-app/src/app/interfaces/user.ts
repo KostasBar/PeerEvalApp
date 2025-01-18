@@ -6,6 +6,8 @@ export interface UserLogin {
 export interface LoggedInUser{
     id: string,
     email: string,
+    firstname: string,
+    lastname: string,
     role: string
 }
 
@@ -14,3 +16,10 @@ export interface LoginResponse {
       token: string;
     };
   }
+
+export interface UsersToEvaluate{
+  id: number,
+  firstname: string,
+  lastname: string,
+  email: string
+}

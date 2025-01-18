@@ -1,0 +1,31 @@
+<div>
+    @if (usersToEvaluate?.length === 0) {
+        <div class="alert alert-danger d-flex justify-content-center align-items-center">
+            <p class="mb-0">No Active Evaluation Cycle At The Moment</p>
+        </div>
+        
+    }
+    @else {
+    <table class="table table-bordered table-striped text-wrap">
+        <thead>
+            <tr>
+                <th role="button" >
+                     User Id
+                </th>
+                <th role="button" >First Name</th>
+                <th role="button" >Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (row of usersToEvaluate; track row){
+                <tr class="align-middle" (dblclick)="onUserClick(row)">
+                    <td>{{row.id}}</td>
+                    <td>{{row.firstname}}</td>
+                    <td>{{row.lastname}}</td>
+                </tr>
+            }
+        </tbody>
+    
+    </table>
+}

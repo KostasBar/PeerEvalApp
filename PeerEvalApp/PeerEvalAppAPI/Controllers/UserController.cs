@@ -46,7 +46,7 @@ namespace PeerEvalAppAPI.Controllers
                 return Unauthorized(new { message = "Invalid credentials" });
             }
 
-            var userToken = _applicationService.UserService.CreateUserToken(user.Id, user.Email!,
+            var userToken = _applicationService.UserService.CreateUserToken(user.Id, user.Email!, user.FirstName, user.LastName,
                  user.Role, _configuration["Authentication:SecretKey"]!);
 
             JwtTokenDTO token = new()
@@ -95,7 +95,7 @@ namespace PeerEvalAppAPI.Controllers
         /// <response code="404">If no user with the specified ID exists.</response>
         /// <response code="500">If an error occurs during the process of retrieving evaluations.</response>
         [HttpGet("evaluations-for-user/{id}")]
-        public async Task<ActionResult<List<Evaluation>>> GetEvaluationsForUser(int id)
+        public async Task<ActionResult<List<PastEvaluationsOfUserDTO>>> GetEvaluationsForUser(int id)
         {
             try
             {
@@ -122,11 +122,11 @@ namespace PeerEvalAppAPI.Controllers
         /// <response code="404">If no user with the specified ID exists.</response>
         /// <response code="500">If an error occurs during the process of retrieving users.</response>
         [HttpGet("user-to-evaluate/{id}")]
-        public async Task<ActionResult<List<User>?>> GetUsersToEvaluate(int userId)
+        public async Task<ActionResult<List<UsersToEvaluateDTO>?>> GetUsersToEvaluate(int userId)
         {
             try
             {
-                List<User>? usersToEvaluate = await _applicationService.UserService.GetUsersToEvaluateAsync(userId);
+                List<UsersToEvaluateDTO>? usersToEvaluate = await _applicationService.UserService.GetUsersToEvaluateAsync(userId);
                 if (usersToEvaluate == null)
                 {
                     throw new Exception();

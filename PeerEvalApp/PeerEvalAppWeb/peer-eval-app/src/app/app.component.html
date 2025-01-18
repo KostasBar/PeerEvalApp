@@ -1,3 +1,8 @@
 <div class="container">
-  <app-login></app-login>
+  @if (!access_token){
+    <app-login></app-login>
+  }
+  @else {
+    <app-working-desk></app-working-desk>
+  }
 </div>

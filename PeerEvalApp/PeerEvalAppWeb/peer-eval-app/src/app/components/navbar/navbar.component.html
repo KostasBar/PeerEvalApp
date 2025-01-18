@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-primary justify-content-between">
+    <a class="navbar-brand ms-3 cursor-pointer" role="button" routerLink="">Peer Evaluation Platform</a>
+    @if(user()){
+        <span class="me-3 d-flex gap-2 text-light align-items-center">
+            Welcome, {{user()?.firstname}}
+            <i class="bi bi-box-arrow-right border p-2" role="button" (click)="logout()">Logout</i>
+        </span>
+
+    } @else {
+        <span class="me-3 d-flex gap-2 text-light align-items-center">
+            Login
+            <i role="button" class="bi bi-box-arrow-right" routerLink="login">
+                login
+            </i>
+        </span>
+    }
+</nav>

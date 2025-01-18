@@ -1,0 +1,35 @@
+<div>
+    @if (pastEvaluationCycles?.length === 0) {
+        <div class="alert alert-danger d-flex justify-content-center align-items-center">
+            <p class="mb-0">No Past Evaluation Cycles Found</p>
+        </div>
+        
+    }
+    @else {
+    <table class="table table-bordered table-striped text-wrap">
+        <thead>
+            <tr>
+                <th role="button" >
+                     Cycle Id
+                </th>
+                <th role="button" >Department</th>
+                <th role="button" >Start Date</th>
+                <th role="button" >End Date</th>
+                <th role="button" >Average</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (row of pastEvaluationCycles; track row){
+                <tr class="align-middle" >
+                    <td>{{row.cycleId}}</td>
+                    <td>{{row.cycleStartDate}}</td>
+                    <td>{{row.cycleEndDate}}</td>
+                    <td>{{row.department}}</td>
+                    <td>{{row.avgEvaluationResult}}</td>
+                </tr>
+            }
+        </tbody>
+    
+    </table>
+}
