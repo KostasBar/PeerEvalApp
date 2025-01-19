@@ -15,7 +15,9 @@ import { jwtDecode } from 'jwt-decode';
 export class NavbarComponent {
   authService = inject(AuthServiceService);
   user = this.authService.user;
-  
+  constructor(){
+    console.log(this.user())
+  }
 
   logout() {
     //this.authService.logout();

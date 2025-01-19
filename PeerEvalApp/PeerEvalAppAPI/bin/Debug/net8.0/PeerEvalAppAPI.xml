@@ -85,5 +85,19 @@
         <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
+            <summary>
+            Transforms a UserSignUpDTO to a User Object
+            </summary>
+            <param name="signUpDTO">The UserSignUpDTO to extract a UserFrom</param>
+            <returns>A User</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.MapToPastEvaluationsOfUserDTO(System.Collections.Generic.List{PeerEvalAppAPI.Data.Evaluation})">
+            <summary>
+            Transform a list of Evaluations to a List of PastEvaluationsOfUserDTO
+            </summary>
+            <param name="evaluations">A list of evaluations</param>
+            <returns>A List of PastEvaluationsOfUserDTO</returns>
+        </member>
     </members>
 </doc>

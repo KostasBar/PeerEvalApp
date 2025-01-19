@@ -114,6 +114,18 @@
         }
       }
     },
+    "/api/EvaluationCycle/evaluationCycleExists": {
+      "get": {
+        "tags": [
+          "EvaluationCycle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/login": {
       "post": {
         "tags": [
@@ -215,7 +227,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Evaluation"
+                    "$ref": "#/components/schemas/PastEvaluationsOfUserDTO"
                   }
                 }
               },
@@ -223,7 +235,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Evaluation"
+                    "$ref": "#/components/schemas/PastEvaluationsOfUserDTO"
                   }
                 }
               },
@@ -231,7 +243,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Evaluation"
+                    "$ref": "#/components/schemas/PastEvaluationsOfUserDTO"
                   }
                 }
               }
@@ -279,7 +291,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/UsersToEvaluateDTO"
                   }
                 }
               },
@@ -287,7 +299,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/UsersToEvaluateDTO"
                   }
                 }
               },
@@ -295,7 +307,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/User"
+                    "$ref": "#/components/schemas/UsersToEvaluateDTO"
                   }
                 }
               }
@@ -313,101 +325,6 @@
   },
   "components": {
     "schemas": {
-      "Evaluation": {
-        "required": [
-          "evaluateeUser",
-          "evaluationCycle",
-          "evaluatorUser"
-        ],
-        "type": "object",
-        "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "evaluatorUserId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "evaluateeUserId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "evaluationCycleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "timeStamp": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "evaluatorUser": {
-            "$ref": "#/components/schemas/User"
-          },
-          "evaluateeUser": {
-            "$ref": "#/components/schemas/User"
-          },
-          "evaluationCycle": {
-            "$ref": "#/components/schemas/EvaluationCycle"
-          },
-          "answers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EvaluationAnswer"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EvaluationAnswer": {
-        "required": [
-          "evaluation",
-          "question"
-        ],
-        "type": "object",
-        "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "evaluationId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "questionId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "answerValue": {
-            "type": "string",
-            "nullable": true
-          },
-          "evaluation": {
-            "$ref": "#/components/schemas/Evaluation"
-          },
-          "question": {
-            "$ref": "#/components/schemas/Question"
-          }
-        },
-        "additionalProperties": false
-      },
       "EvaluationAnswerDTO": {
         "type": "object",
         "properties": {
@@ -417,88 +334,6 @@
           },
           "answerValue": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EvaluationCycle": {
-        "required": [
-          "endDate",
-          "startDate",
-          "status",
-          "title"
-        ],
-        "type": "object",
-        "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string"
-          },
-          "startDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "endDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "evaluations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Evaluation"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Group": {
-        "required": [
-          "groupName",
-          "users"
-        ],
-        "type": "object",
-        "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "groupName": {
-            "maxLength": 128,
-            "minLength": 1,
-            "type": "string"
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
             "nullable": true
           }
         },
@@ -522,35 +357,28 @@
         },
         "additionalProperties": false
       },
-      "Question": {
-        "required": [
-          "text"
-        ],
+      "PastEvaluationsOfUserDTO": {
         "type": "object",
         "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
+          "cycleId": {
             "type": "integer",
             "format": "int32"
           },
-          "text": {
-            "maxLength": 500,
-            "minLength": 1,
-            "type": "string"
-          },
-          "answers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EvaluationAnswer"
-            },
+          "department": {
+            "type": "string",
             "nullable": true
+          },
+          "cycleStartDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cycleEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "avgEvaluationResult": {
+            "type": "number",
+            "format": "float"
           }
         },
         "additionalProperties": false
@@ -607,93 +435,6 @@
           "endWeek": {
             "type": "integer",
             "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "User": {
-        "required": [
-          "email",
-          "evaluationsMade",
-          "evaluationsReceived",
-          "firstName",
-          "group",
-          "lastName",
-          "manager",
-          "subordinates"
-        ],
-        "type": "object",
-        "properties": {
-          "insertedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "modifiedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "firstName": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string"
-          },
-          "lastName": {
-            "maxLength": 255,
-            "minLength": 1,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "role": {
-            "$ref": "#/components/schemas/UserRole"
-          },
-          "groupId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "group": {
-            "$ref": "#/components/schemas/Group"
-          },
-          "managerId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "manager": {
-            "$ref": "#/components/schemas/User"
-          },
-          "subordinates": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            },
-            "nullable": true
-          },
-          "evaluationsMade": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Evaluation"
-            },
-            "nullable": true
-          },
-          "evaluationsReceived": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Evaluation"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -764,6 +505,28 @@
           "groupId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsersToEvaluateDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstname": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastname": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

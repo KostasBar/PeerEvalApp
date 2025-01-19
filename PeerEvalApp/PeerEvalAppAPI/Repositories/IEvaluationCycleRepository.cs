@@ -7,5 +7,6 @@ namespace PeerEvalAppAPI.Repositories
     {
         Task<bool> OpenCycleExists();
         Task<EvaluationCycle?> UpdateEvaluationCycleAsync(EvaluationCycle evaluationCycle);
+        Task<EvaluationCycle?> GetOpenEvaluationCycle();
     }
 }

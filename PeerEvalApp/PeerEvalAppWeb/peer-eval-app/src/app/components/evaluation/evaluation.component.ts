@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { UsersToEvaluate } from '../../interfaces/user';
 
 @Component({
   selector: 'app-evaluation',
@@ -9,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class EvaluationComponent {
 
+  @Input() newUserToEvaluate: UsersToEvaluate | null = null;
+  
+  userToEvaluate: UsersToEvaluate = {
+    firstname: 'none',
+    lastname: 'none',
+    email: 'none',
+    id: 0
+  };
+
+  onSubmit(){
+    
+  }
 }

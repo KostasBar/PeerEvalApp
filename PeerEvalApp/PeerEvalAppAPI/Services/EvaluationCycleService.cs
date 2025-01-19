@@ -94,6 +94,26 @@ namespace PeerEvalAppAPI.Services
             return evaluationCycle;
         }
 
+        public async Task<EvaluationCycle?> EvaluationCycleExists()
+        {
+            try
+            {
+                if (await _unitOfWork.EvaluationCycleRepository.OpenCycleExists())
+                {
+                    EvaluationCycle? existing = await _unitOfWork.EvaluationCycleRepository.GetOpenEvaluationCycle();
+                    return existing;
+
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                _logger.LogError(e, "Error while trying to retrieve open Evaluation Cycle ");
+                throw;
+            }
+        }
+
         public EvaluationCycle MapToEvaluationCycle(InitiateCycleDTO cycleDTO)
         {
             return new EvaluationCycle()

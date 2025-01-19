@@ -97,5 +97,26 @@ namespace PeerEvalAppAPI.Controllers
                 return BadRequest(new { message = "Something went wrong while trying to update an Evaluation Cycle." });
             }
         }
+
+        [HttpGet("evaluationCycleExists")]
+        public async Task<IActionResult> evaluationCycleExists()
+        {
+            try
+            {
+                EvaluationCycle? exists = await _applicationService.EvaluationCycleService.EvaluationCycleExists();
+                if (exists != null)
+                {
+                    return Ok(exists.Id);
+                }
+
+                return Ok(0);
+
+            }
+            catch (Exception)
+            {
+
+                return BadRequest(new { message = "Something went wrong while trying to retrieve open Evaluation Cycle." });
+            }
+        }
     }
 }

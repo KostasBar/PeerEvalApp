@@ -1,0 +1,13 @@
+<h4 class="align-items-center">Add Your Evaluations</h4>
+@if(existingCycleId === 5 || existingCycleId === null){
+<div
+  class="alert alert-danger d-flex justify-content-center align-items-center text-wrap"
+>
+  <p class="mb-0">No active Evaluations Cycle at the moment!</p>
+</div>
+}@else {
+<div class="d-flex gap-5">
+  <app-users-to-evaluate (currentUserToEvaluate)="onUserClick($event)"></app-users-to-evaluate>
+  <app-evaluation [newUserToEvaluate]="newUserClicked"></app-evaluation>
+</div>
+}

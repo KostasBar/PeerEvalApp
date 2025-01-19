@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { UsersToEvaluate } from '../../interfaces/user';
-import { UserService } from '../../services/user.service';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { UsersToEvaluate } from '../../../interfaces/user';
+import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,12 +8,12 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [],
   templateUrl: './users-to-evaluate.component.html',
-  styleUrl: './users-to-evaluate.component.css'
+  styleUrl: './users-to-evaluate.component.css',
 })
 export class UsersToEvaluateComponent {
- private subscriptions: Subscription = new Subscription();
+  private subscriptions: Subscription = new Subscription();
   usersToEvaluate: UsersToEvaluate[] | null = [];
-
+  @Output() currentUserToEvaluate = new EventEmitter<UsersToEvaluate>()
   constructor(private userService: UserService) {}
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class UsersToEvaluateComponent {
     this.subscriptions.add(
       this.userService.getUsersToEvaluate().subscribe({
         next: (users) => {
-          this.usersToEvaluate = users
+          this.usersToEvaluate = users;
         },
         error: (error) => {
           this.usersToEvaluate = [
@@ -48,10 +48,10 @@ export class UsersToEvaluateComponent {
               lastname: 'Georgie',
               email: 'adad',
               id: 1,
-            }
-          ]
+            },
+          ];
           console.error('Failed to load evaluation users', error);
-        }
+        },
       })
     );
   }
@@ -60,7 +60,8 @@ export class UsersToEvaluateComponent {
     // Unsubscribe to prevent memory leaks
     this.subscriptions.unsubscribe();
   }
-  onUserClick(userClicked: UsersToEvaluate){
-    console.log(userClicked)
+  
+  onUserClick(userClicked: UsersToEvaluate) {
+    this.currentUserToEvaluate.emit(userClicked as UsersToEvaluate);
   }
 }

@@ -1,0 +1,377 @@
+[19-01-2025 14:58:25943 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 14:58:25990 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 14:58:26127 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 14:58:26130 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 14:58:26131 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[19-01-2025 14:58:28780 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 14:58:29223 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 448.8143ms
+[19-01-2025 14:58:29288 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 14:58:29288 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 14:58:29288 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - null null
+[19-01-2025 14:58:29302 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 13.5658ms
+[19-01-2025 14:58:29318 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/swagger-ui.css"'. Physical path: '"N/A"'
+[19-01-2025 14:58:29320 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui.css""" - 499 152034 "text/css" 32.1059ms
+[19-01-2025 14:58:29413 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 124.7238ms
+[19-01-2025 14:58:29530 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - null null
+[19-01-2025 14:58:29541 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] The file "/swagger-ui-standalone-preset.js" was not modified
+[19-01-2025 14:58:29543 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/swagger-ui-standalone-preset.js""" - 304 null "text/javascript" 12.6147ms
+[19-01-2025 14:58:29797 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - null null
+[19-01-2025 14:58:29817 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+[19-01-2025 14:58:29819 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - 499 628 "image/png" 21.8531ms
+[19-01-2025 14:58:29895 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 14:58:29940 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 45.4244ms
+[19-01-2025 14:59:05605 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/evaluations-for-user/1""" - null null
+[19-01-2025 14:59:05613 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)"'
+[19-01-2025 14:59:05647 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetEvaluationsForUser\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PeerEvalAppAPI.DTO.UserDTOs.PastEvaluationsOfUserDTO]]] GetEvaluationsForUser(Int32)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 14:59:08346 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("125"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__id_0"
+[19-01-2025 14:59:08485 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("21"ms) [Parameters=["@__user_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [e].[Id], [e].[EvaluateeUserId], [e].[EvaluationCycleId], [e].[EvaluatorUserId], [e].[InsertedAt], [e].[ModifiedAt], [e].[TimeStamp]
+FROM [Evaluations] AS [e]
+WHERE [e].[EvaluateeUserId] = @__user_Id_0"
+[19-01-2025 14:59:08519 +02:00 PeerEvalAppAPI.Services.UserService ] Error during GetEvaluationsForUserAsync for id 1
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at PeerEvalAppAPI.Services.UserService.MapToPastEvaluationsOfUserDTO(List`1 evaluations) in C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\Services\UserService.cs:line 194
+   at PeerEvalAppAPI.Services.UserService.GetEvaluationsForUserAsync(Int32 id) in C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI\Services\UserService.cs:line 92
+[19-01-2025 14:59:08544 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "ObjectResult", writing value of type '"<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+[19-01-2025 14:59:08558 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)" in 2904.6958ms
+[19-01-2025 14:59:08560 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.GetEvaluationsForUser (PeerEvalAppAPI)"'
+[19-01-2025 14:59:08569 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/evaluations-for-user/1""" - 500 null "application/json; charset=utf-8" 2964.0252ms
+[19-01-2025 14:59:49406 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/user-to-evaluate/1""" - null null
+[19-01-2025 14:59:49411 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)"'
+[19-01-2025 14:59:49418 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUsersToEvaluate\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PeerEvalAppAPI.DTO.UserDTOs.UsersToEvaluateDTO]]] GetUsersToEvaluate(Int32)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 14:59:49528 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("15"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__id_0"
+[19-01-2025 14:59:49531 +02:00 PeerEvalAppAPI.Services.UserService ] User with id 0 could not be found!
+[19-01-2025 14:59:49534 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "NotFoundObjectResult", writing value of type '"<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+[19-01-2025 14:59:49535 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)" in 116.1235ms
+[19-01-2025 14:59:49537 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)"'
+[19-01-2025 14:59:49541 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/user-to-evaluate/1""" - 404 null "application/json; charset=utf-8" 133.2509ms
+[19-01-2025 14:59:57156 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/user-to-evaluate/1""?userId=1" - null null
+[19-01-2025 14:59:57159 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)"'
+[19-01-2025 14:59:57160 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"GetUsersToEvaluate\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[PeerEvalAppAPI.DTO.UserDTOs.UsersToEvaluateDTO]]] GetUsersToEvaluate(Int32)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 14:59:57196 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("13"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__id_0"
+[19-01-2025 14:59:57214 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("6"ms) [Parameters=["@__user_GroupId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[GroupId] = @__user_GroupId_0"
+[19-01-2025 14:59:57217 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[PeerEvalAppAPI.DTO.UserDTOs.UsersToEvaluateDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[19-01-2025 14:59:57219 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)" in 57.0405ms
+[19-01-2025 14:59:57220 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.GetUsersToEvaluate (PeerEvalAppAPI)"'
+[19-01-2025 14:59:57221 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/user-to-evaluate/1""?userId=1" - 200 null "application/json; charset=utf-8" 64.8217ms
+[19-01-2025 15:26:27836 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 15:26:27869 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 15:26:27940 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 15:26:27941 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 15:26:27943 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[19-01-2025 15:26:28087 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 15:26:28387 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 301.3353ms
+[19-01-2025 15:26:28547 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 15:26:28547 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 15:26:28556 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 9.2916ms
+[19-01-2025 15:26:28581 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 33.8183ms
+[19-01-2025 15:26:29183 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - null null
+[19-01-2025 15:26:29193 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+[19-01-2025 15:26:29195 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-32x32.png""" - 200 628 "image/png" 11.7259ms
+[19-01-2025 15:26:29335 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 15:26:29352 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 17.6796ms
+[19-01-2025 15:47:05191 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 15:47:05209 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:47:05218 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 28.2731ms
+[19-01-2025 15:47:05223 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 15:47:24948 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 15:47:24954 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:47:24955 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 7.0735ms
+[19-01-2025 15:47:24958 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 15:47:24968 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 15:47:24970 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:47:24971 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 3.4392ms
+[19-01-2025 15:47:24973 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 15:48:12309 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 15:48:12316 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:48:12320 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 11.1871ms
+[19-01-2025 15:48:12325 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 15:48:48310 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 15:48:48315 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:48:48318 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 7.6593ms
+[19-01-2025 15:48:48322 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 15:49:22443 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 15:49:22447 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:49:22448 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 4.2342ms
+[19-01-2025 15:49:22452 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 15:49:33810 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - null null
+[19-01-2025 15:49:33815 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 15:49:33821 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - 404 0 null 5.6552ms
+[19-01-2025 15:49:33824 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1", Response status code: 404
+[19-01-2025 16:21:17803 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - null null
+[19-01-2025 16:21:17861 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:17866 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - 404 0 null 66.5267ms
+[19-01-2025 16:21:17870 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1", Response status code: 404
+[19-01-2025 16:21:19015 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 16:21:19017 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:19017 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 2.7565ms
+[19-01-2025 16:21:19019 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 16:21:19971 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - null null
+[19-01-2025 16:21:19975 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:19976 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - 404 0 null 5.5078ms
+[19-01-2025 16:21:19980 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1", Response status code: 404
+[19-01-2025 16:21:20686 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 16:21:20691 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:20693 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 7.3404ms
+[19-01-2025 16:21:20696 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 16:21:21334 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - null null
+[19-01-2025 16:21:21336 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:21336 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1""" - 404 0 null 2.3863ms
+[19-01-2025 16:21:21339 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetEvaluationsForUser/1", Response status code: 404
+[19-01-2025 16:21:22524 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 16:21:22531 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:22532 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 7.3178ms
+[19-01-2025 16:21:22536 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 16:21:36210 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 16:21:36213 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:36215 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 4.8172ms
+[19-01-2025 16:21:36219 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 16:21:36233 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 16:21:36237 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 16:21:36239 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 6.2997ms
+[19-01-2025 16:21:36243 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:17:59329 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:17:59369 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:17:59377 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 46.9341ms
+[19-01-2025 17:17:59384 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:17:59391 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:17:59394 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:17:59394 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 3.6311ms
+[19-01-2025 17:17:59396 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:25:26009 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:25:26015 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:25:26017 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 8.1422ms
+[19-01-2025 17:25:26021 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:25:26148 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:25:26154 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:25:26160 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 11.6195ms
+[19-01-2025 17:25:26162 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:27:31823 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:27:31827 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:27:31830 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 7.1549ms
+[19-01-2025 17:27:31835 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:27:31901 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:27:31904 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:27:31904 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 3.1759ms
+[19-01-2025 17:27:31910 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:28:58230 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:28:58236 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:28:58237 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 6.937ms
+[19-01-2025 17:28:58241 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:28:58376 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:28:58383 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:28:58387 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 10.3744ms
+[19-01-2025 17:28:58391 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:30:11153 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:30:11157 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:11159 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 5.9185ms
+[19-01-2025 17:30:11162 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:30:11235 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:30:11243 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:11244 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 8.9532ms
+[19-01-2025 17:30:11247 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:30:22827 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:30:22833 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:22837 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 10.4171ms
+[19-01-2025 17:30:22839 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:30:22895 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:30:22901 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:22903 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 7.844ms
+[19-01-2025 17:30:22906 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:30:38624 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:30:38629 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:38630 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 5.4997ms
+[19-01-2025 17:30:38639 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:30:38692 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:30:38694 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:38697 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 5.4346ms
+[19-01-2025 17:30:38699 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:30:43078 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:30:43087 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:43088 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 10.771ms
+[19-01-2025 17:30:43090 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:30:43114 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:30:43117 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:30:43118 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 4.365ms
+[19-01-2025 17:30:43122 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:32:02926 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:32:02930 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:32:02932 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 6.0935ms
+[19-01-2025 17:32:02934 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:32:02971 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:32:02973 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:32:02974 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 2.8298ms
+[19-01-2025 17:32:02976 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:40:39739 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:40:39742 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:40:39742 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 3.1388ms
+[19-01-2025 17:40:39745 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:40:40541 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:40:40547 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:40:40548 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 6.6516ms
+[19-01-2025 17:40:40551 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 17:57:35802 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 17:57:35811 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:57:35814 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 11.6289ms
+[19-01-2025 17:57:35820 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 17:57:35954 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 17:57:35963 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 17:57:35965 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 10.87ms
+[19-01-2025 17:57:35973 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:03:58306 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:03:58309 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:03:58310 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 3.7308ms
+[19-01-2025 18:03:58313 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:03:58799 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:03:58805 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:03:58808 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 8.1143ms
+[19-01-2025 18:03:58810 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:06:50216 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:06:50220 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:06:50221 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 4.7974ms
+[19-01-2025 18:06:50225 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:06:50255 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:06:50256 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:06:50257 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 2.5129ms
+[19-01-2025 18:06:50259 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:07:31226 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:07:31228 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:31229 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 2.827ms
+[19-01-2025 18:07:31230 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:07:31260 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:07:31262 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:31263 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 2.5273ms
+[19-01-2025 18:07:31267 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:07:54979 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:07:54981 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:54982 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 2.8355ms
+[19-01-2025 18:07:54986 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:07:55016 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:07:55018 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:55019 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 3.0623ms
+[19-01-2025 18:07:55022 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:07:56466 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:07:56469 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:56473 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 5.8556ms
+[19-01-2025 18:07:56475 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:07:56515 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:07:56517 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:07:56517 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 2.4154ms
+[19-01-2025 18:07:56525 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:09:46054 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:09:46056 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:09:46057 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 3.0662ms
+[19-01-2025 18:09:46061 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:09:46796 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:09:46800 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:09:46801 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 4.5402ms
+[19-01-2025 18:09:46804 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:10:36125 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:10:36127 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:10:36128 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 2.777ms
+[19-01-2025 18:10:36130 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:10:36163 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:10:36166 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:10:36170 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 6.9602ms
+[19-01-2025 18:10:36173 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:11:08440 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:11:08442 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:11:08443 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 2.9906ms
+[19-01-2025 18:11:08447 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:11:08477 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:11:08480 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:11:08481 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 4.6364ms
+[19-01-2025 18:11:08484 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:11:17898 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:11:17900 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:11:17901 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 3.422ms
+[19-01-2025 18:11:17903 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:11:17928 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:11:17930 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:11:17931 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 2.3994ms
+[19-01-2025 18:11:17933 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:11:54921 +02:00 Microsoft.Hosting.Lifetime ] Application is shutting down...
+[19-01-2025 18:40:27688 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "https://localhost:5000"
+[19-01-2025 18:40:27753 +02:00 Microsoft.Hosting.Lifetime ] Now listening on: "http://localhost:5001"
+[19-01-2025 18:40:27938 +02:00 Microsoft.Hosting.Lifetime ] Application started. Press Ctrl+C to shut down.
+[19-01-2025 18:40:27940 +02:00 Microsoft.Hosting.Lifetime ] Hosting environment: "Development"
+[19-01-2025 18:40:27941 +02:00 Microsoft.Hosting.Lifetime ] Content root path: "C:\MarkDownEditor\PeerEvalApp\PeerEvalApp\PeerEvalAppAPI"
+[19-01-2025 18:40:28159 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - null null
+[19-01-2025 18:40:28702 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/index.html""" - 200 null "text/html;charset=utf-8" 546.5706ms
+[19-01-2025 18:40:28772 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - null null
+[19-01-2025 18:40:28772 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - null null
+[19-01-2025 18:40:28790 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_framework/aspnetcore-browser-refresh.js""" - 200 13780 "application/javascript; charset=utf-8" 17.6785ms
+[19-01-2025 18:40:28844 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 71.3326ms
+[19-01-2025 18:40:29392 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - null null
+[19-01-2025 18:40:29410 +02:00 Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware ] Sending file. Request path: '"/favicon-16x16.png"'. Physical path: '"N/A"'
+[19-01-2025 18:40:29412 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/favicon-16x16.png""" - 200 665 "image/png" 20.2649ms
+[19-01-2025 18:40:29599 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - null null
+[19-01-2025 18:40:29631 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/swagger/v1/swagger.json""" - 200 null "application/json;charset=utf-8" 31.7741ms
+[19-01-2025 18:40:58007 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - null null
+[19-01-2025 18:40:58019 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:40:58029 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists""" - 404 0 null 21.4207ms
+[19-01-2025 18:40:58041 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/EvaluatioCycle/evaluationCycleExists", Response status code: 404
+[19-01-2025 18:40:58077 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - null null
+[19-01-2025 18:40:58084 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:40:58086 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1""" - 404 0 null 8.5924ms
+[19-01-2025 18:40:58096 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:5000""""/api/User/GetUsersToEvaluate/1", Response status code: 404
+[19-01-2025 18:41:21780 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - null null
+[19-01-2025 18:41:21788 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:41:21790 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - 204 null null 9.9655ms
+[19-01-2025 18:41:21798 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - "application/json" 54
+[19-01-2025 18:41:21806 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:41:21811 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:41:21865 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"Login\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 18:41:24791 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("154"ms) [Parameters=["@__email_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0"
+[19-01-2025 18:41:25091 +02:00 PeerEvalAppAPI.Services.UserService ] User with Email: "user1@example.com" found and returned!
+[19-01-2025 18:41:25334 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"<>f__AnonymousType1`1[[PeerEvalAppAPI.DTO.JwtTokenDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[19-01-2025 18:41:25346 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)" in 3474.0339ms
+[19-01-2025 18:41:25348 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:41:25356 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - 200 null "application/json; charset=utf-8" 3558.3863ms
+[19-01-2025 18:42:24122 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - null null
+[19-01-2025 18:42:24125 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:42:24126 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - 204 null null 4.4588ms
+[19-01-2025 18:42:24148 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - "application/json" 54
+[19-01-2025 18:42:24156 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:42:24160 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:42:24164 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"Login\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 18:42:24279 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("32"ms) [Parameters=["@__email_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0"
+[19-01-2025 18:42:24450 +02:00 PeerEvalAppAPI.Services.UserService ] User with Email: "user1@example.com" found and returned!
+[19-01-2025 18:42:24452 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"<>f__AnonymousType1`1[[PeerEvalAppAPI.DTO.JwtTokenDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[19-01-2025 18:42:24454 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)" in 284.6302ms
+[19-01-2025 18:42:24455 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:42:24456 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - 200 null "application/json; charset=utf-8" 307.4481ms
+[19-01-2025 18:44:17946 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - null null
+[19-01-2025 18:44:17949 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:44:17950 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "OPTIONS" "https"://"localhost:5000""""/api/User/login""" - 204 null null 3.7107ms
+[19-01-2025 18:44:17954 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request starting "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - "application/json" 54
+[19-01-2025 18:44:17957 +02:00 Microsoft.AspNetCore.Cors.Infrastructure.CorsService ] CORS policy execution successful.
+[19-01-2025 18:44:17957 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executing endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:44:17958 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Route matched with "{action = \"Login\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO)" on controller "PeerEvalAppAPI.Controllers.UserController" ("PeerEvalAppAPI").
+[19-01-2025 18:44:18407 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("428"ms) [Parameters=["@__email_0='?' (Size = 255)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[Email], [u].[FirstName], [u].[GroupId], [u].[InsertedAt], [u].[LastName], [u].[ManagerId], [u].[ModifiedAt], [u].[Password], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0"
+[19-01-2025 18:44:18472 +02:00 PeerEvalAppAPI.Services.UserService ] User with Email: "user1@example.com" found and returned!
+[19-01-2025 18:44:18475 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor ] Executing "OkObjectResult", writing value of type '"<>f__AnonymousType1`1[[PeerEvalAppAPI.DTO.JwtTokenDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+[19-01-2025 18:44:18476 +02:00 Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker ] Executed action "PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)" in 516.2932ms
+[19-01-2025 18:44:18477 +02:00 Microsoft.AspNetCore.Routing.EndpointMiddleware ] Executed endpoint '"PeerEvalAppAPI.Controllers.UserController.Login (PeerEvalAppAPI)"'
+[19-01-2025 18:44:18478 +02:00 Microsoft.AspNetCore.Hosting.Diagnostics ] Request finished "HTTP/2" "POST" "https"://"localhost:5000""""/api/User/login""" - 200 null "application/json; charset=utf-8" 524.0919ms
