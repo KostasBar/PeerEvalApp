@@ -89,7 +89,7 @@ namespace PeerEvalAppAPI.Services
                     throw new EntityNotFoundException("User", $"User with id {id} could not be found!");
                 }
                 evalForUser = await _unitOfWork.UserRepository.GetAllEvaluationsForUserAsync(user);
-                List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = MapToPastEvaluationsOfUserDTO(evalForUser);
+                List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = await MapToPastEvaluationsOfUserDTO(evalForUser);
                 return pastEvaluationsOfUserDTOs;
             }
             catch(EntityNotFoundException e) 
@@ -176,30 +176,46 @@ namespace PeerEvalAppAPI.Services
         /// </summary>
         /// <param name="evaluations">A list of evaluations</param>
         /// <returns>A List of PastEvaluationsOfUserDTO</returns>
-        private List<PastEvaluationsOfUserDTO> MapToPastEvaluationsOfUserDTO(List<Evaluation> evaluations)
+        private async Task<List<PastEvaluationsOfUserDTO>> MapToPastEvaluationsOfUserDTO(List<Evaluation> evaluations)
         {
             List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = new List<PastEvaluationsOfUserDTO>();
 
             foreach (var item in evaluations)
             {
                 float avg = 0;
-                if (item.Answers != null && item.Answers.Any())
+                List<EvaluationAnswer>? answers = await _unitOfWork.EvaluationAnswerRepository.GetEvaluationAnswersOfEvaluation(item.Id);
+                if (answers == null || !answers.Any())
                 {
-                    avg = item.Answers
-                                .Select(answer => float.Parse(answer.AnswerValue))
-                                .DefaultIfEmpty(0)  // Provide a default value to avoid errors with empty collections
-                                .Average(); 
+                    throw new EntityNotFoundException("EvaluationAnswer", "Error while trying to retrieve the evaluation answers for evaluation with id"+ item.Id +"!");
                 }
-
-                PastEvaluationsOfUserDTO pastEvaluationsDTO = new PastEvaluationsOfUserDTO()
+                else
                 {
-                    CycleId = item.EvaluationCycleId,
-                    Department = item.EvaluateeUser.Group.GroupName,
-                    CycleStartDate = item.EvaluationCycle.StartDate,
-                    CycleEndDate = item.EvaluationCycle.EndDate,
-                    AvgEvaluationResult = avg
-                };
-                pastEvaluationsOfUserDTOs.Add(pastEvaluationsDTO);
+                    avg = answers.Select(answer => float.Parse(answer.AnswerValue))
+                                .DefaultIfEmpty(0) 
+                                .Average();
+                }
+                EvaluationCycle? currentCycle = await _unitOfWork.EvaluationCycleRepository.GetAsync(item.EvaluationCycleId);
+                Group? currentGroup = await _unitOfWork.GroupRepository.GetAsync(item.EvaluateeUser.GroupId);
+                if (currentCycle != null && currentGroup != null)
+                {
+                    PastEvaluationsOfUserDTO pastEvaluationsDTO = new PastEvaluationsOfUserDTO()
+                    {
+                        CycleId = currentCycle.Id,
+                        Department = item.EvaluateeUser.Group.GroupName,
+                        CycleStartDate = currentCycle.StartDate,
+                        CycleEndDate = currentCycle.EndDate,
+                        AvgEvaluationResult = (float)Math.Round(avg, 2)
+                    };
+                    pastEvaluationsOfUserDTOs.Add(pastEvaluationsDTO);
+                }
+                else if(currentGroup == null)
+                {
+                    throw new EntityNotFoundException("Group", "Error while trying to identify the group of the evaluatee!");
+                }
+                else if(currentCycle == null)
+                {
+                    throw new EntityNotFoundException("Cycle", "Error while trying to retrieve the evaluation cycle of the evaluation!");
+                }
             }
             return pastEvaluationsOfUserDTOs;
         }

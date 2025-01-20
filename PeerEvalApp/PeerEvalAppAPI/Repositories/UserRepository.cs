@@ -76,7 +76,7 @@ namespace PeerEvalAppAPI.Repositories
                 throw new EntityNotFoundException("User", "User with id " + id + " could not be found!");
             }
 
-            List<User>? usersToEvaluate = await _dbContext.Users.Where(u => u.GroupId == user.GroupId).ToListAsync();
+            List<User>? usersToEvaluate = await _dbContext.Users.Where(u => u.GroupId == user.GroupId && u.Id != user.Id).ToListAsync();
             return usersToEvaluate;
         }
     }

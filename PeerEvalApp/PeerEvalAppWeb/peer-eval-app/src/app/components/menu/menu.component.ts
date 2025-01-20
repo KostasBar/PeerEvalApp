@@ -30,14 +30,14 @@ export class MenuComponent {
    * @param role - The user's role
    */
   private updateMenuBasedOnRole(role: string): void {
-    if (role === 'user') {
+    if (role === 'User') {
       this.menu = [
-        { text: "Evaluation Cycles", routerLink: "user-evaluation-cycles" },
-        { text: "Evaluations", routerLink: "users-to-evaluate" }
+        { text: "Evaluation Cycles User", routerLink: "user-evaluation-cycles" },
+        { text: "Evaluations", routerLink: "evaluations-desk" }
       ];
     } else {
       this.menu = [
-        { text: "Evaluation Cycles", routerLink: "user-evaluation-cycles" },
+        { text: "Evaluation Cycles Admin", routerLink: "user-evaluation-cycles" },
         { text: "New Evaluations", routerLink: "evaluations-desk" }
       ];
     }

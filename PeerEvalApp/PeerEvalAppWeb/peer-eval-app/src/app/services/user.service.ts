@@ -6,6 +6,7 @@ import { Mappers } from '../utils/mappers';
 import { jwtDecode } from 'jwt-decode';
 import { PastUserEvaluationCycles } from '../interfaces/evaluation-cycles';
 import { environment } from '../../environments/environment.development';
+import { BehaviorSubject } from 'rxjs';
 
 const API_URL = `${environment.apiURL}/User`;
 
@@ -17,7 +18,7 @@ export class UserService {
   router = inject(Router);
 
   user = signal<LoggedInUser | null>(null);
-
+  
   constructor() {
     const access_token = localStorage.getItem('access_token');
     if (access_token) {
@@ -56,7 +57,7 @@ export class UserService {
     }
 
     const userId = user.id; 
-    const url = `${API_URL}/GetEvaluationsForUser/${userId}`; // Construct the URL with user ID
+    const url = `${API_URL}/evaluations-for-user/${userId}`; // Construct the URL with user ID
 
     return this.http.get<PastUserEvaluationCycles[]>(url, {
       headers: {
@@ -79,7 +80,7 @@ export class UserService {
     }
 
     const userId = user.id; 
-    const url = `${API_URL}/GetUsersToEvaluate/${userId}`;
+    const url = `${API_URL}/user-to-evaluate/${userId}`;
 
     return this.http.get<UsersToEvaluate[]>(url, {
       headers: {

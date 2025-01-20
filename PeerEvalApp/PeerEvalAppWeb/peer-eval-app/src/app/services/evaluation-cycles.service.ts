@@ -3,7 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment.development';
 
-const API_URL = `${environment.apiURL}/EvaluatioCycle`;
+const API_URL = `${environment.apiURL}/EvaluationCycle`;
 
 @Injectable({
   providedIn: 'root',

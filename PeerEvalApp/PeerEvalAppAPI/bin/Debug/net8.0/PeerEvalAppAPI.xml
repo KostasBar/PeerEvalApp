@@ -67,7 +67,7 @@
             <summary>
             Retrieves users that a specific user can evaluate
             </summary>
-            <param name="userId">The evaluator to be</param>
+            <param name="id">The evaluator to be</param>
             <returns>A list of users to be evaluated</returns>
             <response code="200">Returns a list of users to be evaluated from the specific user.</response>
             <response code="404">If no user with the specified ID exists.</response>

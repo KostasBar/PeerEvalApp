@@ -116,17 +116,17 @@ namespace PeerEvalAppAPI.Controllers
         /// <summary>
         /// Retrieves users that a specific user can evaluate
         /// </summary>
-        /// <param name="userId">The evaluator to be</param>
+        /// <param name="id">The evaluator to be</param>
         /// <returns>A list of users to be evaluated</returns>
         /// <response code="200">Returns a list of users to be evaluated from the specific user.</response>
         /// <response code="404">If no user with the specified ID exists.</response>
         /// <response code="500">If an error occurs during the process of retrieving users.</response>
         [HttpGet("user-to-evaluate/{id}")]
-        public async Task<ActionResult<List<UsersToEvaluateDTO>?>> GetUsersToEvaluate(int userId)
+        public async Task<ActionResult<List<UsersToEvaluateDTO>?>> GetUsersToEvaluate(int id)
         {
             try
             {
-                List<UsersToEvaluateDTO>? usersToEvaluate = await _applicationService.UserService.GetUsersToEvaluateAsync(userId);
+                List<UsersToEvaluateDTO>? usersToEvaluate = await _applicationService.UserService.GetUsersToEvaluateAsync(id);
                 if (usersToEvaluate == null)
                 {
                     throw new Exception();
@@ -140,7 +140,7 @@ namespace PeerEvalAppAPI.Controllers
             catch (Exception)
             {
 
-                return BadRequest(new { message = "Something went wrong while retrieving the users that user  with id "+ userId +" can evaluate." });
+                return BadRequest(new { message = "Something went wrong while retrieving the users that user  with id "+ id +" can evaluate." });
             }
         }
     }

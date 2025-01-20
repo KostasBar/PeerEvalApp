@@ -5,6 +5,7 @@ import { LoggedInUser, LoginResponse, UserLogin } from '../interfaces/user';
 import { environment } from '../../environments/environment.development';
 import { Router } from '@angular/router';
 import { Mappers } from '../utils/mappers';
+import { BehaviorSubject } from 'rxjs';
 
 const API_URL = `${environment.apiURL}/User`;
 
@@ -16,6 +17,9 @@ export class AuthServiceService {
   router = inject(Router);
 
   user = signal<LoggedInUser | null>(null);
+
+  private accessTokenSubject = new BehaviorSubject<string | null>(localStorage.getItem('access_token'));
+  accessToken$ = this.accessTokenSubject.asObservable();
 
   constructor() {
     const access_token = localStorage.getItem('access_token');
@@ -48,6 +52,6 @@ export class AuthServiceService {
   logout() {
     this.user.set(null);
     localStorage.removeItem('access_token');
-    this.router.navigate(['app-root']);
+    // this.router.navigate(['']);
   }
 }

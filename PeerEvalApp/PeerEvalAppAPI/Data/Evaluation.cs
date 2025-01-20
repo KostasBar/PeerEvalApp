@@ -18,7 +18,7 @@ namespace PeerEvalAppAPI.Data
         public required User EvaluateeUser { get; set; }
         [ForeignKey("EvaluationCycleId")]
         public virtual required EvaluationCycle EvaluationCycle { get; set; }
-        public virtual ICollection<EvaluationAnswer>? Answers { get; set; }
+        public virtual required ICollection<EvaluationAnswer> Answers { get; set; }
 
 
     }

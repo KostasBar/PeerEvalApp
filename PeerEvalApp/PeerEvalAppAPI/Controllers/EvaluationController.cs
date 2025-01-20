@@ -28,7 +28,7 @@ namespace PeerEvalAppAPI.Controllers
             try
             {
                 Evaluation evaluation = await _applicationService.EvaluationService.AddEvaluation(submitEvaluationDTO);
-                if (evaluation == null) throw new Exception();
+                if (evaluation == null) throw new Exception("Something went wrong in adding new evaluation");
 
                 await _applicationService.EvaluationAnswerService.AddEvaluationAnswer(submitEvaluationDTO, evaluation);
 

@@ -13,34 +13,8 @@ namespace PeerEvalAppAPI.Repositories
 
         public async Task<EvaluationCycle?> GetOpenEvaluationCycle() => await _dbContext.EvaluationsCycles.FirstOrDefaultAsync(ec => ec.Status == 0);
 
-        public async Task<bool> OpenCycleExists() => await _dbContext.EvaluationsCycles.AnyAsync(ec => ec.Status == 1);
+        public async Task<bool> OpenCycleExists() => await _dbContext.EvaluationsCycles.AnyAsync(ec => ec.Status == 0);
 
-        //public async Task<EvaluationCycle?> UpdateEvaluationCycleAsync(EvaluationCycle evaluationCycle)
-        //{
-        //    EvaluationCycle? newEvaluationCycle = null;
-        //    try
-        //    {
-        //        newEvaluationCycle = await _dbContext.EvaluationsCycles.FirstOrDefaultAsync(ec => ec.Id == evaluationCycle.Id);
-        //        if(newEvaluationCycle is null)
-        //        {
-        //            throw new EntityNotFoundException("EvaluationCycle", "Evaluation Cycle with Id "+ evaluationCycle!.Id + " not found!");
-        //        }
-
-        //        _dbContext.EvaluationsCycles.Attach(evaluationCycle);
-        //        _dbContext.Entry(evaluationCycle).State = EntityState.Modified;
-        //    }
-        //    catch (EntityNotFoundException)
-        //    {
-
-        //        throw;
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        throw;
-        //    }
-        //    return evaluationCycle;
-        //}
 
         public async Task<EvaluationCycle?> UpdateEvaluationCycleAsync(EvaluationCycle evaluationCycle)
         {

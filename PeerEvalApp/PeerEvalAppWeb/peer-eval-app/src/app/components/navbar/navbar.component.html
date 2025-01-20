@@ -3,7 +3,7 @@
     @if(user()){
         <span class="me-3 d-flex gap-2 text-light align-items-center">
             Welcome, {{user()?.firstname}}
-            <i class="bi bi-box-arrow-right border p-2" role="button" (click)="logout()">Logout</i>
+            <i class="bi bi-box-arrow-right border rounded p-2" role="button" (click)="logout()">Logout</i>
         </span>
 
     } @else {

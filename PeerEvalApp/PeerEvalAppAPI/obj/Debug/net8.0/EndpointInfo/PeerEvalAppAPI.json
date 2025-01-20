@@ -266,20 +266,13 @@
         "summary": "Retrieves users that a specific user can evaluate",
         "parameters": [
           {
-            "name": "userId",
-            "in": "query",
+            "name": "id",
+            "in": "path",
             "description": "The evaluator to be",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           }
         ],

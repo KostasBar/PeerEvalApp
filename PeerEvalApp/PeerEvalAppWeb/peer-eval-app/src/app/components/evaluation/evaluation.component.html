@@ -9,7 +9,7 @@
         <li>3: employee exceeds expecttions,</li>
     </ul>
 </div>
-@if(userToEvaluate.id === 10){
+@if( !newUserToEvaluate ){
   <div
   class="alert bg-warning d-flex justify-content-center align-items-center"
 >
@@ -17,16 +17,17 @@
 </div>
 }
 @else {
-  <h2 class="mb-4">
-    Employee Evaluation: <span id="employeeName">{{userToEvaluate.firstname + ' ' + userToEvaluate.lastname}}</span>
+  <h2 class="mb-4 text-wrap">
+    Employee Evaluation: <span id="employeeName">{{newUserToEvaluate.firstname + ' ' + newUserToEvaluate.lastname}}</span>
   </h2>
-  <form id="evaluationForm">
+  <form id="evaluationForm" [formGroup]="evaluationForm">
     <div class="mb-3">
       <label for="selfConfidence" class="form-label">Self-Confidence</label>
       <div class="d-flex gap-3">
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="selfConfidence"
             type="radio"
             name="selfConfidence"
             id="selfConfidence1"
@@ -37,6 +38,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="selfConfidence"
             type="radio"
             name="selfConfidence"
             id="selfConfidence2"
@@ -47,6 +49,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="selfConfidence"
             type="radio"
             name="selfConfidence"
             id="selfConfidence3"
@@ -62,6 +65,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="dedication"
             type="radio"
             name="dedication"
             id="dedication1"
@@ -72,6 +76,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="dedication"
             type="radio"
             name="dedication"
             id="dedication2"
@@ -82,6 +87,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="dedication"
             type="radio"
             name="dedication"
             id="dedication3"
@@ -97,6 +103,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="jobKnowledge"
             type="radio"
             name="jobKnowledge"
             id="jobKnowledge1"
@@ -107,6 +114,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="jobKnowledge"
             type="radio"
             name="jobKnowledge"
             id="jobKnowledge2"
@@ -117,6 +125,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="jobKnowledge"
             type="radio"
             name="jobKnowledge"
             id="jobKnowledge3"
@@ -134,6 +143,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="qaOfWork"
             type="radio"
             name="qaOfWork"
             id="qaOfWork1"
@@ -144,6 +154,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="qaOfWork"
             type="radio"
             name="qaOfWork"
             id="qaOfWork2"
@@ -154,6 +165,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="qaOfWork"
             type="radio"
             name="qaOfWork"
             id="qaOfWork3"
@@ -171,6 +183,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="abilityDeadlines"
             type="radio"
             name="abilityDeadlines"
             id="abilityDeadlines1"
@@ -181,6 +194,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="abilityDeadlines"
             type="radio"
             name="abilityDeadlines"
             id="abilityDeadlines2"
@@ -191,6 +205,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="abilityDeadlines"
             type="radio"
             name="abilityDeadlines"
             id="abilityDeadlines3"
@@ -206,6 +221,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="independence"
             type="radio"
             name="independence"
             id="independence1"
@@ -216,6 +232,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="independence"
             type="radio"
             name="independence"
             id="independence2"
@@ -226,6 +243,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="independence"
             type="radio"
             name="independence"
             id="independence3"
@@ -241,6 +259,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="commitment"
             type="radio"
             name="commitment"
             id="commitment1"
@@ -251,6 +270,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="commitment"
             type="radio"
             name="commitment"
             id="commitment2"
@@ -261,6 +281,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="commitment"
             type="radio"
             name="commitment"
             id="commitment3"
@@ -278,6 +299,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="detailAttention"
             type="radio"
             name="detailAttention"
             id="detailAttention1"
@@ -288,6 +310,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="detailAttention"
             type="radio"
             name="detailAttention"
             id="detailAttention2"
@@ -298,6 +321,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="detailAttention"
             type="radio"
             name="detailAttention"
             id="detailAttention3"
@@ -315,6 +339,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="workWithOthers"
             type="radio"
             name="workWithOthers"
             id="workWithOthers1"
@@ -325,6 +350,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="workWithOthers"
             type="radio"
             name="workWithOthers"
             id="workWithOthers2"
@@ -335,6 +361,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="workWithOthers"
             type="radio"
             name="workWithOthers"
             id="workWithOthers3"
@@ -352,6 +379,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="communicationSkills"
             type="radio"
             name="communicationSkills"
             id="communicationSkills1"
@@ -362,6 +390,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="communicationSkills"
             type="radio"
             name="communicationSkills"
             id="communicationSkills2"
@@ -372,6 +401,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="communicationSkills"
             type="radio"
             name="communicationSkills"
             id="communicationSkills3"
@@ -389,6 +419,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="underPressure"
             type="radio"
             name="underPressure"
             id="underPressure1"
@@ -399,6 +430,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="underPressure"
             type="radio"
             name="underPressure"
             id="underPressure2"
@@ -409,6 +441,7 @@
         <div class="form-check">
           <input
             class="form-check-input"
+            formControlName="underPressure"
             type="radio"
             name="underPressure"
             id="underPressure3"
@@ -418,7 +451,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+    <button type="submit" class="btn btn-primary" [disabled]="evaluationForm.invalid" (click)="onSubmit(evaluationForm.value)">
       Submit Evaluation
     </button>
   </form>

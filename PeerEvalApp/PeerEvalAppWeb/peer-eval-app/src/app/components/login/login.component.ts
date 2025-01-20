@@ -51,7 +51,7 @@ export class LoginComponent {
             lastname: decodedTokenSubject.lastname,
             role: decodedTokenSubject.role
         })
-        this.router.navigate(['working-desk']);
+        location.reload()
     },
     error: (error) =>{
         console.log('Login Error', error);
@@ -62,7 +62,7 @@ export class LoginComponent {
 
   // onSubmit(){
   //   console.log("Navigating to working desk");
-  //   // this.router.navigate(['working-desk'])
+  //   this.router.navigate([''])
   //   localStorage.setItem("access_token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ1c2VyMUBleGFtcGxlLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJuYmYiOjE3MzcwNTcxMjAsImV4cCI6MTczNzA2NzkyMCwiaXNzIjoiaHR0cHM6Ly9jb2RpbmdmYWN0b3J5LmF1ZWIuZ3IiLCJhdWQiOiJodHRwczovL2FwaS5jb2RpbmdmYWN0b3J5LmF1ZWIuZ3IifQ.quq7g3kcjjZCquT53nUeLXPRqWRV47rfDkmW5Wn9HM8");
   //   location.reload()
   // }

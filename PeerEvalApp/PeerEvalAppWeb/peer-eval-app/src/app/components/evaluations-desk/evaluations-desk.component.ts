@@ -16,7 +16,7 @@ import { UsersToEvaluate } from '../../interfaces/user';
 export class EvaluationsDeskComponent {
   private subscriptions: Subscription = new Subscription();
   existingCycleId: number | null = null;
-  newUserClicked: UsersToEvaluate | null =null;
+  newUserClicked: UsersToEvaluate | null = null;
   constructor(private cycleService: EvaluationCyclesService) {}
 
   ngOnInit() {

@@ -16,7 +16,7 @@ namespace PeerEvalAppAPI.Data
         public string Email { get; set; } = null!;
         public string Password { get; set; } = null!;
         public UserRole Role { get; set; }
-        public int? GroupId { get; set; }
+        public int GroupId { get; set; }
         [ForeignKey("GroupId")]
         public required virtual Group Group { get; set; }
         public int? ManagerId { get; set; }
