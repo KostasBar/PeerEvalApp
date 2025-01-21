@@ -53,7 +53,7 @@ export class Mappers {
     ];
 
     const resultArray = keyOrder.map((key, index) => {
-      return { [index + 1]: evaluationAnswers[key] };
+      return { "QuestionId": index + 1, "AnswerValue": evaluationAnswers[key]};
     });
 
     return resultArray;

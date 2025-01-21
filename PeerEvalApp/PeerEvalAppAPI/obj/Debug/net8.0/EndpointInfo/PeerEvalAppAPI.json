@@ -126,6 +126,18 @@
         }
       }
     },
+    "/api/EvaluationCycle/get-all-cycles": {
+      "get": {
+        "tags": [
+          "EvaluationCycle"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/login": {
       "post": {
         "tags": [

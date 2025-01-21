@@ -118,5 +118,22 @@ namespace PeerEvalAppAPI.Controllers
                 return BadRequest(new { message = "Something went wrong while trying to retrieve open Evaluation Cycle." });
             }
         }
+
+        [HttpGet("get-all-cycles")]
+        public async Task<IActionResult> GetAllEvaluationCycles()
+        {
+            try
+            {
+                List<EvaluationCycle>? evaluationCycles = await _applicationService.EvaluationCycleService.GetEvaluationCyclesAsync();
+
+                return Ok(evaluationCycles);
+
+            }
+            catch (Exception)
+            {
+
+                return BadRequest(new { message = "Something went wrong while trying to retrieve open Evaluation Cycle." });
+            }
+        }
     }
 }

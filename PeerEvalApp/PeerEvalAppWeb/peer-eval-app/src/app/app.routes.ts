@@ -6,6 +6,7 @@ import { UsersToEvaluateComponent } from './components/evaluation/users-to-evalu
 import { EvaluationsDeskComponent } from './components/evaluations-desk/evaluations-desk.component';
 import { Component } from '@angular/core';
 import { EvaluationComponent } from './components/evaluation/evaluation.component';
+import { EvaluationCyclesComponent } from './components/evaluation-cycles/evaluation-cycles.component';
 
 export const routes: Routes = [
     {path: 'working-desk', component: WorkingDeskComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'users-to-evaluate', component: UsersToEvaluateComponent},
     {path: 'evaluations-desk', component: EvaluationsDeskComponent},
-    {path: 'evaluation', component: EvaluationComponent}
+    {path: 'evaluation', component: EvaluationComponent},
+    {path: 'evaluation-cycles', component:EvaluationCyclesComponent}
 ];

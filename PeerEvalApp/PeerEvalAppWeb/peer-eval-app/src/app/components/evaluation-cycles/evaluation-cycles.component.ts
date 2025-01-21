@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EvaluationCycle, InitializeCycle, UpdateCycle } from '../../interfaces/evaluation-cycles';
 import { Subscription } from 'rxjs';
 import { EvaluationCyclesService } from '../../services/evaluation-cycles.service';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-evaluation-cycles',
-  imports: [],
+  imports: [ReactiveFormsModule],
+  standalone: true,
   templateUrl: './evaluation-cycles.component.html',
   styleUrl: './evaluation-cycles.component.css'
 })
@@ -14,18 +16,26 @@ export class EvaluationCyclesComponent {
   private subscriptions: Subscription = new Subscription();
   cycleService = inject(EvaluationCyclesService);
 
+  cycleForm = new FormGroup({
+    title: new FormControl('', Validators.required),
+    duration: new FormControl('', Validators.required)
+  })
+
   ngOnInit() {
     // Subscribe to the observable returned by getPastEvaluationsOfUser
     this.subscriptions.add(
       this.cycleService.getAllEvaluationCycles().subscribe({
         next: (cycles) => {
           this.evaluationCycles = cycles
+          console.log(cycles);
+          
         },
         error: (error) => {
+          this.evaluationCycles = null;
           console.error('Failed to load evaluation cycles', error);
         }
       })
-    );
+    );    
   }
 
   ngOnDestroy() {
@@ -73,7 +83,8 @@ export class EvaluationCyclesComponent {
         next: () => {
           location.reload()
         },
-        error: (error) => {
+        error: (error: any) => {
+          window.alert(error)
           return;
         }
       })
@@ -98,24 +109,28 @@ export class EvaluationCyclesComponent {
       next: () => {
         location.reload()
       },
-      error: (error) => {
+      error: (error: any) => {
+        console.log(error);
+        
         return;
       }
     })
   }
   
-  initializeCycle(){
+  initializeCycle(value: any){
     const confirmation = window.confirm(`Are you sure you want to Iitialize a new Evaluation Cycle?`);
+    console.log(value);
+    
     if (confirmation) {
       const initializeJson : InitializeCycle = {
-        title: '',
-        weeks: 2
+        title: value.title,
+        weeks: Number(value.duration)
       }
-      this.cycleService.initializeCycle().subscribe({
+      this.cycleService.initializeCycle(initializeJson).subscribe({
         next: () => {
           location.reload()
         },
-        error: (error) => {
+        error: (error: any) => {
           return;
         }
       })

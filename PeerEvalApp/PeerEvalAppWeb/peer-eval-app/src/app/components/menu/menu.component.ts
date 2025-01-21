@@ -33,11 +33,12 @@ export class MenuComponent {
     if (role === 'User') {
       this.menu = [
         { text: "Evaluation Cycles User", routerLink: "user-evaluation-cycles" },
-        { text: "Evaluations", routerLink: "evaluations-desk" }
+        { text: "Evaluations", routerLink: "evaluations-desk" },
+        { text: "Evaluation Cycles", routerLink: "evaluation-cycles" }
       ];
     } else {
       this.menu = [
-        { text: "Evaluation Cycles Admin", routerLink: "user-evaluation-cycles" },
+        { text: "Evaluation Cycles", routerLink: "evaluation-cycles" },
         { text: "New Evaluations", routerLink: "evaluations-desk" }
       ];
     }

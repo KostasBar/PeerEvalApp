@@ -8,9 +8,10 @@ export interface PastUserEvaluationCycles {
 }
 
 export interface EvaluationCycle {
-    cycleId: number,
-    cycleStartDate: Date,
-    cycleEndDate: Date,
+    id: number,
+    title: string,
+    startDate: Date,
+    endDate: Date,
     status: number
 }
 

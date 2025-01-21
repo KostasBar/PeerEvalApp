@@ -46,6 +46,8 @@ export class EvaluationComponent {
     }
 
     if (!this.newUserToEvaluate?.id || !this.cycleId || !user) {
+      console.log('No User');
+      
       return;
     }
     const newEvaluation = Mappers.mapToNewEvaluation(
@@ -54,7 +56,18 @@ export class EvaluationComponent {
       this.newUserToEvaluate?.id,
       this.cycleId
     );
-    this.evaluationService.submitEvaluation(newEvaluation);
-    this.newUserToEvaluate = null;
+    console.log(newEvaluation);
+    
+    this.evaluationService.submitEvaluation(newEvaluation).subscribe({
+      next: () => {
+        this.newUserToEvaluate = null;
+        //location.reload()
+      },
+      error: (error: any) => {
+        window.alert('Error while saving the form!');
+        navigator.clipboard.writeText(JSON.stringify(newEvaluation))
+        return;
+      }
+    });
   }
 }

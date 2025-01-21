@@ -114,6 +114,26 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task<List<EvaluationCycle>?> GetEvaluationCyclesAsync()
+        {
+            try
+            {
+                List<EvaluationCycle>? evaluationCycles = (List<EvaluationCycle>?)await _unitOfWork.EvaluationCycleRepository.GetAllAsync();
+
+                if(evaluationCycles is null)
+                {
+                    return new List<EvaluationCycle>();
+                }
+
+                return evaluationCycles;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error while trying to retrieve list of Evaluation Cycles.");
+                throw;
+            }
+        }
+
         public EvaluationCycle MapToEvaluationCycle(InitiateCycleDTO cycleDTO)
         {
             return new EvaluationCycle()

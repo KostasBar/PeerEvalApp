@@ -27,6 +27,16 @@
   },
   {
     "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationCycleController",
+    "Method": "GetAllEvaluationCycles",
+    "RelativePath": "api/EvaluationCycle/get-all-cycles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationCycleController",
     "Method": "InitializeCycle",
     "RelativePath": "api/EvaluationCycle/newcycle",
     "HttpMethod": "POST",
