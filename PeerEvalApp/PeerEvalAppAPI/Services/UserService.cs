@@ -23,7 +23,7 @@ namespace PeerEvalAppAPI.Services
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>();
+            _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>(); 
         }
 
         public async Task<User?> VerifyAndGetUserAsync(UserLogInDTO credentials)

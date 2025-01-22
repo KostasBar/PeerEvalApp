@@ -1,6 +1,37 @@
 [
   {
     "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationController",
+    "Method": "GetEvaluationsByGroup",
+    "RelativePath": "api/Evaluation/evaluations-by-group/{groupId}/{cycleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "groupId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cycleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PeerEvalAppAPI.DTO.EvalByGroupDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PeerEvalAppAPI.Controllers.EvaluationController",
     "Method": "SubmitEvaluation",
     "RelativePath": "api/Evaluation/submit",
     "HttpMethod": "POST",
@@ -66,6 +97,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PeerEvalAppAPI.Controllers.GroupController",
+    "Method": "GetAllGroups",
+    "RelativePath": "api/Group/GetAllGroups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[PeerEvalAppAPI.DTO.GroupReturnDTO, PeerEvalAppAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "PeerEvalAppAPI.Controllers.UserController",

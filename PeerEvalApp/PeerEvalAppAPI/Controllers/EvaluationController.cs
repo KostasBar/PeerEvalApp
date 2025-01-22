@@ -47,5 +47,29 @@ namespace PeerEvalAppAPI.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpGet("evaluations-by-group/{groupId}/{cycleId}")]
+        public async Task<ActionResult<List<EvalByGroupDTO>>> GetEvaluationsByGroup(int groupId, int cycleId)
+        {
+            try
+            {
+                List<EvalByGroupDTO>? evalByGroupDTOs = await _applicationService.EvaluationService.GetEvaluationByGroup(groupId, cycleId);
+
+                if (evalByGroupDTOs == null)
+                {
+                    return new List<EvalByGroupDTO>();
+                }
+                return Ok(evalByGroupDTOs);
+            }
+            catch( EntityNotFoundException e)
+            {
+                return NotFound(e.Message);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

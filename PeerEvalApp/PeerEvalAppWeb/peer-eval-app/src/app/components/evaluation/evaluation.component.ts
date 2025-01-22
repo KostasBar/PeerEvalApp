@@ -47,6 +47,11 @@ export class EvaluationComponent {
 
     if (!this.newUserToEvaluate?.id || !this.cycleId || !user) {
       console.log('No User');
+      console.log(!this.newUserToEvaluate?.id);
+      console.log(!this.cycleId);
+      console.log(!user);
+      
+      (!this.cycleId)
       
       return;
     }

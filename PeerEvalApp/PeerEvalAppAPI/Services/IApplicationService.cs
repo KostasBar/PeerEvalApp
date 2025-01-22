@@ -6,5 +6,6 @@
         EvaluationCycleService EvaluationCycleService { get; }
         EvaluationService EvaluationService { get; }
         EvaluationAnswerService EvaluationAnswerService { get; }
+        GroupService GroupService { get; }
     }
 }

@@ -70,13 +70,32 @@ namespace PeerEvalAppAPI.Repositories
 
         public async Task<List<User>?> GetUsersToEvaluate(int id)
         {
+
+            // Fetch the user to ensure it exists and to retrieve the GroupId for the filter
             User? user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
             if (user == null)
             {
-                throw new EntityNotFoundException("User", "User with id " + id + " could not be found!");
+                throw new EntityNotFoundException("User", $"User with id {id} could not be found!");
             }
 
-            List<User>? usersToEvaluate = await _dbContext.Users.Where(u => u.GroupId == user.GroupId && u.Id != user.Id).ToListAsync();
+            // Fetch the current active evaluation cycle's ID with Status = 0
+            int? activeEvaluationCycleId = await _dbContext.EvaluationsCycles
+                .Where(c => c.Status == 0)
+                .Select(c => c.Id)
+                .FirstOrDefaultAsync();
+
+            if (activeEvaluationCycleId == null)
+            {
+                throw new EntityNotFoundException("EvaluationCycle","No active evaluation cycle found.");
+            }
+
+            // Get users to evaluate, excluding the current user and those already evaluated in the current cycle
+            List<User>? usersToEvaluate = await _dbContext.Users
+                .Where(u => u.GroupId == user.GroupId && u.Id != user.Id)
+                .Where(u => !_dbContext.Evaluations
+                    .Any(e => e.EvaluateeUserId == u.Id && e.EvaluationCycleId == activeEvaluationCycleId))
+                .ToListAsync();
+
             return usersToEvaluate;
         }
     }

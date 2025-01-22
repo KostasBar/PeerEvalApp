@@ -48,6 +48,29 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task<List<EvalByGroupDTO>?> GetEvaluationByGroup(int groupID, int cycleId)
+        {
+            try
+            {
+                List<EvalByGroupDTO>? evaluations = await _unitOfWork.EvaluationRepository.GetEvaluationByGroup(groupID, cycleId);
+                if (evaluations == null)
+                {
+                    throw new EntityNotFoundException("Evaluations", "No Evaluations Found");
+                }
+                return evaluations;
+            }
+            catch(EntityNotFoundException e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "An error occured while trying to retrieve evaluations by group!");
+                throw;
+            }
+        }
+
         public async Task<Evaluation> MapToEvaluation(SubmitEvaluationDTO submitEvaluationDTO)
         {
             User? evaluatee = await _unitOfWork.UserRepository.GetUserById(submitEvaluationDTO.EvaluateeUserId);
