@@ -28,9 +28,6 @@ namespace PeerEvalAppAPI.Controllers
         {
             try
             {
-                ILogger<EvaluationController> _logger;
-                _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationController>();
-                _logger.LogCritical(submitEvaluationDTO.ToString());
                 Evaluation evaluation = await _applicationService.EvaluationService.AddEvaluation(submitEvaluationDTO);
                 if (evaluation == null) throw new Exception("Something went wrong in adding new evaluation");
 

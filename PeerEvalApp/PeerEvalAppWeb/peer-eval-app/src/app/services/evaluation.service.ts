@@ -31,7 +31,7 @@ export class EvaluationService {
   getEvaluationsByGroup(groupId: number, cycleId: number)
   {
     const url = `${API_URL}/evaluations-by-group/${groupId}/${cycleId}`
-    return this.http.get<EvalByGroup>(url);
+    return this.http.get<EvalByGroup[]>(url);
   }
   
 }

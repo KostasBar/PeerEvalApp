@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using PeerEvalAppAPI.DTO;
 using PeerEvalAppAPI.DTO.UserDTOs;
 using PeerEvalAppAPI.Exceptions;
@@ -8,8 +9,15 @@ namespace PeerEvalAppAPI.Controllers
 {
     public class GroupController : BaseController
     {
-        protected GroupController(IApplicationService applicationService) : base(applicationService)
+        private readonly IConfiguration _configuration;
+        private readonly IMapper _mapper;
+
+        public GroupController(IApplicationService applicationService, IConfiguration configuration,
+            IMapper mapper)
+            : base(applicationService)
         {
+            _configuration = configuration;
+            _mapper = mapper;
         }
 
         [HttpGet]

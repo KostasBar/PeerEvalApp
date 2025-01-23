@@ -1,107 +1,112 @@
 <div class="align-items-center">
-    <form [formGroup]="cycleForm" id="cycleForm" class="mb-3">
-        <!-- Cycle Title Field -->
-        <div class="mb-3">
-          <label for="cycleTitle" class="form-label">Cycle Title</label>
-          <input
-            type="text"
-            id="cycleTitle"
-            class="form-control"
-            formControlName="title"
-            placeholder="Enter cycle title"
-            required
-          />
-          <!-- Validation error -->
-          <!-- <div
+  <form [formGroup]="cycleForm" id="cycleForm" class="mb-3">
+    <!-- Cycle Title Field -->
+    <div class="mb-3">
+      <label for="cycleTitle" class="form-label">Cycle Title</label>
+      <input
+        type="text"
+        id="cycleTitle"
+        class="form-control"
+        formControlName="title"
+        placeholder="Enter cycle title"
+        required
+      />
+      <!-- Validation error -->
+      <!-- <div
             *ngIf="cycleForm.get('cycleTitle')?.invalid && cycleForm.get('cycleTitle')?.touched"
             class="text-danger mt-1"
           >
             Cycle Title is required.
           </div> -->
-        </div>
-      
-        <!-- Duration Dropdown Field -->
-        <div class="mb-3">
-          <label for="duration" class="form-label">Duration</label>
-          <select
-            id="duration"
-            class="form-select"
-            formControlName="duration"
-            required
-          >
-            <option value="" disabled selected>Select duration</option>
-            <option [value]="1">1 week</option>
-            <option [value]="2">2 weeks</option>
-            <option [value]="3">3 weeks</option>
-          </select>
-          <!-- Validation error -->
-           
-          <!-- <div
+    </div>
+
+    <!-- Duration Dropdown Field -->
+    <div class="mb-3">
+      <label for="duration" class="form-label">Duration</label>
+      <select
+        id="duration"
+        class="form-select"
+        formControlName="duration"
+        required
+      >
+        <option value="" disabled selected>Select duration</option>
+        <option [value]="1">1 week</option>
+        <option [value]="2">2 weeks</option>
+        <option [value]="3">3 weeks</option>
+      </select>
+      <!-- Validation error -->
+
+      <!-- <div
             *ngIf="cycleForm.get('duration')?.invalid && cycleForm.get('duration')?.touched"
             class="text-danger mt-1"
           >
             Duration is required.
           </div> -->
-        </div>
-      
-        <!-- Submit Button -->
-        <div class="d-flex justify-content-end align-items-center">
-          <button type="submit" class="btn btn-success" [disabled]="cycleForm.invalid" (click)="initializeCycle(cycleForm.value)">Initialize New Cycle</button>
-        </div>
-      </form>
-      
+    </div>
 
-    @if (!evaluationCycles || evaluationCycles.length === 0) {
-        <div class="alert bg-warning d-flex justify-content-center align-items-center">
-            <p class="mb-0">No Evaluation Cycles Found</p>
-        </div>
-        
-    }
-    @else {
-    <table class="table table-bordered table-striped text-wrap">
-        <thead>
-            <tr class="align-middle" >
-                <th class="text-center">
-                     Title
-                </th>
-                <th class="text-center">Start Date</th>
-                <th class="text-center">End Date</th>
-                <th class="text-center">Status</th>
-                <th class="text-center">Update Duration</th>
-                <th class="text-center">Close</th>
-            </tr>
-        </thead>
-        <tbody>
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-end align-items-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="cycleForm.invalid"
+        (click)="initializeCycle(cycleForm.value)"
+      >
+        Initialize New Cycle
+      </button>
+    </div>
+  </form>
 
-            @for (row of evaluationCycles; track row){
-                <tr class="align-middle" >
-                    <td class="text-center">{{row.title}}</td>
-                    <td class="text-center">{{row.startDate}}</td>
-                    <td class="text-center">{{row.endDate}}</td>
-                    @if(row.status === 0){
-                        <td class="text-center">open</td>
-                        <td class="text-center">
-                            <select 
-                                class="form-select" 
-                                aria-label="Postpone cycle" 
-                                (change)="onPostponeChange($event, row.id)"
-                                defaultValue=""
-                            >
-                                <option value="" disabled selected>Select postpone duration</option>
-                                <option value="1">1 week</option>
-                                <option value="2">2 weeks</option>
-                            </select>
-                        </td>
-                        <td class="text-center" role="button" (click)="closeCycle(row.id)">Close</td>
-                    }@else if(row.status === 1){
-                        <td class="text-center">closed</td>
-                        <td class="text-center"> - </td>
-                        <td class="text-center"> - </td>
-                    }
-                </tr>
-            }
-        </tbody>
-    
-    </table>
-}
+  @if (!evaluationCycles || evaluationCycles.length === 0) {
+  <div
+    class="alert bg-warning d-flex justify-content-center align-items-center"
+  >
+    <p class="mb-0">No Evaluation Cycles Found</p>
+  </div>
+
+  } @else {
+  <table class="table table-bordered table-striped text-wrap">
+    <thead>
+      <tr class="align-middle">
+        <th class="text-center">Title</th>
+        <th class="text-center">Start Date</th>
+        <th class="text-center">End Date</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Update Duration</th>
+        <th class="text-center">Close</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of evaluationCycles; track row){
+      <tr class="align-middle">
+        <td class="text-center">{{ row.title }}</td>
+        <td class="text-center">{{ row.startDate }}</td>
+        <td class="text-center">{{ row.endDate }}</td>
+        @if(row.status === 0){
+        <td class="text-center">open</td>
+        <td class="text-center">
+          <select
+            class="form-select"
+            aria-label="Postpone cycle"
+            (change)="onPostponeChange($event, row.id)"
+            defaultValue=""
+          >
+            <option value="" disabled selected>Select postpone duration</option>
+            <option value="1">1 week</option>
+            <option value="2">2 weeks</option>
+          </select>
+        </td>
+        <td class="text-center" role="button" (click)="closeCycle(row.id)">
+          Close
+        </td>
+        }@else if(row.status === 1){
+        <td class="text-center">closed</td>
+        <td class="text-center">-</td>
+        <td class="text-center">-</td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
 </div>

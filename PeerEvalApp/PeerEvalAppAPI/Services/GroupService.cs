@@ -24,7 +24,7 @@ namespace PeerEvalAppAPI.Services
             try
             {
                 List<Group>? groups = (List<Group>?)await _unitOfWork.GroupRepository.GetAllAsync();
-                List<GroupReturnDTO>? groupReturnDTOs = groups?.Select(g => _mapper.Map<GroupReturnDTO>(g)).ToList();
+                List<GroupReturnDTO>? groupReturnDTOs = groups?.Select(g => MapToGroupReturnDTO(g)).ToList();
                 if (groupReturnDTOs is null)
                 {
                     List<GroupReturnDTO> groupReturns = new List<GroupReturnDTO>();
@@ -37,6 +37,15 @@ namespace PeerEvalAppAPI.Services
                 _logger.LogError(e, "An error occured while retrieving Groups");
                 throw;
             }
+        }
+
+        private GroupReturnDTO MapToGroupReturnDTO(Group group)
+        {
+            return  new GroupReturnDTO()
+            {
+                Id = group.Id,
+                GroupName = group.GroupName
+            };
         }
     }
 }

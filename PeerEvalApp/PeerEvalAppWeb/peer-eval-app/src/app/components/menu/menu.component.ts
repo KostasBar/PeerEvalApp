@@ -34,7 +34,8 @@ export class MenuComponent {
       this.menu = [
         { text: "Evaluation Cycles User", routerLink: "user-evaluation-cycles" },
         { text: "Evaluations", routerLink: "evaluations-desk" },
-        { text: "Evaluation Cycles", routerLink: "evaluation-cycles" }
+        { text: "Evaluation Cycles", routerLink: "evaluation-cycles" },
+        { text: "Reports", routerLink: "evaluations-report"}
       ];
     } else {
       this.menu = [
