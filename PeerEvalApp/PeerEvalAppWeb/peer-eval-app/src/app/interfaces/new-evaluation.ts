@@ -3,8 +3,16 @@ export interface NewEvaluation {
     evaluateeUserId: number,
     evaluationCycleId: number,
     timeStamp: string,
-    answers:[{
+    answers: [{
         questionId: number,
         answerValue: string
     }]
+}
+
+export interface EvalByGroup {
+    cycleId: number,
+    cycleTitle: string,
+    evaluateeFirstName: string,
+    evaluateeLastName: string,
+    average: number
 }
