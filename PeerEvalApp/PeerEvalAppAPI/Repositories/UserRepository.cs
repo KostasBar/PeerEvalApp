@@ -98,5 +98,21 @@ namespace PeerEvalAppAPI.Repositories
 
             return usersToEvaluate;
         }
+
+        public async Task<List<User>?> GetUsersByGroup(int groupId)
+        {
+            try
+            {
+                List<User>? users = await _dbContext.Users
+                                    .Where( u => u.GroupId == groupId)
+                                    .ToListAsync();
+                return users;
+            }
+            catch (Exception e)
+            {
+                
+                throw;
+            }
+        }
     }
 }

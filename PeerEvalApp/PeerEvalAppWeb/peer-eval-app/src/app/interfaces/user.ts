@@ -23,3 +23,11 @@ export interface UsersToEvaluate{
   lastname: string,
   email: string
 }
+
+export interface SubmitUser{
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  groupId: number,
+}

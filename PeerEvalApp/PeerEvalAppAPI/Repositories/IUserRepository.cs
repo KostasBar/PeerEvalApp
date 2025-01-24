@@ -12,5 +12,6 @@ namespace PeerEvalAppAPI.Repositories
             List<Func<User, bool>> predicates);
         Task<List<Evaluation>?> GetAllEvaluationsForUserAsync(User user);
         Task<List<User>?> GetUsersToEvaluate(int id);
+        Task<List<User>?> GetUsersByGroup(int groupId);
     }
 }

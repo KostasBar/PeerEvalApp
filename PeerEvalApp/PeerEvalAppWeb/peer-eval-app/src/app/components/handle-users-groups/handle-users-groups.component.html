@@ -1,0 +1,107 @@
+<div class="container">
+    <!-- New Group Form -->
+    <form [formGroup]="newGroupsForm" class="d-flex justify-content-between mb-3">
+        <div class="flex-fill m-3">
+            <label for="groupName" class="form-label">Group Name</label>
+            <input type="text" formControlName="groupName" 
+                    placeholder="Type a Department's Title" 
+                    class="form-control" required>
+          </div>
+          <div class="d-flex justify-content-end align-items-center">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="newGroupsForm.invalid"
+              (click)="addGroup(newGroupsForm.value)"
+            >
+              Add New Group
+            </button>
+          </div>
+    </form>
+
+    <!-- New User Form -->
+     @if(!groups || groups.length === 0)
+     {
+        <div
+        class="alert bg-warning d-flex justify-content-center align-items-center"
+      >
+        <p class="mb-0">No Groups/Departments Found</p>
+      </div>
+     }
+     @else
+     {
+        <form [formGroup]="newUserForm" class="d-flex justify-content-between mb-3">
+            <div class="flex-fill m-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" formControlName="firstName" 
+                        placeholder="User's First Name" 
+                        class="form-control" required>
+              </div>
+
+              <div class="flex-fill m-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" formControlName="lastName" 
+                        placeholder="User's Last Name" 
+                        class="form-control" required>
+              </div>
+
+              <div class="flex-fill m-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" formControlName="email" 
+                        placeholder="User's Email" 
+                        class="form-control" required>
+              </div>
+
+              <div class="flex-fill m-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="text" formControlName="password" 
+                        placeholder="User's Password" 
+                        class="form-control" required>
+              </div>
+
+              <div class="flex-fill m-3">
+                <label for="lastName" class="form-label">Group</label>
+                <select id="groupId" class="form-select" formControlName="groupId" required>
+                    <option value="" disabled selected>Select Group</option>
+                    @for (item of groups; track item) {
+                    <option [value]="item.id">{{ item.groupName }}</option>
+                    }
+                  </select>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  [disabled]="newGroupsForm.invalid"
+                  (click)="signUpUser(newUserForm.value)"
+                >
+                  Add Users
+                </button>
+              </div>
+        </form>
+
+        <form [formGroup]="usersByGroup" class="d-flex justify-content-between mb-3">
+            <div class="flex-fill m-3">
+                <label for="lastName" class="form-label">Group</label>
+                <select id="groupId" class="form-select" formControlName="groupId" required>
+                    <option value="" disabled selected>Select Group</option>
+                    @for (item of groups; track item) {
+                    <option [value]="item.id">{{ item.groupName }}</option>
+                    }
+                  </select>
+              </div>
+
+              <div class="d-flex justify-content-end align-items-center">
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  [disabled]="usersByGroup.invalid"
+                  (click)="retrieveUsers(usersByGroup.value)"
+                >
+                  Add Users
+                </button>
+              </div>
+        </form>
+     }
+</div>

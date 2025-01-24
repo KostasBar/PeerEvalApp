@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using PeerEvalAppAPI.Data;
 using PeerEvalAppAPI.DTO;
+using PeerEvalAppAPI.Exceptions;
 using PeerEvalAppAPI.Repositories;
 using Serilog;
 
@@ -39,12 +40,52 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task AddGroup(string groupName)
+        {
+            try{   
+                
+                // Check if group name already exists
+                List<Group>? groups = (List<Group>?)await _unitOfWork.GroupRepository.GetAllAsync();
+                if (groups is not null){
+                    bool exists = groups.Any(g => g.GroupName.Equals(groupName, StringComparison.OrdinalIgnoreCase));
+                    if (exists)
+                    {
+                        throw new EntityAlreadyExistsException("Group", "Group " + groupName + " already exists.");
+                    }
+                }
+
+                Group group = MapToGroup(groupName);
+                await _unitOfWork.GroupRepository.AddAsync(group);
+                await _unitOfWork.SaveAsync();
+                
+            }
+            catch (EntityAlreadyExistsException e)
+            {
+                _logger.LogWarning(e.Message);
+                throw;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError("An error occured while trying to add a new group.");
+                throw;
+            }
+        }
+
         private GroupReturnDTO MapToGroupReturnDTO(Group group)
         {
             return  new GroupReturnDTO()
             {
                 Id = group.Id,
                 GroupName = group.GroupName
+            };
+        }
+
+        private Group MapToGroup(string groupName)
+        {
+            return new Group()
+            {
+                GroupName = groupName
+
             };
         }
     }

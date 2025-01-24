@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoggedInUser, UsersToEvaluate } from '../interfaces/user';
+import { LoggedInUser, SubmitUser, UsersToEvaluate } from '../interfaces/user';
 import { Mappers } from '../utils/mappers';
 import { jwtDecode } from 'jwt-decode';
 import { PastUserEvaluationCycles } from '../interfaces/evaluation-cycles';
@@ -87,5 +87,15 @@ export class UserService {
         Accept: 'application/json',
       },
     });
+  }
+
+  signUpUser(user: SubmitUser){
+    const url = `${API_URL}/register`;
+    return this.http.post(url, user);
+  }
+
+  getUsersByGroup(groupId: number){
+    const url = `${API_URL}/users-by-group/${groupId}`;
+    return this.http.get<UsersToEvaluate[]>(url);
   }
 }

@@ -9,6 +9,6 @@ namespace PeerEvalAppAPI.Data
         [Required, MaxLength(128)]
         public string GroupName { get; set; } = null!;
 
-        public virtual required ICollection<User> Users { get; set; }
+        public virtual ICollection<User> Users { get; set; } = new List<User>();
     }
 }

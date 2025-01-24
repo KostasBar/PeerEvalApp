@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text.RegularExpressions;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using PeerEvalAppAPI.DTO;
 using PeerEvalAppAPI.DTO.UserDTOs;
@@ -40,6 +41,24 @@ namespace PeerEvalAppAPI.Controllers
             {
 
                 return BadRequest(new { message = "Something went wrong while retrieving groups." });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddGroup([FromBody] NewGroupDTO groupName)
+        {
+            try
+            {
+                await _applicationService.GroupService.AddGroup(groupName.GroupName);
+                return Ok();
+            }
+            catch (EntityAlreadyExistsException e)
+            {
+                return StatusCode(404, new {message = e.Message});
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, new { message = "An error occurred while trying to add the new group." });
             }
         }
     }

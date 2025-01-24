@@ -124,6 +124,26 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task<List<UsersToEvaluateDTO>?> GetUsersByGroup(int groupId)
+        {
+            try
+            {
+                List<User>? users = await _unitOfWork.UserRepository.GetUsersByGroup(groupId);
+                if (users is null)
+                {
+                    _logger.LogWarning("No users found for group id "+ groupId);
+                    return new List<UsersToEvaluateDTO>();
+                }
+                List<UsersToEvaluateDTO> usersToEvaluateDTOs = MapToUsersToEvaluateDTO(users);
+                return usersToEvaluateDTOs;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                throw;
+            }
+        }
+
         public string CreateUserToken(int userId, string email, string firstname, string lastname, UserRole? userRole,
             string appSecurityKey)
         {
@@ -238,7 +258,6 @@ namespace PeerEvalAppAPI.Services
 
             return usersToEvaluateDTOs;
         }
-
 
     }
 }

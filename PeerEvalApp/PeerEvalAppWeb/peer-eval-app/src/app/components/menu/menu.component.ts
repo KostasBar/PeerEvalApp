@@ -40,7 +40,8 @@ export class MenuComponent {
     } else {
       this.menu = [
         { text: "Evaluation Cycles", routerLink: "evaluation-cycles" },
-        { text: "New Evaluations", routerLink: "evaluations-desk" }
+        { text: "Reports", routerLink: "evaluations-report"},
+        {text: "Users - Groups", routerLink: "handle-users-groups"}
       ];
     }
   }

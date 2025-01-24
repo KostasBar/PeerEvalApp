@@ -9,5 +9,6 @@ namespace PeerEvalAppAPI.Services
         Task<List<PastEvaluationsOfUserDTO>?> GetEvaluationsForUserAsync(int id);
         Task SignUpUserAsync(UserSignUpDTO signUpDTO);
         Task<List<UsersToEvaluateDTO>?> GetUsersToEvaluateAsync(int id);
+        Task<List<UsersToEvaluateDTO>?> GetUsersByGroup(int groupId);
     }
 }

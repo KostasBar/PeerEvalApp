@@ -143,5 +143,27 @@ namespace PeerEvalAppAPI.Controllers
                 return BadRequest(new { message = "Something went wrong while retrieving the users that user  with id "+ id +" can evaluate." });
             }
         }
+
+        [HttpGet("users-by-group/{groupId}")]
+        public async Task<IActionResult> GetUsersByGroup(int groupId)
+        {
+            try
+            {
+                var usersToEvaluateDTOs = await _applicationService.UserService.GetUsersByGroup(groupId);
+
+                // Initialize to empty list if null
+                if (usersToEvaluateDTOs == null)
+                {
+                    usersToEvaluateDTOs = new List<UsersToEvaluateDTO>();
+                }
+
+                return Ok(usersToEvaluateDTOs);
+            }
+            catch (Exception ex)
+            {
+                // Return a generic error message
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
+        }
     }
 }
