@@ -30,4 +30,15 @@ export interface SubmitUser{
   email: string,
   password: string,
   groupId: number,
+  userRole: string
+}
+
+export interface UpdateUser{
+  id: number,
+  firstname: string,
+  lastname: string,
+  email: string,
+  password: string,
+  groupId: number,
+  role: string
 }

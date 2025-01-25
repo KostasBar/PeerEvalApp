@@ -78,6 +78,31 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        public async Task UpdateUserAsync(UserUpdateDTO userUpdateDTO)
+        {
+            try
+            {
+                User? existing = await _unitOfWork.UserRepository.GetAsync(userUpdateDTO.Id);
+                User user = MapToUser(userUpdateDTO, existing);
+                if (existing is null)
+                {
+                    throw new EntityNotFoundException("User", "User with id " + user.Id + " could not be retrieved!");
+                }
+                await _unitOfWork.UserRepository.UpdateAsync(user);
+                await _unitOfWork.SaveAsync();
+            }
+            catch (EntityNotFoundException ex)
+            {
+                _logger.LogWarning(ex.Message);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                throw;
+            }
+        }
+
         public async Task<List<PastEvaluationsOfUserDTO>?> GetEvaluationsForUserAsync(int id)
         {
             List<Evaluation>? evalForUser = new();
@@ -173,18 +198,18 @@ namespace PeerEvalAppAPI.Services
         /// </summary>
         /// <param name="signUpDTO">The UserSignUpDTO to extract a UserFrom</param>
         /// <returns>A User</returns>
-        private User MapToUser(UserSignUpDTO signUpDTO)
+        private User MapToUser(UserSignUpDTO signUpDTO, User existing)
         {
             return new User()
             {
                 FirstName = signUpDTO.FirstName,
                 LastName = signUpDTO.LastName,
                 Email = signUpDTO.Email,
-                Password = signUpDTO.Password,
-                Role = signUpDTO.UserRole,
-                Manager = null,
-                Group = null,
-                GroupId = signUpDTO.GroupId,
+                Password = !string.IsNullOrEmpty(signUpDTO.Password) ? signUpDTO.Password : existing.Password,
+                Role = !string.IsNullOrEmpty(signUpDTO.UserRole.ToString()) ? signUpDTO.UserRole : existing.Role,
+                Manager = existing.Manager,
+                Group = existing.Group,
+                GroupId = signUpDTO.GroupId != 0 ? signUpDTO.GroupId : existing.GroupId,
                 EvaluationsMade = new List<Evaluation>(),
                 EvaluationsReceived = new List<Evaluation>(),
                 Subordinates = new List<User>()
@@ -259,5 +284,26 @@ namespace PeerEvalAppAPI.Services
             return usersToEvaluateDTOs;
         }
 
+        private User MapToUser(UserUpdateDTO updateDTO)
+        {
+            return new User()
+            {
+                Id = updateDTO.Id,
+                FirstName = updateDTO.Firstname,
+                LastName = updateDTO.Lastname,
+                Email = updateDTO.Email,
+                Password = EncryptionUtil.Encrypt(updateDTO.Password),
+                GroupId = updateDTO.GroupId,
+                ManagerId = 0,
+                Role = updateDTO.Role,
+                Group = new Group(),
+                Subordinates = new List<User>(),
+                EvaluationsMade = new List<Evaluation>(),
+                EvaluationsReceived = new List<Evaluation>(),
+                Manager = null
+
+            };
+            
+        }
     }
 }

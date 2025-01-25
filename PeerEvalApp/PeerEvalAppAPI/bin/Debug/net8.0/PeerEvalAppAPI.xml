@@ -73,6 +73,15 @@
             <response code="404">If no user with the specified ID exists.</response>
             <response code="500">If an error occurs during the process of retrieving users.</response>
         </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.UpdateUser(System.Int32,PeerEvalAppAPI.DTO.UserDTOs.UserUpdateDTO)">
+            <summary>
+            Updates an existing user's details.
+            Receives user data from the client and applies updates.
+            </summary>
+            <param name="userId">The ID of the user to update.</param>
+            <param name="userUpdateDTO">Data transfer object containing updated user details.</param>
+            <returns>IActionResult indicating the result of the operation.</returns>
+        </member>
         <member name="T:PeerEvalAppAPI.Migrations.InitialCreate">
             <inheritdoc />
         </member>

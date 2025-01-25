@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoggedInUser, SubmitUser, UsersToEvaluate } from '../interfaces/user';
+import { LoggedInUser, SubmitUser, UpdateUser, UsersToEvaluate } from '../interfaces/user';
 import { Mappers } from '../utils/mappers';
 import { jwtDecode } from 'jwt-decode';
 import { PastUserEvaluationCycles } from '../interfaces/evaluation-cycles';
@@ -89,13 +89,37 @@ export class UserService {
     });
   }
 
+  /**
+   * Makes a call that signs up a user by sending a SubmitUser Object
+   * @param user The submit User Object
+   * @returns http response
+   */
   signUpUser(user: SubmitUser){
     const url = `${API_URL}/register`;
     return this.http.post(url, user);
   }
 
+  /**
+   * Makes a call that that searches for users in the same group
+   * @param groupId The id of the groups whose users are to be retrieved
+   * @returns An array of users in form of UsersToEvaluate Objects
+   */
   getUsersByGroup(groupId: number){
     const url = `${API_URL}/users-by-group/${groupId}`;
     return this.http.get<UsersToEvaluate[]>(url);
   }
+
+  /**
+   * Updates user information by sending a PUT request to the server.
+   * @param userUpdateData Data containing updates for the user.
+   * @returns Observable of the response from the server.
+   */
+  updateUser(userUpdateData: UpdateUser) {
+    const url = `${API_URL}/update-user/${userUpdateData.id}`;
+    return this.http.put(url, userUpdateData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } 
 }

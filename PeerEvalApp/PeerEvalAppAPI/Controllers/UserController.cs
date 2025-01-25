@@ -165,5 +165,37 @@ namespace PeerEvalAppAPI.Controllers
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }
+
+
+        /// <summary>
+        /// Updates an existing user's details.
+        /// Receives user data from the client and applies updates.
+        /// </summary>
+        /// <param name="userId">The ID of the user to update.</param>
+        /// <param name="userUpdateDTO">Data transfer object containing updated user details.</param>
+        /// <returns>IActionResult indicating the result of the operation.</returns>
+        [HttpPut("update-user/{userId}")]
+        public async Task<IActionResult> UpdateUser(int userId, [FromBody] UserUpdateDTO userUpdateDTO)
+        {
+            if (userId != userUpdateDTO.Id)
+            {
+                return BadRequest(new { message = "Mismatch between URL user ID and user ID in data." });
+            }
+
+            try
+            {
+                await _applicationService.UserService.UpdateUserAsync(userUpdateDTO);
+                
+                return NoContent(); 
+            }
+            catch (EntityNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An internal error occurred: {ex.Message}");
+            }
+        }
     }
 }

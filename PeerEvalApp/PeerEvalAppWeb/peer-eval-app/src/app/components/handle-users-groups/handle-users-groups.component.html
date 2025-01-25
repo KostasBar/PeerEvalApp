@@ -1,107 +1,216 @@
 <div class="container">
-    <!-- New Group Form -->
-    <form [formGroup]="newGroupsForm" class="d-flex justify-content-between mb-3">
-        <div class="flex-fill m-3">
-            <label for="groupName" class="form-label">Group Name</label>
-            <input type="text" formControlName="groupName" 
-                    placeholder="Type a Department's Title" 
-                    class="form-control" required>
-          </div>
-          <div class="d-flex justify-content-end align-items-center">
-            <button
-              type="submit"
-              class="btn btn-success"
-              [disabled]="newGroupsForm.invalid"
-              (click)="addGroup(newGroupsForm.value)"
-            >
-              Add New Group
-            </button>
-          </div>
-    </form>
-
-    <!-- New User Form -->
-     @if(!groups || groups.length === 0)
-     {
-        <div
-        class="alert bg-warning d-flex justify-content-center align-items-center"
+  <!-- New Group Form -->
+  <div class="align-items-center">
+    <h3 class="text-center">Add New Group</h3>
+  </div>
+  <form
+    [formGroup]="newGroupsForm"
+    id="newGroupsForm"
+    class="d-flex justify-content-between mb-3 border rounded p-2"
+  >
+    <div class="flex-fill m-3">
+      <label for="groupName" class="form-label">Group Name</label>
+      <input
+        type="text"
+        formControlName="groupName"
+        placeholder="Type a Department's Title"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="newGroupsForm.invalid"
+        (click)="addGroup(newGroupsForm.value)"
       >
-        <p class="mb-0">No Groups/Departments Found</p>
+        Add New Group
+      </button>
+    </div>
+  </form>
+
+  <!-- New User Form -->
+  @if(!groups || groups.length === 0) {
+  <div
+    class="alert bg-warning d-flex justify-content-center align-items-center"
+  >
+    <p class="mb-0">No Groups/Departments Found</p>
+  </div>
+  } @else {
+  <div class="align-items-center">
+    <h3 class="text-center">Add New User</h3>
+  </div>
+  <form
+    [formGroup]="newUserForm"
+    class="d-flex flex-column justify-content-between mb-3 border rounded p-2"
+  >
+    <div class="d-flex">
+      <!-- First Name and Last Name -->
+      <div class="flex-fill m-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          formControlName="firstName"
+          placeholder="User's First Name"
+          class="form-control"
+          required
+        />
       </div>
-     }
-     @else
-     {
-        <form [formGroup]="newUserForm" class="d-flex justify-content-between mb-3">
-            <div class="flex-fill m-3">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" formControlName="firstName" 
-                        placeholder="User's First Name" 
-                        class="form-control" required>
-              </div>
+      <div class="flex-fill m-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          formControlName="lastName"
+          placeholder="User's Last Name"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+    <div class="d-flex">
+      <!-- Email and Password -->
+      <div class="flex-fill m-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          placeholder="User's Email"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="flex-fill m-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="User's Password"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+    <!-- Group Select -->
+    <div class="d-flex">
+      <div class="flex-fill m-3">
+        <label for="groupId" class="form-label">Group</label>
+        <select
+          id="groupId"
+          class="form-select"
+          formControlName="groupId"
+          required
+        >
+          <option value="" disabled selected>Select Group</option>
+          @for (item of groups; track item) {
+          <option [value]="item.id">{{ item.groupName }}</option>
+          }
+        </select>
+      </div>
+      <div class="flex-fill m-3">
+        <label for="role" class="form-label">Role</label>
+        <select id="role" class="form-select" formControlName="role" required>
+          <option value="" disabled selected>Select Role</option>
+          <option value="User">User</option>
+          <option value="Admin">Admin</option>
+        </select>
+      </div>
+    </div>
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-end align-items-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="newUserForm.invalid"
+        (click)="signUpUser(newUserForm.value)"
+      >
+        Add Users
+      </button>
+    </div>
+  </form>
 
-              <div class="flex-fill m-3">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" formControlName="lastName" 
-                        placeholder="User's Last Name" 
-                        class="form-control" required>
-              </div>
+  <div class="align-items-center">
+    <h3 class="text-center">Get Users</h3>
+  </div>
+  <form
+    [formGroup]="usersByGroup"
+    class="d-flex justify-content-between mb-3 mb-3 border rounded p-2"
+  >
+    <div class="flex-fill m-3">
+      <label for="lastName" class="form-label">Group</label>
+      <select
+        id="groupId"
+        class="form-select"
+        formControlName="groupId"
+        required
+      >
+        <option value="" disabled selected>Select Group</option>
+        @for (item of groups; track item) {
+        <option [value]="item.id">{{ item.groupName }}</option>
+        }
+      </select>
+    </div>
 
-              <div class="flex-fill m-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" formControlName="email" 
-                        placeholder="User's Email" 
-                        class="form-control" required>
-              </div>
+    <div class="d-flex justify-content-end align-items-center">
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="usersByGroup.invalid"
+        (click)="retrieveUsers(usersByGroup.value)"
+      >
+        Get Users
+      </button>
+    </div>
+  </form>
+  <table class="table table-bordered table-striped text-wrap">
+    <thead>
+      <tr class="align-middle">
+        <th class="text-center">Id</th>
+        <th class="text-center">Firstname</th>
+        <th class="text-center">Lastname</th>
+        <th class="text-center">Email</th>
+        <th class="text-center">Password</th>
+        <th class="text-center">Group</th>
+        <th class="text-center">Role</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of users; track row){
+      <tr class="align-middle" [formGroup]="updatedUserForm">
+        <td class="text-center"><input type="text" value="{{ row.id }}" placeholder="{{row.id}}" formControlName="id" readonly></td>
+        <td class="text-center"><input type="text" value="{{ row.firstname }}" placeholder="{{row.firstname}}" formControlName="firstName" readonly></td>
+        <td class="text-center"><input type="text" value="{{ row.lastname }}" placeholder="{{row.lastname}}" formControlName="lastName" readonly></td>
+        <td class="text-center"><input type="text" value="{{ row.email }}" placeholder="{{row.email}}" formControlName="email" readonly></td>
+        <td class="text-center" ><input type="text" formControlName="password" placeholder="Type a new password"></td>
+        <td class="text-center">
+          <select class="form-select" formControlName="groupId">
+            <option value="0" disabled selected>Select Group</option>
+            @for (item of groups; track item) {
+            <option [value]="item.id">{{ item.groupName }}</option>
+            }
+          </select>
+        </td>
+        <td class="text-center">
+          <select class="form-select" formControlName="role">
+            <option value="0" disabled selected>Role</option>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+        </td>
+        <td class="button bg-success m-1"><button
+          type="submit"
+          class="btn btn-success"
+          [disabled]="updatedUserForm.invalid"
+          (click)="updateUser(updatedUserForm.value)"
+        >
+          Update User
+        </button></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  {{updatedUserForm.status}}
 
-              <div class="flex-fill m-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="text" formControlName="password" 
-                        placeholder="User's Password" 
-                        class="form-control" required>
-              </div>
-
-              <div class="flex-fill m-3">
-                <label for="lastName" class="form-label">Group</label>
-                <select id="groupId" class="form-select" formControlName="groupId" required>
-                    <option value="" disabled selected>Select Group</option>
-                    @for (item of groups; track item) {
-                    <option [value]="item.id">{{ item.groupName }}</option>
-                    }
-                  </select>
-              </div>
-
-              <div class="d-flex justify-content-end align-items-center">
-                <button
-                  type="submit"
-                  class="btn btn-success"
-                  [disabled]="newGroupsForm.invalid"
-                  (click)="signUpUser(newUserForm.value)"
-                >
-                  Add Users
-                </button>
-              </div>
-        </form>
-
-        <form [formGroup]="usersByGroup" class="d-flex justify-content-between mb-3">
-            <div class="flex-fill m-3">
-                <label for="lastName" class="form-label">Group</label>
-                <select id="groupId" class="form-select" formControlName="groupId" required>
-                    <option value="" disabled selected>Select Group</option>
-                    @for (item of groups; track item) {
-                    <option [value]="item.id">{{ item.groupName }}</option>
-                    }
-                  </select>
-              </div>
-
-              <div class="d-flex justify-content-end align-items-center">
-                <button
-                  type="submit"
-                  class="btn btn-success"
-                  [disabled]="usersByGroup.invalid"
-                  (click)="retrieveUsers(usersByGroup.value)"
-                >
-                  Add Users
-                </button>
-              </div>
-        </form>
-     }
+  }
 </div>
