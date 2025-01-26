@@ -18,7 +18,7 @@ namespace PeerEvalAppAPI
 
             // Add DB Context
             var connString = builder.Configuration.GetConnectionString("DefaultConnection");
-            builder.Services.AddDbContext<PeerEvalAppDbContext>(options => options.UseSqlServer(connString));
+            builder.Services.AddDbContext<PeerEvalAppDbContext>(options => options.UseSqlServer(connString).EnableSensitiveDataLogging());
 
             // Add Serilog Configuration
             builder.Host.UseSerilog(

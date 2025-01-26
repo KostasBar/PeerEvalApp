@@ -35,7 +35,7 @@ export class HandleUsersGroupsComponent {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.pattern(pattern)),
+    password: new FormControl('', [Validators.pattern(pattern), Validators.required]),
     groupId: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
   });
@@ -54,8 +54,8 @@ export class HandleUsersGroupsComponent {
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.pattern(pattern)),
-    groupId: new FormControl('', Validators.required),
-    role: new FormControl('', Validators.required)
+    groupId: new FormControl(''),
+    role: new FormControl('')
   })
 
   ngOnInit() {
@@ -142,18 +142,31 @@ export class HandleUsersGroupsComponent {
    * @returns 
    */
   updateUser(
-  value: any
+    newid: number ,
+    newfirstname: string ,
+    newlastname: string ,
+    newemail: string ,
+    newpassword: string ,
+    newgroup: string ,
+    newrole: string 
   ) {
     const updatedUser: UpdateUser = {
-      firstname: value.firstname,
-      lastname: value.lastname,
-      email: value.email,
-      role: value.role,
-      password: value.password,
-      groupId: value.group,
-      id: value.id,
+      firstname: newfirstname,
+      lastname: newlastname,
+      email: newemail,
+      role: newrole,
+      password: newpassword,
+      groupId: Number(newgroup),
+      id: newid,
     };
-    console.log(updatedUser);
-    
+    this.userSevice.updateUser(updatedUser).subscribe({
+      next: ()=>{
+        return;
+      },
+      error: ()=>{
+        alert('Error while updating user!')
+      }
+    })
+    this.retrieveUsers(this.usersByGroup.value)
   }
 }

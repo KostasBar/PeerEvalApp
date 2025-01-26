@@ -787,7 +787,8 @@
             "format": "int32"
           },
           "role": {
-            "$ref": "#/components/schemas/UserRole"
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

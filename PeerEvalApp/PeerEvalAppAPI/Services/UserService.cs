@@ -23,7 +23,7 @@ namespace PeerEvalAppAPI.Services
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>(); 
+            _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>();
         }
 
         public async Task<User?> VerifyAndGetUserAsync(UserLogInDTO credentials)
@@ -82,19 +82,25 @@ namespace PeerEvalAppAPI.Services
         {
             try
             {
+
                 User? existing = await _unitOfWork.UserRepository.GetAsync(userUpdateDTO.Id);
-                User user = MapToUser(userUpdateDTO, existing);
+
                 if (existing is null)
                 {
-                    throw new EntityNotFoundException("User", "User with id " + user.Id + " could not be retrieved!");
+                    throw new EntityNotFoundException("User", "User with id " + userUpdateDTO.Id + " could not be retrieved!");
                 }
-                await _unitOfWork.UserRepository.UpdateAsync(user);
+                existing.FirstName = userUpdateDTO.Firstname;
+                existing.LastName = userUpdateDTO.Lastname;
+                existing.Email = userUpdateDTO.Email;
+                existing.Password = !string.IsNullOrEmpty(userUpdateDTO.Password) ? EncryptionUtil.Encrypt(userUpdateDTO.Password) : existing.Password;
+                existing.Role = Enum.TryParse<UserRole>(userUpdateDTO.Role, out UserRole roleResult) ? roleResult : existing.Role;
+                existing.GroupId = userUpdateDTO.GroupId != 0 ? userUpdateDTO.GroupId : existing.GroupId;
                 await _unitOfWork.SaveAsync();
             }
             catch (EntityNotFoundException ex)
             {
                 _logger.LogWarning(ex.Message);
-                throw;
+                throw;  
             }
             catch (Exception ex)
             {
@@ -117,7 +123,7 @@ namespace PeerEvalAppAPI.Services
                 List<PastEvaluationsOfUserDTO> pastEvaluationsOfUserDTOs = await MapToPastEvaluationsOfUserDTO(evalForUser);
                 return pastEvaluationsOfUserDTOs;
             }
-            catch(EntityNotFoundException e) 
+            catch (EntityNotFoundException e)
             {
                 _logger.LogInformation($"{e.Message}");
                 throw;
@@ -156,7 +162,7 @@ namespace PeerEvalAppAPI.Services
                 List<User>? users = await _unitOfWork.UserRepository.GetUsersByGroup(groupId);
                 if (users is null)
                 {
-                    _logger.LogWarning("No users found for group id "+ groupId);
+                    _logger.LogWarning("No users found for group id " + groupId);
                     return new List<UsersToEvaluateDTO>();
                 }
                 List<UsersToEvaluateDTO> usersToEvaluateDTOs = MapToUsersToEvaluateDTO(users);
@@ -196,24 +202,55 @@ namespace PeerEvalAppAPI.Services
         /// <summary>
         /// Transforms a UserSignUpDTO to a User Object
         /// </summary>
-        /// <param name="signUpDTO">The UserSignUpDTO to extract a UserFrom</param>
+        /// <param name="signUpDTO">The UserSignUpDTO to extract a User From</param>
         /// <returns>A User</returns>
-        private User MapToUser(UserSignUpDTO signUpDTO, User existing)
+        private User MapToUser(UserSignUpDTO signUpDTO)
         {
             return new User()
             {
                 FirstName = signUpDTO.FirstName,
                 LastName = signUpDTO.LastName,
                 Email = signUpDTO.Email,
-                Password = !string.IsNullOrEmpty(signUpDTO.Password) ? signUpDTO.Password : existing.Password,
-                Role = !string.IsNullOrEmpty(signUpDTO.UserRole.ToString()) ? signUpDTO.UserRole : existing.Role,
-                Manager = existing.Manager,
-                Group = existing.Group,
-                GroupId = signUpDTO.GroupId != 0 ? signUpDTO.GroupId : existing.GroupId,
+                Password = signUpDTO.Password,
+                Role = signUpDTO.UserRole,
+                Manager = null,
+                Group = null,
+                GroupId = signUpDTO.GroupId,
                 EvaluationsMade = new List<Evaluation>(),
                 EvaluationsReceived = new List<Evaluation>(),
                 Subordinates = new List<User>()
             };
+        }
+
+        /// <summary>
+        /// Transforms a UserUpdateDTO to a User Object
+        /// </summary>
+        /// <param name="updateDTO">The UserSignUpDTO to extract a User From</param>
+        /// <returns></returns>
+        private async Task<User> MapToUser(UserUpdateDTO updateDTO)
+        {
+            User? existing = await _unitOfWork.UserRepository.GetAsync(updateDTO.Id);
+
+            if (existing is null)
+            {
+                throw new EntityNotFoundException("User", "User with id " + updateDTO.Id + " could not be retrieved!");
+            }
+            return new User()
+            {
+                Id = updateDTO.Id,
+                FirstName = updateDTO.Firstname,
+                LastName = updateDTO.Lastname,
+                Email = updateDTO.Email,
+                Password = !string.IsNullOrEmpty(updateDTO.Password) ? updateDTO.Password : existing.Password,
+                Role = Enum.TryParse<UserRole>(updateDTO.Role, out UserRole result) ? result : existing.Role,
+                Manager = existing.Manager,
+                Group = existing.Group,
+                GroupId = updateDTO.GroupId != 0 ? updateDTO.GroupId : existing.GroupId,
+                EvaluationsMade = new List<Evaluation>(),
+                EvaluationsReceived = new List<Evaluation>(),
+                Subordinates = new List<User>()
+            };
+
         }
 
         /// <summary>
@@ -231,12 +268,12 @@ namespace PeerEvalAppAPI.Services
                 List<EvaluationAnswer>? answers = await _unitOfWork.EvaluationAnswerRepository.GetEvaluationAnswersOfEvaluation(item.Id);
                 if (answers == null || !answers.Any())
                 {
-                    throw new EntityNotFoundException("EvaluationAnswer", "Error while trying to retrieve the evaluation answers for evaluation with id"+ item.Id +"!");
+                    throw new EntityNotFoundException("EvaluationAnswer", "Error while trying to retrieve the evaluation answers for evaluation with id" + item.Id + "!");
                 }
                 else
                 {
                     avg = answers.Select(answer => float.Parse(answer.AnswerValue))
-                                .DefaultIfEmpty(0) 
+                                .DefaultIfEmpty(0)
                                 .Average();
                 }
                 EvaluationCycle? currentCycle = await _unitOfWork.EvaluationCycleRepository.GetAsync(item.EvaluationCycleId);
@@ -253,11 +290,11 @@ namespace PeerEvalAppAPI.Services
                     };
                     pastEvaluationsOfUserDTOs.Add(pastEvaluationsDTO);
                 }
-                else if(currentGroup == null)
+                else if (currentGroup == null)
                 {
                     throw new EntityNotFoundException("Group", "Error while trying to identify the group of the evaluatee!");
                 }
-                else if(currentCycle == null)
+                else if (currentCycle == null)
                 {
                     throw new EntityNotFoundException("Cycle", "Error while trying to retrieve the evaluation cycle of the evaluation!");
                 }
@@ -282,28 +319,6 @@ namespace PeerEvalAppAPI.Services
             }
 
             return usersToEvaluateDTOs;
-        }
-
-        private User MapToUser(UserUpdateDTO updateDTO)
-        {
-            return new User()
-            {
-                Id = updateDTO.Id,
-                FirstName = updateDTO.Firstname,
-                LastName = updateDTO.Lastname,
-                Email = updateDTO.Email,
-                Password = EncryptionUtil.Encrypt(updateDTO.Password),
-                GroupId = updateDTO.GroupId,
-                ManagerId = 0,
-                Role = updateDTO.Role,
-                Group = new Group(),
-                Subordinates = new List<User>(),
-                EvaluationsMade = new List<Evaluation>(),
-                EvaluationsReceived = new List<Evaluation>(),
-                Manager = null
-
-            };
-            
         }
     }
 }

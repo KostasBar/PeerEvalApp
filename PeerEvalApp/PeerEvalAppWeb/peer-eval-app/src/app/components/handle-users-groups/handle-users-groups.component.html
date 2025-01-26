@@ -165,7 +165,7 @@
   <table class="table table-bordered table-striped text-wrap">
     <thead>
       <tr class="align-middle">
-        <th class="text-center">Id</th>
+        <th class="text-center w-5">Id</th>
         <th class="text-center">Firstname</th>
         <th class="text-center">Lastname</th>
         <th class="text-center">Email</th>
@@ -177,40 +177,105 @@
     </thead>
     <tbody>
       @for (row of users; track row){
-      <tr class="align-middle" [formGroup]="updatedUserForm">
-        <td class="text-center"><input type="text" value="{{ row.id }}" placeholder="{{row.id}}" formControlName="id" readonly></td>
-        <td class="text-center"><input type="text" value="{{ row.firstname }}" placeholder="{{row.firstname}}" formControlName="firstName" readonly></td>
-        <td class="text-center"><input type="text" value="{{ row.lastname }}" placeholder="{{row.lastname}}" formControlName="lastName" readonly></td>
-        <td class="text-center"><input type="text" value="{{ row.email }}" placeholder="{{row.email}}" formControlName="email" readonly></td>
-        <td class="text-center" ><input type="text" formControlName="password" placeholder="Type a new password"></td>
-        <td class="text-center">
-          <select class="form-select" formControlName="groupId">
-            <option value="0" disabled selected>Select Group</option>
-            @for (item of groups; track item) {
-            <option [value]="item.id">{{ item.groupName }}</option>
-            }
-          </select>
-        </td>
-        <td class="text-center">
-          <select class="form-select" formControlName="role">
-            <option value="0" disabled selected>Role</option>
-            <option value="User">User</option>
-            <option value="Admin">Admin</option>
-          </select>
-        </td>
-        <td class="button bg-success m-1"><button
-          type="submit"
-          class="btn btn-success"
-          [disabled]="updatedUserForm.invalid"
-          (click)="updateUser(updatedUserForm.value)"
-        >
-          Update User
-        </button></td>
-      </tr>
+      
+        <tr class="align-middle">
+          <!-- <form [formGroup]="updatedUserForm"> -->
+          <td class="text-center w-5">
+            <input
+              class="form-control text-center"
+              type="text"
+              value="{{ row.id }}"
+              placeholder="{{ row.id }}"
+              readonly
+            />
+          </td>
+          <td class="text-center">
+            <input
+              class="form-control"
+              type="text"
+              value="{{ row.firstname }}"
+              placeholder="{{ row.firstname }}"
+              readonly
+            />
+          </td>
+          <td class="text-center">
+            <input
+              class="form-control"
+              type="text"
+              value="{{ row.lastname }}"
+              placeholder="{{ row.lastname }}"
+              readonly
+            />
+          </td>
+          <td class="text-center">
+            <input
+              class="form-control"
+              type="text"
+              value="{{ row.email }}"
+              placeholder="{{ row.email }}"
+              readonly
+            />
+          </td>
+          <td class="text-center">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Type a new password"
+              #passwordInput
+            />
+          </td>
+          <td class="text-center">
+            <select class="form-select" #groupSelect>
+              <option value="0" disabled selected>Select Group</option>
+              @for (item of groups; track item) {
+              <option [value]="item.id">{{ item.groupName }}</option>
+              }
+            </select>
+          </td>
+          <td class="text-center">
+            <select class="form-select" #roleSelect>
+              <option value="0" disabled selected>Role</option>
+              <option value="User">User</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </td>
+          <td class="text-center">
+            <button
+              type="submit"
+              class="btn btn-success"
+              (click)="updateUser(row.id, row.firstname, row.lastname, row.email, passwordInput.value, groupSelect.value, roleSelect.value )"
+            >
+              Update User
+            </button>
+          </td>
+        <!-- </form> -->
+        </tr>
+      
       }
     </tbody>
   </table>
-  {{updatedUserForm.status}}
+  {{ updatedUserForm.status }}
+  <div *ngIf="updatedUserForm.controls['firstName'].errors">
+    First Name Errors: {{ updatedUserForm.controls["firstName"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['lastName'].errors">
+    Last Name Errors: {{ updatedUserForm.controls["lastName"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['email'].errors">
+    Email Errors: {{ updatedUserForm.controls["email"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['password'].errors">
+    Password Errors: {{ updatedUserForm.controls["password"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['groupId'].errors">
+    Group ID Errors: {{ updatedUserForm.controls["groupId"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['role'].errors">
+    Role Errors: {{ updatedUserForm.controls["role"].errors | json }}
+  </div>
+  <div *ngIf="updatedUserForm.controls['id'].errors">
+    ID Errors: {{ updatedUserForm.controls["id"].errors | json }}
+  </div>
 
   }
 </div>

@@ -82,24 +82,31 @@
             <param name="userUpdateDTO">Data transfer object containing updated user details.</param>
             <returns>IActionResult indicating the result of the operation.</returns>
         </member>
-        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate">
+        <member name="T:PeerEvalAppAPI.Migrations.FirstUpdate">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
             <summary>
             Transforms a UserSignUpDTO to a User Object
             </summary>
-            <param name="signUpDTO">The UserSignUpDTO to extract a UserFrom</param>
+            <param name="signUpDTO">The UserSignUpDTO to extract a User From</param>
             <returns>A User</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserUpdateDTO)">
+            <summary>
+            Transforms a UserUpdateDTO to a User Object
+            </summary>
+            <param name="updateDTO">The UserSignUpDTO to extract a User From</param>
+            <returns></returns>
         </member>
         <member name="M:PeerEvalAppAPI.Services.UserService.MapToPastEvaluationsOfUserDTO(System.Collections.Generic.List{PeerEvalAppAPI.Data.Evaluation})">
             <summary>
