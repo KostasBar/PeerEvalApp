@@ -710,14 +710,6 @@
         },
         "additionalProperties": false
       },
-      "UserRole": {
-        "enum": [
-          0,
-          1
-        ],
-        "type": "integer",
-        "format": "int32"
-      },
       "UserSignUpDTO": {
         "required": [
           "email",
@@ -750,7 +742,8 @@
             "type": "string"
           },
           "userRole": {
-            "$ref": "#/components/schemas/UserRole"
+            "type": "string",
+            "nullable": true
           },
           "groupId": {
             "type": "integer",

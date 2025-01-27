@@ -76,12 +76,12 @@ export class HandleUsersGroupsComponent {
    */
   signUpUser(value: any) {
     const user: SubmitUser = {
-      firstName: value.firstName,
-      lastName: value.lastName,
-      email: value.email,
-      password: value.password,
-      groupId: Number(value.groupId),
-      userRole: value.role,
+      FirstName: value.firstName,
+      LastName: value.lastName,
+      Email: value.email,
+      Password: value.password,
+      GroupId: Number(value.groupId),
+      UserRole: value.role,
     };
 
     this.userSevice.signUpUser(user).subscribe({

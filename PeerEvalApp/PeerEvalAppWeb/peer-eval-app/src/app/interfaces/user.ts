@@ -25,12 +25,12 @@ export interface UsersToEvaluate{
 }
 
 export interface SubmitUser{
-  firstName: string,
-  lastName: string,
-  email: string,
-  password: string,
-  groupId: number,
-  userRole: string
+  FirstName: string,
+  LastName: string,
+  Email: string,
+  Password: string,
+  GroupId: number,
+  UserRole: string
 }
 
 export interface UpdateUser{

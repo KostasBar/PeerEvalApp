@@ -15,7 +15,7 @@
   <div class="flex-fill m-3">
     <label for="cycleId" class="form-label">Cycle</label>
     <select id="cycleId" class="form-select" formControlName="cycleId" required>
-      <option value="" disabled selected>Select duration</option>
+      <option value="" disabled selected>Select Cycle</option>
       @for (item of cycles; track item) {
       <option [value]="item.id">{{ item.title }}</option>
       }
@@ -25,7 +25,7 @@
   <div class="flex-fill m-3">
     <label for="groupId" class="form-label">Group</label>
     <select id="groupId" class="form-select" formControlName="groupId" required>
-      <option value="" disabled selected>Select duration</option>
+      <option value="" disabled selected>Select Group</option>
       @for (item of groups; track item) {
       <option [value]="item.id">{{ item.groupName }}</option>
       }

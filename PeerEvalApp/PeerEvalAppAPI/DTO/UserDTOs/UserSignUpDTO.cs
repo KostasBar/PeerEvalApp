@@ -24,7 +24,7 @@ namespace PeerEvalAppAPI.DTO.UserDTOs
         public string Password { get; set; } = null!;
 
         [EnumDataType(typeof(UserRole), ErrorMessage = "Invalid user role.")]
-        public UserRole UserRole { get; set; }
+        public string UserRole { get; set; }
         [Required(ErrorMessage = "User must belong to a group!")]
         public int GroupId { get; set; }
     }

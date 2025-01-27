@@ -212,7 +212,7 @@ namespace PeerEvalAppAPI.Services
                 LastName = signUpDTO.LastName,
                 Email = signUpDTO.Email,
                 Password = signUpDTO.Password,
-                Role = signUpDTO.UserRole,
+                Role = (UserRole)Enum.Parse(typeof(UserRole), signUpDTO.UserRole),
                 Manager = null,
                 Group = null,
                 GroupId = signUpDTO.GroupId,

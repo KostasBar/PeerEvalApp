@@ -90,11 +90,21 @@ namespace PeerEvalAppAPI.Repositories
             }
 
             // Get users to evaluate, excluding the current user and those already evaluated in the current cycle
+            //List<User>? usersToEvaluate = await _dbContext.Users
+            //    .Where(u => u.GroupId == user.GroupId && u.Id != user.Id)
+            //    .Where(u => !_dbContext.Evaluations
+            //        .Any(e => e.EvaluateeUserId == u.Id && e.EvaluationCycleId == activeEvaluationCycleId))
+            //    .ToListAsync();
+            //    
+
             List<User>? usersToEvaluate = await _dbContext.Users
-                .Where(u => u.GroupId == user.GroupId && u.Id != user.Id)
-                .Where(u => !_dbContext.Evaluations
-                    .Any(e => e.EvaluateeUserId == u.Id && e.EvaluationCycleId == activeEvaluationCycleId))
-                .ToListAsync();
+    .Where(u => u.GroupId == user.GroupId && u.Id != user.Id)
+    .Where(u => !_dbContext.Evaluations
+        .Any(e => e.EvaluateeUserId == u.Id
+               && e.EvaluatorUserId == user.Id
+               && e.EvaluationCycleId == activeEvaluationCycleId))
+    .ToListAsync();
+
 
             return usersToEvaluate;
         }

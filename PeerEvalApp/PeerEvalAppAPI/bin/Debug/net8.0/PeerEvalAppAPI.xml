@@ -94,30 +94,6 @@
         <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
-        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate2">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate3">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
         <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
             <summary>
             Transforms a UserSignUpDTO to a User Object

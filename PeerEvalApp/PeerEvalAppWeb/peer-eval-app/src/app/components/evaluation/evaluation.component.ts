@@ -61,12 +61,11 @@ export class EvaluationComponent {
       this.newUserToEvaluate?.id,
       this.cycleId
     );
-    console.log(newEvaluation);
     
     this.evaluationService.submitEvaluation(newEvaluation).subscribe({
       next: () => {
         this.newUserToEvaluate = null;
-        //location.reload()
+        location.reload()
       },
       error: (error: any) => {
         window.alert('Error while saving the form!');

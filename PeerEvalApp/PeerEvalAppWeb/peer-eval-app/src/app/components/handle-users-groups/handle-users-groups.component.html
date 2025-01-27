@@ -254,28 +254,5 @@
       }
     </tbody>
   </table>
-  {{ updatedUserForm.status }}
-  <div *ngIf="updatedUserForm.controls['firstName'].errors">
-    First Name Errors: {{ updatedUserForm.controls["firstName"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['lastName'].errors">
-    Last Name Errors: {{ updatedUserForm.controls["lastName"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['email'].errors">
-    Email Errors: {{ updatedUserForm.controls["email"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['password'].errors">
-    Password Errors: {{ updatedUserForm.controls["password"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['groupId'].errors">
-    Group ID Errors: {{ updatedUserForm.controls["groupId"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['role'].errors">
-    Role Errors: {{ updatedUserForm.controls["role"].errors | json }}
-  </div>
-  <div *ngIf="updatedUserForm.controls['id'].errors">
-    ID Errors: {{ updatedUserForm.controls["id"].errors | json }}
-  </div>
-
   }
 </div>

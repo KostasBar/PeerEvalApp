@@ -162,15 +162,6 @@ namespace PeerEvalAppAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Groups", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GroupName = "Admins",
-                            InsertedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ModifiedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("PeerEvalAppAPI.Data.Question", b =>
@@ -199,85 +190,6 @@ namespace PeerEvalAppAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Questions", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 627, DateTimeKind.Local).AddTicks(8714),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(8802),
-                            Text = "Self-Confidence"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9080),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9086),
-                            Text = "Dedication"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9088),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9090),
-                            Text = "Job Knowledge"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9092),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9093),
-                            Text = "Quality and Accuracy of Work"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9096),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9097),
-                            Text = "Ability to Meet Deadlines"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9099),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9100),
-                            Text = "Independence"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9102),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9103),
-                            Text = "Commitment"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9105),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9106),
-                            Text = "Attention to Detail"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9108),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9110),
-                            Text = "Ability to Work with Others"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9112),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9113),
-                            Text = "Communication Skills"
-                        },
-                        new
-                        {
-                            Id = 11,
-                            InsertedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9115),
-                            ModifiedAt = new DateTime(2025, 1, 26, 23, 42, 39, 642, DateTimeKind.Local).AddTicks(9116),
-                            Text = "Performs Assigned Duties Under Pressure"
-                        });
                 });
 
             modelBuilder.Entity("PeerEvalAppAPI.Data.User", b =>
