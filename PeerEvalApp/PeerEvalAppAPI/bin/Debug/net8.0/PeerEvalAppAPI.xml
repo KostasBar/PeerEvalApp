@@ -82,16 +82,40 @@
             <param name="userUpdateDTO">Data transfer object containing updated user details.</param>
             <returns>IActionResult indicating the result of the operation.</returns>
         </member>
-        <member name="T:PeerEvalAppAPI.Migrations.FirstUpdate">
+        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:PeerEvalAppAPI.Migrations.FirstUpdate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate2">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:PeerEvalAppAPI.Migrations.InitialCreate3">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:PeerEvalAppAPI.Migrations.InitialCreate3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">

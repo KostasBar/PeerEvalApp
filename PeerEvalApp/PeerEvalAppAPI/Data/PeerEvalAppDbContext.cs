@@ -344,13 +344,13 @@ namespace PeerEvalAppAPI.Data
                       .ValueGeneratedOnAddOrUpdate()
                       .HasDefaultValueSql("GETDATE()");
 
-                //entity.HasData(
-                //    new Group
-                //    {
-                //        Id = 1,
-                //        GroupName = "Admins"
-                //    }
-                //    );
+                entity.HasData(
+                    new Group
+                    {
+                        Id=1,
+                        GroupName = "Admins"
+                    }
+                    );
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -397,9 +397,7 @@ namespace PeerEvalAppAPI.Data
                 //        Email = "admin@example.com",
                 //        Password = EncryptionUtil.Encrypt("Super111!!!"), // Hash the password
                 //        Role = Core.Enums.UserRole.Admin,
-                //        GroupId = 1,
-                //        InsertedAt = DateTime.Now,
-                //        ModifiedAt = DateTime.Now
+                //        GroupId = 1
                 //    }
                 //);
             });

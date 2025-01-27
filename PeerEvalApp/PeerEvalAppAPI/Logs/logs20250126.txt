@@ -2225,3 +2225,188 @@ SELECT @result"
 [26-01-2025 22:25:49415 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
 [26-01-2025 22:26:29574 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
 [26-01-2025 22:26:50744 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:10:21440 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:10:28386 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:10:29476 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("24"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[26-01-2025 23:10:29795 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("261"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [PeerEvalDb] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;"
+[26-01-2025 23:10:30391 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("596"ms) [Parameters=[""], CommandType='Text', CommandTimeout='60']"
+""DROP DATABASE [PeerEvalDb];"
+[26-01-2025 23:22:58856 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:24:15231 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:27:04894 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:27:23045 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:29:13487 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:29:24741 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:30:35091 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:30:53422 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:30:54819 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("30"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[26-01-2025 23:30:54836 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[26-01-2025 23:30:54935 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("92"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result"
+[26-01-2025 23:30:55066 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("45"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;"
+[26-01-2025 23:30:55090 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[26-01-2025 23:30:55093 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+[26-01-2025 23:30:55123 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("26"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+[26-01-2025 23:30:55141 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Applying migration '"20250126213036_InitialCreate"'.
+[26-01-2025 23:30:55219 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("48"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [EvaluationCycles] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(255) NOT NULL,
+    [StartDate] datetime2 NOT NULL,
+    [EndDate] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_EvaluationCycles] PRIMARY KEY ([Id])
+);"
+[26-01-2025 23:30:55241 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Groups] (
+    [Id] int NOT NULL IDENTITY,
+    [GroupName] nvarchar(128) NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_Groups] PRIMARY KEY ([Id])
+);"
+[26-01-2025 23:30:55261 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Questions] (
+    [Id] int NOT NULL IDENTITY,
+    [Text] nvarchar(500) NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_Questions] PRIMARY KEY ([Id])
+);"
+[26-01-2025 23:30:55278 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [FirstName] nvarchar(255) NOT NULL,
+    [LastName] nvarchar(255) NOT NULL,
+    [Email] nvarchar(255) NOT NULL,
+    [Password] nvarchar(max) NOT NULL,
+    [Role] nvarchar(max) NOT NULL,
+    [GroupId] int NOT NULL,
+    [ManagerId] int NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Users_Groups_GroupId] FOREIGN KEY ([GroupId]) REFERENCES [Groups] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Users_Users_ManagerId] FOREIGN KEY ([ManagerId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);"
+[26-01-2025 23:30:55288 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Evaluations] (
+    [Id] int NOT NULL IDENTITY,
+    [EvaluatorUserId] int NOT NULL,
+    [EvaluateeUserId] int NOT NULL,
+    [EvaluationCycleId] int NOT NULL,
+    [TimeStamp] datetime2 NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_Evaluations] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Evaluations_EvaluationCycles_EvaluationCycleId] FOREIGN KEY ([EvaluationCycleId]) REFERENCES [EvaluationCycles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Evaluations_Users_EvaluateeUserId] FOREIGN KEY ([EvaluateeUserId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Evaluations_Users_EvaluatorUserId] FOREIGN KEY ([EvaluatorUserId]) REFERENCES [Users] ([Id]) ON DELETE NO ACTION
+);"
+[26-01-2025 23:30:55296 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [EvaluationAnswers] (
+    [Id] int NOT NULL IDENTITY,
+    [EvaluationId] int NOT NULL,
+    [QuestionId] int NOT NULL,
+    [AnswerValue] nvarchar(max) NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETDATE()),
+    CONSTRAINT [PK_EvaluationAnswers] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_EvaluationAnswers_Evaluations_EvaluationId] FOREIGN KEY ([EvaluationId]) REFERENCES [Evaluations] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_EvaluationAnswers_Questions_QuestionId] FOREIGN KEY ([QuestionId]) REFERENCES [Questions] ([Id]) ON DELETE NO ACTION
+);"
+[26-01-2025 23:30:55306 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("9"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_EvaluationAnswers_EvaluationId] ON [EvaluationAnswers] ([EvaluationId]);"
+[26-01-2025 23:30:55308 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_EvaluationAnswers_QuestionId] ON [EvaluationAnswers] ([QuestionId]);"
+[26-01-2025 23:30:55311 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Evaluations_EvaluateeUserId] ON [Evaluations] ([EvaluateeUserId]);"
+[26-01-2025 23:30:55656 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("27"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Evaluations_EvaluationCycleId] ON [Evaluations] ([EvaluationCycleId]);"
+[26-01-2025 23:30:55668 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Evaluations_EvaluatorUserId] ON [Evaluations] ([EvaluatorUserId]);"
+[26-01-2025 23:30:55672 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE UNIQUE INDEX [IX_Users_Email] ON [Users] ([Email]);"
+[26-01-2025 23:30:55675 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Users_GroupId] ON [Users] ([GroupId]);"
+[26-01-2025 23:30:55678 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_Users_ManagerId] ON [Users] ([ManagerId]);"
+[26-01-2025 23:30:55702 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("24"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250126213036_InitialCreate', N'9.0.0');"
+[26-01-2025 23:30:55741 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("32"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result"
+[26-01-2025 23:37:56898 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:38:33855 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:38:44025 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:38:44920 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[26-01-2025 23:38:44930 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[26-01-2025 23:38:44965 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("31"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result"
+[26-01-2025 23:38:45028 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("7"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;"
+[26-01-2025 23:38:45046 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+[26-01-2025 23:38:45050 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+[26-01-2025 23:38:45061 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+[26-01-2025 23:38:45076 +02:00 Microsoft.EntityFrameworkCore.Migrations ] Applying migration '"20250126213835_InitialCreate2"'.
+[26-01-2025 23:38:45179 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("70"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'GroupName') AND [object_id] = OBJECT_ID(N'[Groups]'))
+    SET IDENTITY_INSERT [Groups] ON;
+INSERT INTO [Groups] ([Id], [GroupName])
+VALUES (1, N'Admins');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'GroupName') AND [object_id] = OBJECT_ID(N'[Groups]'))
+    SET IDENTITY_INSERT [Groups] OFF;"
+[26-01-2025 23:38:45184 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250126213835_InitialCreate2', N'9.0.0');"
+[26-01-2025 23:38:45203 +02:00 Microsoft.EntityFrameworkCore.Database.Command ] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result"
+[26-01-2025 23:39:45845 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:39:53013 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:40:43683 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:40:51070 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:41:28237 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:42:39726 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+[26-01-2025 23:42:47516 +02:00 Microsoft.EntityFrameworkCore.Model.Validation ] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
