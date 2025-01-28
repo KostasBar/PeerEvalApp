@@ -144,6 +144,13 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of users belonging to a specific group.
+        /// </summary>
+        /// <param name="groupId">The ID of the group for which to retrieve the users.</param>
+        /// <returns>Returns a list of users in the specified group. If no users are found, returns an empty list.</returns>
+        /// <response code="200">Successfully retrieved the users in the specified group.</response>
+        /// <response code="500">An error occurred while processing the request to retrieve the users.</response>
         [HttpGet("users-by-group/{groupId}")]
         public async Task<IActionResult> GetUsersByGroup(int groupId)
         {

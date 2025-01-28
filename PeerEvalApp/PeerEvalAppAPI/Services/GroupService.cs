@@ -20,6 +20,11 @@ namespace PeerEvalAppAPI.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationAnswerService>();
         }
 
+        /// <summary>
+        /// Retrieves all groups from the data source and maps them to a list of GroupReturnDTOs.
+        /// </summary>
+        /// <returns>A list of GroupReturnDTOs representing all groups in the system.</returns>
+        /// <exception cref="Exception">Thrown if an error occurs while retrieving the groups from the data source.</exception>
         public async Task<List<GroupReturnDTO>> GetAllGroupsAsync()
         {
             try
@@ -40,6 +45,12 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Adds a new group to the system if a group with the same name does not already exist.
+        /// </summary>
+        /// <param name="groupName">The name of the group to be added.</param>
+        /// <exception cref="EntityAlreadyExistsException">Thrown if a group with the same name already exists in the system.</exception>
+        /// <exception cref="Exception">Thrown for any errors that occur while trying to add the new group.</exception>
         public async Task AddGroup(string groupName)
         {
             try{   
@@ -71,6 +82,11 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Maps a Group entity to a GroupReturnDTO.
+        /// </summary>
+        /// <param name="group">The Group entity to be mapped.</param>
+        /// <returns>The corresponding GroupReturnDTO.</returns>
         private GroupReturnDTO MapToGroupReturnDTO(Group group)
         {
             return  new GroupReturnDTO()
@@ -80,6 +96,11 @@ namespace PeerEvalAppAPI.Services
             };
         }
 
+        /// <summary>
+        /// Maps a group name to a new Group entity.
+        /// </summary>
+        /// <param name="groupName">The name of the group to be mapped.</param>
+        /// <returns>The corresponding Group entity.</returns>
         private Group MapToGroup(string groupName)
         {
             return new Group()

@@ -96,8 +96,15 @@
             <option value="2">2 weeks</option>
           </select>
         </td>
-        <td class="text-center" role="button" (click)="closeCycle(row.id)">
-          Close
+        <td class="text-center">
+          <button
+              type="submit"
+              class="btn btn-danger"
+              (click)="closeCycle(row.id)"
+            >
+            Close
+            </button>
+          
         </td>
         }@else if(row.status === 1){
         <td class="text-center">closed</td>

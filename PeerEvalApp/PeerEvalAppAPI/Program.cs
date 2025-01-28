@@ -48,13 +48,20 @@ namespace PeerEvalAppAPI
                 c.IncludeXmlComments(xmlPath);
             });
 
+            // Add CORS (Cross-Origin Resource Sharing) policy to the application
             builder.Services.AddCors(options =>
             {
+                // Define a CORS policy named "MyAllowSpecificOrigins"
                 options.AddPolicy("MyAllowSpecificOrigins",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:4200") 
+                        // Allow requests from the specified origin (e.g., local development server)
+                        builder.WithOrigins("http://localhost:4200")  // The allowed origin (frontend application URL)
+
+                               // Allow any header to be sent in the request
                                .AllowAnyHeader()
+
+                               // Allow any HTTP method (GET, POST, PUT, DELETE, etc.)
                                .AllowAnyMethod();
                     });
             });

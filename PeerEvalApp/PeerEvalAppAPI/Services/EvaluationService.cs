@@ -20,6 +20,13 @@ namespace PeerEvalAppAPI.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationService>();
         }
 
+        /// <summary>
+        /// Adds a new evaluation based on the provided submission data.
+        /// </summary>
+        /// <param name="submitEvaluationDTO">The data transfer object containing the details of the evaluation to be added.</param>
+        /// <returns>The created evaluation entity.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if any referenced entities (user or evaluation cycle) are not found.</exception>
+        /// <exception cref="Exception">Thrown for any errors that occur during the process of adding the evaluation.</exception>
         public async Task<Evaluation> AddEvaluation(SubmitEvaluationDTO submitEvaluationDTO)
         {
             Evaluation evaluation;
@@ -48,6 +55,14 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves evaluations for a specific group and evaluation cycle.
+        /// </summary>
+        /// <param name="groupID">The ID of the group for which evaluations are to be retrieved.</param>
+        /// <param name="cycleId">The ID of the evaluation cycle for which evaluations are to be retrieved.</param>
+        /// <returns>A list of evaluations for the specified group and evaluation cycle.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if no evaluations are found for the given group and cycle.</exception>
+        /// <exception cref="Exception">Thrown for any errors that occur while retrieving evaluations by group.</exception>
         public async Task<List<EvalByGroupDTO>?> GetEvaluationByGroup(int groupID, int cycleId)
         {
             try
@@ -71,6 +86,12 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Maps the submission data transfer object to an evaluation entity.
+        /// </summary>
+        /// <param name="submitEvaluationDTO">The data transfer object containing the details for the evaluation.</param>
+        /// <returns>The mapped evaluation entity.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if any referenced entities (user or evaluation cycle) are not found.</exception>
         public async Task<Evaluation> MapToEvaluation(SubmitEvaluationDTO submitEvaluationDTO)
         {
             User? evaluatee = await _unitOfWork.UserRepository.GetUserById(submitEvaluationDTO.EvaluateeUserId);

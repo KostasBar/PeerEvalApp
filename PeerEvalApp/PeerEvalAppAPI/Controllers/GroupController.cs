@@ -21,6 +21,13 @@ namespace PeerEvalAppAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Retrieves a list of all groups.
+        /// </summary>
+        /// <returns>Returns a list of group details. If no groups are found, returns an empty list.</returns>
+        /// <response code="200">Successfully retrieved the list of groups.</response>
+        /// <response code="400">An error occurred while trying to retrieve the list of groups.</response>
+        /// <response code="404">The requested groups could not be found.</response>
         [HttpGet]
         public async Task<ActionResult<List<GroupReturnDTO>?>> GetAllGroups()
         {
@@ -44,6 +51,14 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Adds a new group to the system.
+        /// </summary>
+        /// <param name="groupName">The name of the new group to be added.</param>
+        /// <returns>Returns a success status if the group is added successfully.</returns>
+        /// <response code="200">Successfully added the new group.</response>
+        /// <response code="404">The group already exists in the system.</response>
+        /// <response code="500">An error occurred while trying to add the new group.</response>
         [HttpPost]
         public async Task<IActionResult> AddGroup([FromBody] NewGroupDTO groupName)
         {

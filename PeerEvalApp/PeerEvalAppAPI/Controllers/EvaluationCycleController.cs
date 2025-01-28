@@ -98,6 +98,12 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Checks if there is an active evaluation cycle.
+        /// </summary>
+        /// <returns>Returns the ID of the active evaluation cycle if it exists. Returns 0 if no active evaluation cycle is found.</returns>
+        /// <response code="200">Successfully retrieved the evaluation cycle status.</response>
+        /// <response code="400">An error occurred while trying to retrieve the evaluation cycle.</response>
         [HttpGet("evaluationCycleExists")]
         public async Task<IActionResult> evaluationCycleExists()
         {
@@ -119,6 +125,12 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves all available evaluation cycles.
+        /// </summary>
+        /// <returns>Returns a list of all evaluation cycles.</returns>
+        /// <response code="200">Successfully retrieved the list of all evaluation cycles.</response>
+        /// <response code="400">An error occurred while trying to retrieve the list of evaluation cycles.</response>
         [HttpGet("get-all-cycles")]
         public async Task<IActionResult> GetAllEvaluationCycles()
         {

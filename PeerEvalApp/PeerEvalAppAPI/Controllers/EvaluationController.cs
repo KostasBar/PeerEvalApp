@@ -23,6 +23,15 @@ namespace PeerEvalAppAPI.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Submits a new evaluation based on the provided input data.
+        /// </summary>
+        /// <param name="submitEvaluationDTO">The DTO containing the details for the evaluation submission.</param>
+        /// <returns>Returns an HTTP 200 OK status if the submission is successful. If there is an error, an appropriate HTTP status will be returned.</returns>
+        /// <response code="200">Successfully submitted the evaluation.</response>
+        /// <response code="400">The submission failed due to bad request (e.g. validation errors).</response>
+        /// <response code="404">The requested resource was not found (e.g. related entity missing).</response>
+        /// <response code="500">An unexpected error occurred during the submission process.</response>
         [HttpPost("submit")]
         public async Task<IActionResult> SubmitEvaluation([FromBody] SubmitEvaluationDTO submitEvaluationDTO)
         {
@@ -45,6 +54,15 @@ namespace PeerEvalAppAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Retrieves evaluations by group and cycle IDs.
+        /// </summary>
+        /// <param name="groupId">The ID of the group to retrieve evaluations for.</param>
+        /// <param name="cycleId">The ID of the cycle to retrieve evaluations for.</param>
+        /// <returns>Returns a list of evaluations associated with the specified group and cycle, or an empty list if none are found.</returns>
+        /// <response code="200">Successfully retrieved the evaluations.</response>
+        /// <response code="400">An error occurred while fetching the evaluations.</response>
+        /// <response code="404">The requested evaluations were not found.</response>
         [HttpGet("evaluations-by-group/{groupId}/{cycleId}")]
         public async Task<ActionResult<List<EvalByGroupDTO>>> GetEvaluationsByGroup(int groupId, int cycleId)
         {

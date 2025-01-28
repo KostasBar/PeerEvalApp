@@ -20,6 +20,12 @@ namespace PeerEvalAppAPI.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationAnswerService>();
         }
 
+        /// <summary>
+        /// Adds the evaluation answers based on the provided submission data and evaluation.
+        /// </summary>
+        /// <param name="submitEvaluationDTO">The data transfer object containing the answers to be added.</param>
+        /// <param name="evaluation">The evaluation to which the answers belong.</param>
+        /// <exception cref="Exception">Thrown if there is an error during the process of adding answers.</exception>
         public async Task AddEvaluationAnswer(SubmitEvaluationDTO submitEvaluationDTO, Evaluation evaluation)
         {
             List<EvaluationAnswerDTO> answerDTOs = submitEvaluationDTO.Answers;
@@ -39,6 +45,13 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Maps the evaluation answer data transfer object to an actual EvaluationAnswer entity.
+        /// </summary>
+        /// <param name="evaluationAnswer">The data transfer object containing the answer details.</param>
+        /// <param name="evaluation">The evaluation object that the answer will be associated with.</param>
+        /// <returns>The mapped EvaluationAnswer entity.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if the question referenced by the evaluation answer cannot be found.</exception>
         public async Task<EvaluationAnswer> MapToEvaluationAnswer(EvaluationAnswerDTO evaluationAnswer, Evaluation evaluation)
         {
             Question? q = await _unitOfWork.QuestionRepository.GetAsync(evaluationAnswer.QuestionId);

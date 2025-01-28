@@ -26,6 +26,12 @@ namespace PeerEvalAppAPI.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<UserService>();
         }
 
+        /// <summary>
+        /// Verifies the user's credentials (email and password) and returns the user if found.
+        /// </summary>
+        /// <param name="credentials">The login credentials of the user (email and password).</param>
+        /// <returns>The user if the credentials are valid, otherwise null.</returns>
+        /// <exception cref="Exception">Thrown if an error occurs while verifying the user's credentials.</exception>
         public async Task<User?> VerifyAndGetUserAsync(UserLogInDTO credentials)
         {
             try
@@ -49,6 +55,12 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Registers a new user in the system after verifying that the user does not already exist.
+        /// </summary>
+        /// <param name="signUpDTO">The signup details of the new user.</param>
+        /// <exception cref="EntityAlreadyExistsException">Thrown if a user with the same email already exists.</exception>
+        /// <exception cref="Exception">Thrown if any other error occurs during the signup process.</exception>
         public async Task SignUpUserAsync(UserSignUpDTO signUpDTO)
         {
             try
@@ -78,6 +90,12 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Updates the details of an existing user.
+        /// </summary>
+        /// <param name="userUpdateDTO">The details of the user to be updated.</param>
+        /// <exception cref="EntityNotFoundException">Thrown if the user to update cannot be found.</exception>
+        /// <exception cref="Exception">Thrown if any error occurs while updating the user.</exception>
         public async Task UpdateUserAsync(UserUpdateDTO userUpdateDTO)
         {
             try
@@ -109,6 +127,13 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves past evaluations for a specific user based on their user ID.
+        /// </summary>
+        /// <param name="id">The user ID for whom the evaluations are to be retrieved.</param>
+        /// <returns>A list of PastEvaluationsOfUserDTOs representing the past evaluations of the user.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if the user cannot be found.</exception>
+        /// <exception cref="Exception">Thrown if any error occurs while retrieving the evaluations for the user.</exception>
         public async Task<List<PastEvaluationsOfUserDTO>?> GetEvaluationsForUserAsync(int id)
         {
             List<Evaluation>? evalForUser = new();
@@ -135,6 +160,13 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of users that a specific user can evaluate based on their user ID.
+        /// </summary>
+        /// <param name="id">The user ID to fetch the users that the specified user can evaluate.</param>
+        /// <returns>A list of UsersToEvaluateDTOs representing the users to be evaluated.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if no users are found for evaluation.</exception>
+        /// <exception cref="Exception">Thrown if any error occurs while retrieving the users to evaluate.</exception>
         public async Task<List<UsersToEvaluateDTO>?> GetUsersToEvaluateAsync(int id)
         {
             try
@@ -155,6 +187,12 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of users from a specific group based on the group ID.
+        /// </summary>
+        /// <param name="groupId">The ID of the group to fetch users from.</param>
+        /// <returns>A list of UsersToEvaluateDTOs representing the users in the specified group.</returns>
+        /// <exception cref="Exception">Thrown if any error occurs while retrieving the users from the group.</exception>
         public async Task<List<UsersToEvaluateDTO>?> GetUsersByGroup(int groupId)
         {
             try
@@ -175,6 +213,16 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Creates a JWT token for a user with specific claims and a security key.
+        /// </summary>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="email">The email of the user.</param>
+        /// <param name="firstname">The first name of the user.</param>
+        /// <param name="lastname">The last name of the user.</param>
+        /// <param name="userRole">The role of the user.</param>
+        /// <param name="appSecurityKey">The application security key used to sign the token.</param>
+        /// <returns>A JWT token for the user containing their claims.</returns>
         public string CreateUserToken(int userId, string email, string firstname, string lastname, UserRole? userRole,
             string appSecurityKey)
         {
@@ -302,6 +350,11 @@ namespace PeerEvalAppAPI.Services
             return pastEvaluationsOfUserDTOs;
         }
 
+        /// <summary>
+        /// Maps a list of users to a list of UsersToEvaluateDTO objects, transferring the necessary user details.
+        /// </summary>
+        /// <param name="users">A list of User objects to be mapped.</param>
+        /// <returns>A list of UsersToEvaluateDTO objects containing the user's details (Id, Firstname, Lastname, Email).</returns>
         private List<UsersToEvaluateDTO> MapToUsersToEvaluateDTO(List<User> users)
         {
             List<UsersToEvaluateDTO> usersToEvaluateDTOs = new List<UsersToEvaluateDTO>();

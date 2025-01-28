@@ -20,6 +20,13 @@ namespace PeerEvalAppAPI.Services
             _logger = new LoggerFactory().AddSerilog().CreateLogger<EvaluationService>();
         }
 
+        /// <summary>
+        /// Retrieves an evaluation cycle by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the evaluation cycle to retrieve.</param>
+        /// <returns>The evaluation cycle if found, otherwise throws an exception.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
+        /// <exception cref="Exception">Thrown for other errors that occur while retrieving the evaluation cycle.</exception>
         public async Task<EvaluationCycle?> GetEvaluationCycleAsync(int id)
         {
             EvaluationCycle? evaluationCycle = null;
@@ -43,6 +50,12 @@ namespace PeerEvalAppAPI.Services
             return evaluationCycle;
         }
 
+        /// <summary>
+        /// Initializes a new evaluation cycle with the provided data.
+        /// </summary>
+        /// <param name="initiateCycleDTO">The data transfer object containing the details to initialize the new evaluation cycle.</param>
+        /// <exception cref="OpenCycleAlreadyExists">Thrown if an open evaluation cycle already exists.</exception>
+        /// <exception cref="Exception">Thrown for errors that occur during initialization of the evaluation cycle.</exception>
         public async Task InitializeEvaluationCycle(InitiateCycleDTO initiateCycleDTO)
         {
             EvaluationCycle evaluationCycle = MapToEvaluationCycle(initiateCycleDTO);
@@ -72,6 +85,13 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Updates an existing evaluation cycle with the provided data.
+        /// </summary>
+        /// <param name="updateCycleDTO">The data transfer object containing the new details for the evaluation cycle.</param>
+        /// <returns>The updated evaluation cycle entity.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
+        /// <exception cref="Exception">Thrown for errors that occur during the update process.</exception>
         public async Task<EvaluationCycle?> UpdateEvaluateCycleAsync(UpdateCycleDTO updateCycleDTO)
         {
             EvaluationCycle? evaluationCycle, newEvaluationCycle;
@@ -94,6 +114,11 @@ namespace PeerEvalAppAPI.Services
             return evaluationCycle;
         }
 
+        /// <summary>
+        /// Checks if an open evaluation cycle exists.
+        /// </summary>
+        /// <returns>The currently open evaluation cycle, or null if no open cycle exists.</returns>
+        /// <exception cref="Exception">Thrown for errors while trying to retrieve the open evaluation cycle.</exception>
         public async Task<EvaluationCycle?> EvaluationCycleExists()
         {
             try
@@ -114,6 +139,11 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Retrieves a list of all evaluation cycles.
+        /// </summary>
+        /// <returns>A list of evaluation cycles, or an empty list if no cycles are found.</returns>
+        /// <exception cref="Exception">Thrown for errors while trying to retrieve the list of evaluation cycles.</exception>
         public async Task<List<EvaluationCycle>?> GetEvaluationCyclesAsync()
         {
             try
@@ -134,6 +164,11 @@ namespace PeerEvalAppAPI.Services
             }
         }
 
+        /// <summary>
+        /// Maps the initiate cycle data transfer object to an evaluation cycle entity.
+        /// </summary>
+        /// <param name="cycleDTO">The data transfer object containing the details for the new evaluation cycle.</param>
+        /// <returns>The mapped evaluation cycle entity.</returns>
         public EvaluationCycle MapToEvaluationCycle(InitiateCycleDTO cycleDTO)
         {
             return new EvaluationCycle()
@@ -145,6 +180,12 @@ namespace PeerEvalAppAPI.Services
             };
         }
 
+        /// <summary>
+        /// Maps the update cycle data transfer object to an evaluation cycle entity.
+        /// </summary>
+        /// <param name="cycleDTO">The data transfer object containing the updated details for the evaluation cycle.</param>
+        /// <returns>The mapped evaluation cycle entity with the updated details.</returns>
+        /// <exception cref="EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
         public async Task<EvaluationCycle> MapToEvaluationCycle(UpdateCycleDTO cycleDTO)
         {
             EvaluationCycle? existing = await _unitOfWork.EvaluationCycleRepository.GetAsync(cycleDTO.Id);
