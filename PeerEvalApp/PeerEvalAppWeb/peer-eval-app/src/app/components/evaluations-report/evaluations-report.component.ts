@@ -83,6 +83,9 @@ export class EvaluationsReportComponent {
   // Get the dable to export it as PDF
   @ViewChild('capture') captureElement: ElementRef<HTMLDivElement> | undefined;
 
+  /**
+   * Exports the captureElement (a report containing user info) as PDF
+   */
   exportPDF(): void {
     if (this.captureElement && this.captureElement.nativeElement) {
       html2canvas(this.captureElement.nativeElement).then(canvas => {

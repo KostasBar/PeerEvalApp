@@ -117,9 +117,12 @@ export class EvaluationCyclesComponent {
     })
   }
   
+  /**
+   * Opens a new cycle after confirming that the user actually wants this.
+   * @param value The value of the form containing its title and its duration.
+   */
   initializeCycle(value: any){
     const confirmation = window.confirm(`Are you sure you want to Iitialize a new Evaluation Cycle?`);
-    console.log(value);
     
     if (confirmation) {
       const initializeJson : InitializeCycle = {

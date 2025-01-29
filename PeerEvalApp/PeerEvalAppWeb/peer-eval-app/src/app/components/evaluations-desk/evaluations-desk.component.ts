@@ -19,6 +19,10 @@ export class EvaluationsDeskComponent {
   newUserClicked: UsersToEvaluate | null = null;
   constructor(private cycleService: EvaluationCyclesService) {}
 
+   /** 
+   * ngOnInit lifecycle hook to initialize the component.
+   * Subscribes to get the open evaluation cycles and stores the cycleId.
+   */
   ngOnInit() {
     this.subscriptions.add(
       this.cycleService.getOpenEvaluationCycles().subscribe({
@@ -32,13 +36,21 @@ export class EvaluationsDeskComponent {
     );
   }
 
+  /** 
+   * ngOnDestroy lifecycle hook to clean up resources.
+   * Unsubscribes from any active subscriptions to prevent memory leaks.
+   */
   ngOnDestroy() {
     // Unsubscribe to prevent memory leaks
     this.subscriptions.unsubscribe();
   }
 
-    onUserClick(userClicked: UsersToEvaluate) {
-      console.log(userClicked);
-      this.newUserClicked = userClicked;
-    }
+  /** 
+ * Handles the click event on a user.
+ * Stores the clicked user in the `newUserClicked` property.
+ * @param userClicked - The user that was clicked.
+ */
+  onUserClick(userClicked: UsersToEvaluate) {
+    this.newUserClicked = userClicked;
+  }
 }

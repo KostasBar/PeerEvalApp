@@ -37,6 +37,10 @@ export class EvaluationComponent {
     underPressure: new FormControl('', Validators.required),
   });
 
+   /** 
+   * Handles the form submission, processes the form data, and triggers the evaluation submission API call.
+   * @param value - The values of the form controls in the evaluation form.
+   */
   onSubmit(value: any) {
     const answers = Mappers.mapToJsonSubmitEvaluation(value);
     const token = localStorage.getItem('access_token');
@@ -45,16 +49,12 @@ export class EvaluationComponent {
       user = Mappers.mapDecodedTokenToLoggedInUser(jwtDecode(token));
     }
 
-    if (!this.newUserToEvaluate?.id || !this.cycleId || !user) {
-      console.log('No User');
-      console.log(!this.newUserToEvaluate?.id);
-      console.log(!this.cycleId);
-      console.log(!user);
-      
-      (!this.cycleId)
-      
+     // Check if required data is available, otherwise exit
+    if (!this.newUserToEvaluate?.id || !this.cycleId || !user) {      
       return;
     }
+
+    // Map the form data into a new evaluation object
     const newEvaluation = Mappers.mapToNewEvaluation(
       answers,
       Number(user.id),

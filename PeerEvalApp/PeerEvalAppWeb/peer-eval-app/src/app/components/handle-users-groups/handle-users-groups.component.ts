@@ -58,6 +58,8 @@ export class HandleUsersGroupsComponent {
     role: new FormControl('')
   })
 
+  //Methods
+  
   ngOnInit() {
     // Call to get Groups for dropdown
     this.groupsService.getAllGroups().subscribe({
@@ -131,15 +133,15 @@ export class HandleUsersGroupsComponent {
   }
 
   /**
-   * 
-   * @param newid 
-   * @param newfirstname 
-   * @param newlastname 
-   * @param newemail 
-   * @param newpassword 
-   * @param newgroup 
-   * @param newrole 
-   * @returns 
+   * Updates a user by sending their new data to the API.
+   * The data that can be affected are the Password, the Role and/or the Group
+   * @param newid The id of the user to be updated.
+   * @param newfirstname The firstname of the user to be updated.
+   * @param newlastname The lastname of the user to be updated.
+   * @param newemail The email of the user to be updated.
+   * @param newpassword The password of the user to be updated. If it is not to be updated it is empty string.
+   * @param newgroup The group of the user to be updated. If it is not to be updated it is 0.
+   * @param newrole The role of the user to be updated. If it is not to be updated it is the string "0".
    */
   updateUser(
     newid: number ,
