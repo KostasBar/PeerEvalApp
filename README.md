@@ -33,7 +33,7 @@ PeerEvalApp was created as the final assignment for [Coding Factory](https://cod
 - **Database**:
   - Microsoft SQL Server
 - **API**:
-  - .NET & C#
+  - .NET  8.0 & C# 12
 - **WebApp**:
   - Angular
 
@@ -42,3 +42,6 @@ PeerEvalApp was created as the final assignment for [Coding Factory](https://cod
 - **Class Diagram**: Visualize the application's architecture [here](./DiagramsAndDocumentation/PeerEvalAppClassDiagram.svg).
 - **Role-Based Overview**: Detailed workflows based on user roles can be checked [here](./DiagramsAndDocumentation/NotesWorkFlows.md).
 - **Endpoint Overview**: For a detailed API endpoint overview similar to Swagger, go [here](./DiagramsAndDocumentation/EndpointOverview.md).
+
+## Start Up 
+- Add the

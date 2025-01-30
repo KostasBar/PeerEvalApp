@@ -8,7 +8,7 @@
 
   } @else {
   <div class="">
-    <table class="table table-bordered table-striped text-wrap">
+    <table class="table table-bordered border-3 table-hover text-wrap">
       <thead>
         <tr>
           <th role="button">User Id</th>
@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         @for (row of usersToEvaluate; track row){
-        <tr class="align-middle" (dblclick)="onUserClick(row)">
+        <tr class="align-middle" style="cursor: pointer;" (dblclick)="onUserClick(row)" title="Double-click to evaluate user">
           <td>{{ row.id }}</td>
           <td>{{ row.firstname }}</td>
           <td>{{ row.lastname }}</td>

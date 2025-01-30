@@ -4,6 +4,28 @@
         <name>PeerEvalAppAPI</name>
     </assembly>
     <members>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationController.SubmitEvaluation(PeerEvalAppAPI.DTO.SubmitEvaluationDTO)">
+            <summary>
+            Submits a new evaluation based on the provided input data.
+            </summary>
+            <param name="submitEvaluationDTO">The DTO containing the details for the evaluation submission.</param>
+            <returns>Returns an HTTP 200 OK status if the submission is successful. If there is an error, an appropriate HTTP status will be returned.</returns>
+            <response code="200">Successfully submitted the evaluation.</response>
+            <response code="400">The submission failed due to bad request (e.g. validation errors).</response>
+            <response code="404">The requested resource was not found (e.g. related entity missing).</response>
+            <response code="500">An unexpected error occurred during the submission process.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationController.GetEvaluationsByGroup(System.Int32,System.Int32)">
+            <summary>
+            Retrieves evaluations by group and cycle IDs.
+            </summary>
+            <param name="groupId">The ID of the group to retrieve evaluations for.</param>
+            <param name="cycleId">The ID of the cycle to retrieve evaluations for.</param>
+            <returns>Returns a list of evaluations associated with the specified group and cycle, or an empty list if none are found.</returns>
+            <response code="200">Successfully retrieved the evaluations.</response>
+            <response code="400">An error occurred while fetching the evaluations.</response>
+            <response code="404">The requested evaluations were not found.</response>
+        </member>
         <member name="T:PeerEvalAppAPI.Controllers.EvaluationCycleController">
             <summary>
             Handles all operations related to evaluation cycles such as creating and updating cycles.
@@ -28,6 +50,41 @@
             <response code="200">The evaluation cycle was successfully updated and returned.</response>
             <response code="404">The evaluation cycle to update was not found.</response>
             <response code="400">There was a problem with the input parameters or during the update process.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.evaluationCycleExists">
+            <summary>
+            Checks if there is an active evaluation cycle.
+            </summary>
+            <returns>Returns the ID of the active evaluation cycle if it exists. Returns 0 if no active evaluation cycle is found.</returns>
+            <response code="200">Successfully retrieved the evaluation cycle status.</response>
+            <response code="400">An error occurred while trying to retrieve the evaluation cycle.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.EvaluationCycleController.GetAllEvaluationCycles">
+            <summary>
+            Retrieves all available evaluation cycles.
+            </summary>
+            <returns>Returns a list of all evaluation cycles.</returns>
+            <response code="200">Successfully retrieved the list of all evaluation cycles.</response>
+            <response code="400">An error occurred while trying to retrieve the list of evaluation cycles.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.GroupController.GetAllGroups">
+            <summary>
+            Retrieves a list of all groups.
+            </summary>
+            <returns>Returns a list of group details. If no groups are found, returns an empty list.</returns>
+            <response code="200">Successfully retrieved the list of groups.</response>
+            <response code="400">An error occurred while trying to retrieve the list of groups.</response>
+            <response code="404">The requested groups could not be found.</response>
+        </member>
+        <member name="M:PeerEvalAppAPI.Controllers.GroupController.AddGroup(PeerEvalAppAPI.DTO.NewGroupDTO)">
+            <summary>
+            Adds a new group to the system.
+            </summary>
+            <param name="groupName">The name of the new group to be added.</param>
+            <returns>Returns a success status if the group is added successfully.</returns>
+            <response code="200">Successfully added the new group.</response>
+            <response code="404">The group already exists in the system.</response>
+            <response code="500">An error occurred while trying to add the new group.</response>
         </member>
         <member name="T:PeerEvalAppAPI.Controllers.UserController">
             <summary>
@@ -73,6 +130,15 @@
             <response code="404">If no user with the specified ID exists.</response>
             <response code="500">If an error occurs during the process of retrieving users.</response>
         </member>
+        <member name="M:PeerEvalAppAPI.Controllers.UserController.GetUsersByGroup(System.Int32)">
+            <summary>
+            Retrieves a list of users belonging to a specific group.
+            </summary>
+            <param name="groupId">The ID of the group for which to retrieve the users.</param>
+            <returns>Returns a list of users in the specified group. If no users are found, returns an empty list.</returns>
+            <response code="200">Successfully retrieved the users in the specified group.</response>
+            <response code="500">An error occurred while processing the request to retrieve the users.</response>
+        </member>
         <member name="M:PeerEvalAppAPI.Controllers.UserController.UpdateUser(System.Int32,PeerEvalAppAPI.DTO.UserDTOs.UserUpdateDTO)">
             <summary>
             Updates an existing user's details.
@@ -94,6 +160,211 @@
         <member name="M:PeerEvalAppAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:PeerEvalAppAPI.Security.EncryptionUtil.Encrypt(System.String)">
+            <summary>
+            Encrypts a plain text password using BCrypt hashing.
+            </summary>
+            <param name="plainText">The plain text password that needs to be encrypted.</param>
+            <returns>The encrypted password as a string.</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Security.EncryptionUtil.IsValidPassword(System.String,System.String)">
+            <summary>
+            Verifies if the provided plain text password matches the encrypted password.
+            </summary>
+            <param name="plainText">The plain text password to verify.</param>
+            <param name="cipherText">The encrypted password to compare against.</param>
+            <returns>True if the plain text password matches the encrypted password, otherwise false.</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationAnswerService.AddEvaluationAnswer(PeerEvalAppAPI.DTO.SubmitEvaluationDTO,PeerEvalAppAPI.Data.Evaluation)">
+            <summary>
+            Adds the evaluation answers based on the provided submission data and evaluation.
+            </summary>
+            <param name="submitEvaluationDTO">The data transfer object containing the answers to be added.</param>
+            <param name="evaluation">The evaluation to which the answers belong.</param>
+            <exception cref="T:System.Exception">Thrown if there is an error during the process of adding answers.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationAnswerService.MapToEvaluationAnswer(PeerEvalAppAPI.DTO.EvaluationAnswerDTO,PeerEvalAppAPI.Data.Evaluation)">
+            <summary>
+            Maps the evaluation answer data transfer object to an actual EvaluationAnswer entity.
+            </summary>
+            <param name="evaluationAnswer">The data transfer object containing the answer details.</param>
+            <param name="evaluation">The evaluation object that the answer will be associated with.</param>
+            <returns>The mapped EvaluationAnswer entity.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the question referenced by the evaluation answer cannot be found.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.GetEvaluationCycleAsync(System.Int32)">
+            <summary>
+            Retrieves an evaluation cycle by its ID.
+            </summary>
+            <param name="id">The ID of the evaluation cycle to retrieve.</param>
+            <returns>The evaluation cycle if found, otherwise throws an exception.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
+            <exception cref="T:System.Exception">Thrown for other errors that occur while retrieving the evaluation cycle.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.InitializeEvaluationCycle(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO)">
+            <summary>
+            Initializes a new evaluation cycle with the provided data.
+            </summary>
+            <param name="initiateCycleDTO">The data transfer object containing the details to initialize the new evaluation cycle.</param>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.OpenCycleAlreadyExists">Thrown if an open evaluation cycle already exists.</exception>
+            <exception cref="T:System.Exception">Thrown for errors that occur during initialization of the evaluation cycle.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.UpdateEvaluateCycleAsync(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.UpdateCycleDTO)">
+            <summary>
+            Updates an existing evaluation cycle with the provided data.
+            </summary>
+            <param name="updateCycleDTO">The data transfer object containing the new details for the evaluation cycle.</param>
+            <returns>The updated evaluation cycle entity.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
+            <exception cref="T:System.Exception">Thrown for errors that occur during the update process.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.EvaluationCycleExists">
+            <summary>
+            Checks if an open evaluation cycle exists.
+            </summary>
+            <returns>The currently open evaluation cycle, or null if no open cycle exists.</returns>
+            <exception cref="T:System.Exception">Thrown for errors while trying to retrieve the open evaluation cycle.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.GetEvaluationCyclesAsync">
+            <summary>
+            Retrieves a list of all evaluation cycles.
+            </summary>
+            <returns>A list of evaluation cycles, or an empty list if no cycles are found.</returns>
+            <exception cref="T:System.Exception">Thrown for errors while trying to retrieve the list of evaluation cycles.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.MapToEvaluationCycle(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.InitiateCycleDTO)">
+            <summary>
+            Maps the initiate cycle data transfer object to an evaluation cycle entity.
+            </summary>
+            <param name="cycleDTO">The data transfer object containing the details for the new evaluation cycle.</param>
+            <returns>The mapped evaluation cycle entity.</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationCycleService.MapToEvaluationCycle(PeerEvalAppAPI.DTO.EvaluationCycleDTOs.UpdateCycleDTO)">
+            <summary>
+            Maps the update cycle data transfer object to an evaluation cycle entity.
+            </summary>
+            <param name="cycleDTO">The data transfer object containing the updated details for the evaluation cycle.</param>
+            <returns>The mapped evaluation cycle entity with the updated details.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the evaluation cycle with the specified ID is not found.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationService.AddEvaluation(PeerEvalAppAPI.DTO.SubmitEvaluationDTO)">
+            <summary>
+            Adds a new evaluation based on the provided submission data.
+            </summary>
+            <param name="submitEvaluationDTO">The data transfer object containing the details of the evaluation to be added.</param>
+            <returns>The created evaluation entity.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if any referenced entities (user or evaluation cycle) are not found.</exception>
+            <exception cref="T:System.Exception">Thrown for any errors that occur during the process of adding the evaluation.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationService.GetEvaluationByGroup(System.Int32,System.Int32)">
+            <summary>
+            Retrieves evaluations for a specific group and evaluation cycle.
+            </summary>
+            <param name="groupID">The ID of the group for which evaluations are to be retrieved.</param>
+            <param name="cycleId">The ID of the evaluation cycle for which evaluations are to be retrieved.</param>
+            <returns>A list of evaluations for the specified group and evaluation cycle.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if no evaluations are found for the given group and cycle.</exception>
+            <exception cref="T:System.Exception">Thrown for any errors that occur while retrieving evaluations by group.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.EvaluationService.MapToEvaluation(PeerEvalAppAPI.DTO.SubmitEvaluationDTO)">
+            <summary>
+            Maps the submission data transfer object to an evaluation entity.
+            </summary>
+            <param name="submitEvaluationDTO">The data transfer object containing the details for the evaluation.</param>
+            <returns>The mapped evaluation entity.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if any referenced entities (user or evaluation cycle) are not found.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.GroupService.GetAllGroupsAsync">
+            <summary>
+            Retrieves all groups from the data source and maps them to a list of GroupReturnDTOs.
+            </summary>
+            <returns>A list of GroupReturnDTOs representing all groups in the system.</returns>
+            <exception cref="T:System.Exception">Thrown if an error occurs while retrieving the groups from the data source.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.GroupService.AddGroup(System.String)">
+            <summary>
+            Adds a new group to the system if a group with the same name does not already exist.
+            </summary>
+            <param name="groupName">The name of the group to be added.</param>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityAlreadyExistsException">Thrown if a group with the same name already exists in the system.</exception>
+            <exception cref="T:System.Exception">Thrown for any errors that occur while trying to add the new group.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.GroupService.MapToGroupReturnDTO(PeerEvalAppAPI.Data.Group)">
+            <summary>
+            Maps a Group entity to a GroupReturnDTO.
+            </summary>
+            <param name="group">The Group entity to be mapped.</param>
+            <returns>The corresponding GroupReturnDTO.</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.GroupService.MapToGroup(System.String)">
+            <summary>
+            Maps a group name to a new Group entity.
+            </summary>
+            <param name="groupName">The name of the group to be mapped.</param>
+            <returns>The corresponding Group entity.</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.VerifyAndGetUserAsync(PeerEvalAppAPI.DTO.UserDTOs.UserLogInDTO)">
+            <summary>
+            Verifies the user's credentials (email and password) and returns the user if found.
+            </summary>
+            <param name="credentials">The login credentials of the user (email and password).</param>
+            <returns>The user if the credentials are valid, otherwise null.</returns>
+            <exception cref="T:System.Exception">Thrown if an error occurs while verifying the user's credentials.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.SignUpUserAsync(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
+            <summary>
+            Registers a new user in the system after verifying that the user does not already exist.
+            </summary>
+            <param name="signUpDTO">The signup details of the new user.</param>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityAlreadyExistsException">Thrown if a user with the same email already exists.</exception>
+            <exception cref="T:System.Exception">Thrown if any other error occurs during the signup process.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.UpdateUserAsync(PeerEvalAppAPI.DTO.UserDTOs.UserUpdateDTO)">
+            <summary>
+            Updates the details of an existing user.
+            </summary>
+            <param name="userUpdateDTO">The details of the user to be updated.</param>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the user to update cannot be found.</exception>
+            <exception cref="T:System.Exception">Thrown if any error occurs while updating the user.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.GetEvaluationsForUserAsync(System.Int32)">
+            <summary>
+            Retrieves past evaluations for a specific user based on their user ID.
+            </summary>
+            <param name="id">The user ID for whom the evaluations are to be retrieved.</param>
+            <returns>A list of PastEvaluationsOfUserDTOs representing the past evaluations of the user.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if the user cannot be found.</exception>
+            <exception cref="T:System.Exception">Thrown if any error occurs while retrieving the evaluations for the user.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.GetUsersToEvaluateAsync(System.Int32)">
+            <summary>
+            Retrieves a list of users that a specific user can evaluate based on their user ID.
+            </summary>
+            <param name="id">The user ID to fetch the users that the specified user can evaluate.</param>
+            <returns>A list of UsersToEvaluateDTOs representing the users to be evaluated.</returns>
+            <exception cref="T:PeerEvalAppAPI.Exceptions.EntityNotFoundException">Thrown if no users are found for evaluation.</exception>
+            <exception cref="T:System.Exception">Thrown if any error occurs while retrieving the users to evaluate.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.GetUsersByGroup(System.Int32)">
+            <summary>
+            Retrieves a list of users from a specific group based on the group ID.
+            </summary>
+            <param name="groupId">The ID of the group to fetch users from.</param>
+            <returns>A list of UsersToEvaluateDTOs representing the users in the specified group.</returns>
+            <exception cref="T:System.Exception">Thrown if any error occurs while retrieving the users from the group.</exception>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.CreateUserToken(System.Int32,System.String,System.String,System.String,System.Nullable{PeerEvalAppAPI.Core.Enums.UserRole},System.String)">
+            <summary>
+            Creates a JWT token for a user with specific claims and a security key.
+            </summary>
+            <param name="userId">The ID of the user.</param>
+            <param name="email">The email of the user.</param>
+            <param name="firstname">The first name of the user.</param>
+            <param name="lastname">The last name of the user.</param>
+            <param name="userRole">The role of the user.</param>
+            <param name="appSecurityKey">The application security key used to sign the token.</param>
+            <returns>A JWT token for the user containing their claims.</returns>
+        </member>
         <member name="M:PeerEvalAppAPI.Services.UserService.MapToUser(PeerEvalAppAPI.DTO.UserDTOs.UserSignUpDTO)">
             <summary>
             Transforms a UserSignUpDTO to a User Object
@@ -114,6 +385,13 @@
             </summary>
             <param name="evaluations">A list of evaluations</param>
             <returns>A List of PastEvaluationsOfUserDTO</returns>
+        </member>
+        <member name="M:PeerEvalAppAPI.Services.UserService.MapToUsersToEvaluateDTO(System.Collections.Generic.List{PeerEvalAppAPI.Data.User})">
+            <summary>
+            Maps a list of users to a list of UsersToEvaluateDTO objects, transferring the necessary user details.
+            </summary>
+            <param name="users">A list of User objects to be mapped.</param>
+            <returns>A list of UsersToEvaluateDTO objects containing the user's details (Id, Firstname, Lastname, Email).</returns>
         </member>
     </members>
 </doc>

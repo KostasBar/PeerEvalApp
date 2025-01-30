@@ -10,7 +10,9 @@
         "tags": [
           "Evaluation"
         ],
+        "summary": "Submits a new evaluation based on the provided input data.",
         "requestBody": {
+          "description": "The DTO containing the details for the evaluation submission.",
           "content": {
             "application/json": {
               "schema": {
@@ -31,7 +33,16 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully submitted the evaluation."
+          },
+          "400": {
+            "description": "The submission failed due to bad request (e.g. validation errors)."
+          },
+          "404": {
+            "description": "The requested resource was not found (e.g. related entity missing)."
+          },
+          "500": {
+            "description": "An unexpected error occurred during the submission process."
           }
         }
       }
@@ -41,10 +52,12 @@
         "tags": [
           "Evaluation"
         ],
+        "summary": "Retrieves evaluations by group and cycle IDs.",
         "parameters": [
           {
             "name": "groupId",
             "in": "path",
+            "description": "The ID of the group to retrieve evaluations for.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -54,6 +67,7 @@
           {
             "name": "cycleId",
             "in": "path",
+            "description": "The ID of the cycle to retrieve evaluations for.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -63,7 +77,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successfully retrieved the evaluations.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -90,6 +104,12 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "An error occurred while fetching the evaluations."
+          },
+          "404": {
+            "description": "The requested evaluations were not found."
           }
         }
       }
@@ -177,9 +197,13 @@
         "tags": [
           "EvaluationCycle"
         ],
+        "summary": "Checks if there is an active evaluation cycle.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully retrieved the evaluation cycle status."
+          },
+          "400": {
+            "description": "An error occurred while trying to retrieve the evaluation cycle."
           }
         }
       }
@@ -189,9 +213,13 @@
         "tags": [
           "EvaluationCycle"
         ],
+        "summary": "Retrieves all available evaluation cycles.",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully retrieved the list of all evaluation cycles."
+          },
+          "400": {
+            "description": "An error occurred while trying to retrieve the list of evaluation cycles."
           }
         }
       }
@@ -201,9 +229,10 @@
         "tags": [
           "Group"
         ],
+        "summary": "Retrieves a list of all groups.",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Successfully retrieved the list of groups.",
             "content": {
               "text/plain": {
                 "schema": {
@@ -230,6 +259,12 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "An error occurred while trying to retrieve the list of groups."
+          },
+          "404": {
+            "description": "The requested groups could not be found."
           }
         }
       }
@@ -239,7 +274,9 @@
         "tags": [
           "Group"
         ],
+        "summary": "Adds a new group to the system.",
         "requestBody": {
+          "description": "The name of the new group to be added.",
           "content": {
             "application/json": {
               "schema": {
@@ -260,7 +297,13 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully added the new group."
+          },
+          "404": {
+            "description": "The group already exists in the system."
+          },
+          "500": {
+            "description": "An error occurred while trying to add the new group."
           }
         }
       }
@@ -459,10 +502,12 @@
         "tags": [
           "User"
         ],
+        "summary": "Retrieves a list of users belonging to a specific group.",
         "parameters": [
           {
             "name": "groupId",
             "in": "path",
+            "description": "The ID of the group for which to retrieve the users.",
             "required": true,
             "schema": {
               "type": "integer",
@@ -472,7 +517,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Successfully retrieved the users in the specified group."
+          },
+          "500": {
+            "description": "An error occurred while processing the request to retrieve the users."
           }
         }
       }

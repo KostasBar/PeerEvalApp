@@ -19,6 +19,5 @@ export class NavbarComponent {
   logout() {
     this.authService.logout();
     location.reload()
-    // console.log(this.user?.toString())
   }
 }
