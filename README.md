@@ -44,4 +44,6 @@ PeerEvalApp was created as the final assignment for [Coding Factory](https://cod
 - **Endpoint Overview**: For a detailed API endpoint overview similar to Swagger, go [here](./DiagramsAndDocumentation/EndpointOverview.md).
 
 ## Start Up 
-- Add the
+- Open SSMS and create a new DataBase name "PeerEvalDB"
+- Set a Login as its owner 
+
