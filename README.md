@@ -72,7 +72,11 @@ PeerEvalApp was created as the final assignment for [Coding Factory](https://cod
      ```powershell
      Update-Database
      ```
-
+4. **Populate Tables**
+   - Run the [SQL scripts](./PeerEvalApp/SQL_Scripts) which:
+     - Populate the Questions Table.
+     - Add an Admins Group
+     - Add an Admin User with username: **admin@example.com** and password: **Super111!!!**
 4. **Run the Backend:**
    - Start the project.
    - Verify that everything is set up correctly by checking if the Swagger UI opens in your default browser.
